@@ -212,11 +212,11 @@ export function Mestrandos() {
           <span className="text-white/70">|</span>
           <Link to="/academicos" className="text-pink-300 hover:text-pink-400 transition">ACADÊMICOS</Link>
           <span className="text-white/70">|</span>
-          <Link to="/mestrandos" className="text-white transition">MESTRANDOS</Link>
+          <Link to="/mestrandos" className="text-white">MESTRANDOS</Link>
           <span className="text-white/70">|</span>
-          <Link to="/doutores" className="text-white transition">DOUTORES</Link>
+          <Link to="/doutores" className="text-pink-300 hover:text-pink-400 transition">DOUTORES</Link>
           <span className="text-white/70">|</span>
-          <Link to="/pesquisadores" className="text-white transition">PESQUISADORES</Link>
+          <Link to="/pesquisadores" className="text-pink-300 hover:text-pink-400 transition">PESQUISADORES</Link>
           
 
 

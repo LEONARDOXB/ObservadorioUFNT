@@ -214,7 +214,7 @@ export function Doutores() {
         <div className="container mx-auto flex items-center space-x-2 text-sm">
           <Link to="/" className="text-pink-300 hover:text-pink-400 transition">HOME</Link>
           <span className="text-white/70">|</span>
-          <span className="text-white">PROFESSORES</span>
+          <Link to="/academicos" className="text-pink-300 hover:text-pink-400 transition">PROFESSORES</Link>
           <span className="text-white/70">|</span>
           <Link to="/academicos" className="text-pink-300 hover:text-pink-400 transition">ACADÊMICOS</Link>
           <span className="text-white/70">|</span>
@@ -222,7 +222,7 @@ export function Doutores() {
           <span className="text-white/70">|</span>
           <span className="text-white">DOUTORES</span>
           <span className="text-white/70">|</span>
-          <Link to="/pesquisadores" className="text-white transition">PESQUISADORES</Link>
+          <Link to="/pesquisadores" className="text-pink-300 hover:text-pink-400 transition">PESQUISADORES</Link>
 
 
         </div>
