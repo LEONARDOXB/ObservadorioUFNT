@@ -78,7 +78,7 @@ export function Doutores() {
                   EQUIPE
                 </Link>
                 <Link
-                  to="#"
+                  to="/pesquisa"
                   onClick={() => setActiveSection('#research')}
                   className={`group flex items-center gap-2 text-sm font-medium transition-all duration-300 
                     ${activeSection === '#research'
@@ -157,7 +157,7 @@ export function Doutores() {
                   EQUIPE
                 </Link>
                 <Link
-                  to="#"
+                  to="/pesquisa"
                   onClick={() => {
                     setActiveSection('#research');
                     setMobileMenuOpen(false);

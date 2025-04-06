@@ -1,4 +1,4 @@
-import { BookOpen, Users, Rss, BookOpenText, Youtube, ArrowRight, Menu, X, AlertTriangle, Share2, CheckCircle2, XCircle, Search, Brain } from 'lucide-react';
+import { BookOpen, Users, Rss, BookOpenText, Youtube, ArrowRight, Menu, X, AlertTriangle, Share2, CheckCircle2, XCircle, Search, Brain, Newspaper } from 'lucide-react';
 import { useState } from 'react';
 import { FaFacebook, FaInstagram, FaTwitter, FaTiktok, FaYoutube } from "react-icons/fa";
 // Importando as imagens locais
@@ -80,7 +80,7 @@ function Home() {
                       ? 'text-pink-400 scale-105'
                       : 'hover:text-pink-400 hover:scale-105'}`}
                 >
-                  <BookOpenText size={20} className="transition-colors duration-300 group-hover:text-pink-400" />
+                  <Search size={20} className="transition-colors duration-300 group-hover:text-pink-400" />
                   PESQUISA
                 </a>
                 <a
@@ -91,7 +91,7 @@ function Home() {
                       ? 'text-pink-400 scale-105'
                       : 'hover:text-pink-400 hover:scale-105'}`}
                 >
-                  <Rss size={20} className="transition-colors duration-300 group-hover:text-pink-400" />
+                  <Newspaper size={20} className="transition-colors duration-300 group-hover:text-pink-400" />
                   NOTÍCIAS
                 </a>
                 <a
