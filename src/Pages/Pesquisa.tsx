@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BookOpen, Users, Rss, Youtube, ArrowRight, Menu, X, AlertTriangle, Share2, CheckCircle2, XCircle, Search, Newspaper,} from 'lucide-react';
+import { BookOpen, Users, Rss, Youtube, ArrowRight, Menu, X, AlertTriangle, Share2, CheckCircle2, XCircle, Search, Newspaper, } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { FaFacebook, FaInstagram, FaTwitter, FaTiktok, FaYoutube } from "react-icons/fa";
 
@@ -383,6 +383,14 @@ function Pesquisa() {
           </div>
         )}
       </main>
+      <div className="text-center mb-8">
+  <Link
+    to="/"
+    className="inline-block mt-4 bg-white text-purple-600 px-6 py-3 rounded-full text-sm font-medium hover:bg-gray-100 transition-colors hover:scale-105 shadow-lg"
+  >
+    Voltar para página inicial
+  </Link>
+</div>
 
       {/* Footer */}
       <footer className="bg-gradient-to-br from-blue-600/90 via-purple-600/90 to-pink-500/90 py-8 md:py-12 border-t-4 border-white/20">
@@ -465,12 +473,7 @@ function Pesquisa() {
               <p className="text-white/80 text-xs md:text-sm hover:text-white transition-colors">
                 © {new Date().getFullYear()} Observatório Norte. Todos os direitos reservados.
               </p>
-              <Link
-                to="/"
-                className="inline-block mt-4 bg-white text-purple-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-100 transition-colors"
-              >
-                Voltar para página inicial
-              </Link>
+
             </div>
           </div>
         </div>
