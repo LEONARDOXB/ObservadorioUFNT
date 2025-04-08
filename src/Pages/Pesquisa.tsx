@@ -95,11 +95,11 @@ function Pesquisa() {
   const getHeaderClass = (status: string) => {
     switch (status) {
       case 'fake':
-        return 'from-red-400 via-pink-500 to-purple-600';
+        return 'from-red-500 via-pink-500 to-purple-500';
       case 'true':
-        return 'from-emerald-400 via-teal-500 to-cyan-600';
+        return 'from-green-500 via-teal-500 to-cyan-500';
       case 'partial':
-        return 'from-amber-400 via-orange-500 to-red-600';
+        return 'from-yellow-500 via-orange-500 to-red-500';
       default:
         return '';
     }
@@ -112,9 +112,9 @@ function Pesquisa() {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-violet-400 via-fuchsia-400 to-cyan-400 animate-gradient">
-      {/* Header Atualizado */}
-      <header className="bg-gradient-to-r from-purple-600 via-fuchsia-600 to-pink-600 text-white shadow-2xl border-b-4 border-white/20">
+    <div className="min-h-screen bg-gradient-to-b from-orange-500 via-yellow-500 to-green-500">
+      {/* Header */}
+      <header className="bg-orange-900/30 backdrop-blur-md border-b border-orange-200/20">
         <div className="container mx-auto px-4">
           <nav className="flex items-center justify-between py-4">
             <div className="flex items-center gap-2 cursor-pointer hover:scale-105 transition-transform">
@@ -123,7 +123,7 @@ function Pesquisa() {
                 alt="Observatório de Desinformação & Fake News - Norte"
                 className="h-20 w-20 rounded-full object-cover border-2 border-white/50"
               />
-              <span className="text-xl font-bold bg-gradient-to-r from-cyan-300 via-pink-300 to-yellow-200 text-transparent bg-clip-text">
+              <span className="text-2xl font-bold text-white">
                 Observatório Norte
               </span>
             </div>
@@ -138,19 +138,19 @@ function Pesquisa() {
             <div className="hidden md:flex items-center gap-4 lg:gap-8">
               <div className="hidden md:flex items-center gap-3">
                 <a href="https://www.youtube.com/@observatorionorte" target="_blank" rel="noopener noreferrer">
-                  <FaYoutube size={18} className="text-white hover:text-cyan-300 transition-all" />
+                  <FaYoutube size={18} className="text-white hover:text-yellow-300 transition-all" />
                 </a>
                 <a href="https://www.tiktok.com/@norteobservatorio?_t=ZM-8uzZfAmW1AM&_r=1" target="_blank" rel="noopener noreferrer">
-                  <FaTiktok size={18} className="text-white hover:text-cyan-300 transition-all" />
+                  <FaTiktok size={18} className="text-white hover:text-yellow-300 transition-all" />
                 </a>
                 <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-                  <FaFacebook size={18} className="text-white hover:text-cyan-300 transition-all" />
+                  <FaFacebook size={18} className="text-white hover:text-yellow-300 transition-all" />
                 </a>
                 <a href="https://www.instagram.com/observatorio.norte/" target="_blank" rel="noopener noreferrer">
-                  <FaInstagram size={18} className="text-white hover:text-pink-300 transition-all" />
+                  <FaInstagram size={18} className="text-white hover:text-yellow-300 transition-all" />
                 </a>
                 <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                  <FaTwitter size={18} className="text-white hover:text-cyan-300 transition-all" />
+                  <FaTwitter size={18} className="text-white hover:text-yellow-300 transition-all" />
                 </a>
               </div>
 
@@ -160,10 +160,10 @@ function Pesquisa() {
                   onClick={() => setActiveSection('#articles')}
                   className={`group flex items-center gap-2 text-sm font-medium transition-all duration-300 
                     ${activeSection === '#articles'
-                      ? 'text-cyan-300 scale-105'
-                      : 'hover:text-cyan-300 hover:scale-105'}`}
+                      ? 'text-yellow-300 scale-105'
+                      : 'text-white hover:text-yellow-300 hover:scale-105'}`}
                 >
-                  <BookOpen size={20} className="transition-colors duration-300 group-hover:text-cyan-300" />
+                  <BookOpen size={20} className="transition-colors duration-300 group-hover:text-yellow-300" />
                   ARTIGOS
                 </a>
                 <a
@@ -171,10 +171,10 @@ function Pesquisa() {
                   onClick={() => setActiveSection('#equipe')}
                   className={`group flex items-center gap-2 text-sm font-medium transition-all duration-300 
                     ${activeSection === '#equipe'
-                      ? 'text-cyan-300 scale-105'
-                      : 'hover:text-cyan-300 hover:scale-105'}`}
+                      ? 'text-yellow-300 scale-105'
+                      : 'text-white hover:text-yellow-300 hover:scale-105'}`}
                 >
-                  <Users size={20} className="transition-colors duration-300 group-hover:text-cyan-300" />
+                  <Users size={20} className="transition-colors duration-300 group-hover:text-yellow-300" />
                   EQUIPE
                 </a>
                 <a
@@ -182,11 +182,10 @@ function Pesquisa() {
                   onClick={() => setActiveSection('#research')}
                   className={`group flex items-center gap-2 text-sm font-medium transition-all duration-300 
                     ${activeSection === '#research'
-                      ? 'text-cyan-300 scale-105'
-                      : 'hover:text-cyan-300 hover:scale-105'}`
-                  }
+                      ? 'text-yellow-300 scale-105'
+                      : 'text-white hover:text-yellow-300 hover:scale-105'}`}
                 >
-                  <Search size={20} className="transition-colors duration-300 group-hover:text-cyan-300" />
+                  <Search size={20} className="transition-colors duration-300 group-hover:text-yellow-300" />
                   PESQUISA
                 </a>
                 <a
@@ -194,10 +193,10 @@ function Pesquisa() {
                   onClick={() => setActiveSection('#news')}
                   className={`group flex items-center gap-2 text-sm font-medium transition-all duration-300 
                     ${activeSection === '#news'
-                      ? 'text-cyan-300 scale-105'
-                      : 'hover:text-cyan-300 hover:scale-105'}`}
+                      ? 'text-yellow-300 scale-105'
+                      : 'text-white hover:text-yellow-300 hover:scale-105'}`}
                 >
-                  <Newspaper size={20} className="transition-colors duration-300 group-hover:text-cyan-300" />
+                  <Newspaper size={20} className="transition-colors duration-300 group-hover:text-yellow-300" />
                   NOTÍCIAS
                 </a>
                 <a
@@ -205,14 +204,14 @@ function Pesquisa() {
                   onClick={() => setActiveSection('#lectures')}
                   className={`group flex items-center gap-2 text-sm font-medium transition-all duration-300 
                     ${activeSection === '#lectures'
-                      ? 'text-cyan-300 scale-105'
-                      : 'hover:text-cyan-300 hover:scale-105'}`}
+                      ? 'text-yellow-300 scale-105'
+                      : 'text-white hover:text-yellow-300 hover:scale-105'}`}
                 >
-                  <Youtube size={20} className="transition-colors duration-300 group-hover:text-cyan-300" />
+                  <Youtube size={20} className="transition-colors duration-300 group-hover:text-yellow-300" />
                   PALESTRAS
                 </a>
               </div>
-              <button className="bg-cyan-400 hover:bg-cyan-500 active:bg-cyan-600 text-purple-900 px-4 lg:px-6 py-2 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-400/20 flex items-center gap-2">
+              <button className="bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600 text-orange-900 px-4 lg:px-6 py-2 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-yellow-400/20 flex items-center gap-2">
                 ENTRAR
                 <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
               </button>
@@ -220,7 +219,7 @@ function Pesquisa() {
           </nav>
 
           {mobileMenuOpen && (
-            <div className="md:hidden mt-4 bg-purple-700/90 rounded-lg p-4 backdrop-blur-sm border border-white/20">
+            <div className="md:hidden mt-4 bg-orange-900/90 rounded-lg p-4 backdrop-blur-sm border border-white/20">
               <div className="flex flex-col space-y-4">
                 <a
                   href="#"
@@ -230,10 +229,10 @@ function Pesquisa() {
                   }}
                   className={`group flex items-center gap-2 text-sm font-medium transition-all duration-300 
                     ${activeSection === '#articles'
-                      ? 'text-cyan-300 scale-105'
-                      : 'hover:text-cyan-300 hover:scale-105'}`}
+                      ? 'text-yellow-300 scale-105'
+                      : 'text-white hover:text-yellow-300 hover:scale-105'}`}
                 >
-                  <BookOpen size={20} className="transition-colors duration-300 group-hover:text-cyan-300" />
+                  <BookOpen size={20} className="transition-colors duration-300 group-hover:text-yellow-300" />
                   ARTIGOS
                 </a>
                 <a
@@ -244,10 +243,10 @@ function Pesquisa() {
                   }}
                   className={`group flex items-center gap-2 text-sm font-medium transition-all duration-300 
                     ${activeSection === '#equipe'
-                      ? 'text-cyan-300 scale-105'
-                      : 'hover:text-cyan-300 hover:scale-105'}`}
+                      ? 'text-yellow-300 scale-105'
+                      : 'text-white hover:text-yellow-300 hover:scale-105'}`}
                 >
-                  <Users size={20} className="transition-colors duration-300 group-hover:text-cyan-300" />
+                  <Users size={20} className="transition-colors duration-300 group-hover:text-yellow-300" />
                   EQUIPE
                 </a>
                 <a
@@ -258,10 +257,10 @@ function Pesquisa() {
                   }}
                   className={`group flex items-center gap-2 text-sm font-medium transition-all duration-300 
                     ${activeSection === '#research'
-                      ? 'text-cyan-300 scale-105'
-                      : 'hover:text-cyan-300 hover:scale-105'}`}
+                      ? 'text-yellow-300 scale-105'
+                      : 'text-white hover:text-yellow-300 hover:scale-105'}`}
                 >
-                  <Search size={20} className="transition-colors duration-300 group-hover:text-cyan-300" />
+                  <Search size={20} className="transition-colors duration-300 group-hover:text-yellow-300" />
                   PESQUISA
                 </a>
                 <a
@@ -272,10 +271,10 @@ function Pesquisa() {
                   }}
                   className={`group flex items-center gap-2 text-sm font-medium transition-all duration-300 
                     ${activeSection === '#news'
-                      ? 'text-cyan-300 scale-105'
-                      : 'hover:text-cyan-300 hover:scale-105'}`}
+                      ? 'text-yellow-300 scale-105'
+                      : 'text-white hover:text-yellow-300 hover:scale-105'}`}
                 >
-                  <Rss size={20} className="transition-colors duration-300 group-hover:text-cyan-300" />
+                  <Rss size={20} className="transition-colors duration-300 group-hover:text-yellow-300" />
                   NOTÍCIAS
                 </a>
                 <a
@@ -286,13 +285,13 @@ function Pesquisa() {
                   }}
                   className={`group flex items-center gap-2 text-sm font-medium transition-all duration-300 
                     ${activeSection === '#lectures'
-                      ? 'text-cyan-300 scale-105'
-                      : 'hover:text-cyan-300 hover:scale-105'}`}
+                      ? 'text-yellow-300 scale-105'
+                      : 'text-white hover:text-yellow-300 hover:scale-105'}`}
                 >
-                  <Youtube size={20} className="transition-colors duration-300 group-hover:text-cyan-300" />
+                  <Youtube size={20} className="transition-colors duration-300 group-hover:text-yellow-300" />
                   PALESTRAS
                 </a>
-                <button className="bg-cyan-400 hover:bg-cyan-500 active:bg-cyan-600 text-purple-900 px-6 py-2 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-400/20 flex items-center justify-center gap-2">
+                <button className="bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600 text-orange-900 px-6 py-2 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-yellow-400/20 flex items-center justify-center gap-2">
                   ENTRAR
                   <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
                 </button>
@@ -303,24 +302,24 @@ function Pesquisa() {
       </header>
 
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-purple-600/90 via-fuchsia-600/90 to-pink-600/90 text-white py-20 shadow-2xl border-b-4 border-white/20">
+      <div className="bg-orange-900/30 backdrop-blur-md text-white py-20 shadow-2xl border-b border-orange-200/20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-5xl font-bold mb-8 animate-gradient bg-gradient-to-r from-cyan-300 via-pink-300 to-yellow-200 text-transparent bg-clip-text drop-shadow-lg">
+            <h2 className="text-5xl font-bold mb-8 text-white drop-shadow-lg">
               Verifique a veracidade das notícias
             </h2>
-            <p className="text-2xl mb-10 text-cyan-200 drop-shadow-lg">
+            <p className="text-2xl mb-10 text-white">
               Combata a desinformação com informações verificadas e confiáveis
             </p>
             <div className="relative transform hover:scale-105 transition-transform duration-300">
               <input
                 type="text"
                 placeholder="Pesquisar notícias..."
-                className="w-full px-8 py-6 pl-14 rounded-2xl text-gray-900 shadow-2xl focus:ring-4 focus:ring-cyan-300 focus:outline-none bg-white/95 backdrop-blur-xl border-2 border-white/50 text-lg"
+                className="w-full px-8 py-6 pl-14 rounded-2xl text-gray-900 shadow-2xl focus:ring-4 focus:ring-yellow-300 focus:outline-none bg-white/95 backdrop-blur-xl border-2 border-white/50 text-lg"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
-              <Search className="absolute left-5 top-6 text-purple-500" size={24} />
+              <Search className="absolute left-5 top-6 text-orange-500" size={24} />
             </div>
           </div>
         </div>
@@ -331,14 +330,14 @@ function Pesquisa() {
         {filteredNews.length === 0 ? (
           <div className="text-center py-20">
             <h3 className="text-2xl font-bold text-white">Nenhuma notícia encontrada</h3>
-            <p className="text-white/80 mt-4">Tente alterar seus termos de pesquisa</p>
+            <p className="text-orange-100 mt-4">Tente alterar seus termos de pesquisa</p>
           </div>
         ) : (
           <div className="grid gap-10 max-w-4xl mx-auto">
             {filteredNews.map((item, index) => (
               <div
                 key={index}
-                className="bg-gradient-to-br from-white/95 to-purple-50/95 backdrop-blur-xl rounded-3xl shadow-2xl overflow-hidden transform transition-all hover:scale-[1.02] border-2 border-white/50 hover:border-cyan-200"
+                className="bg-orange-900/20 backdrop-blur-xl rounded-3xl shadow-2xl overflow-hidden transform transition-all hover:scale-[1.02] border border-orange-200/20 hover:border-yellow-200"
               >
                 <div className={`h-3 bg-gradient-to-r ${getHeaderClass(item.status)}`} />
                 <div className="p-10">
@@ -350,29 +349,29 @@ function Pesquisa() {
                         className="w-full h-56 object-cover rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300 border-4 border-white"
                       />
                       <div className="mt-4 text-center">
-                        <span className="inline-block bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">
+                        <span className="inline-block bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-medium">
                           {item.category}
                         </span>
                       </div>
                     </div>
                     <div className="md:w-2/3">
                       <div className="flex items-start justify-between mb-6">
-                        <h3 className="text-2xl font-bold bg-gradient-to-r from-violet-600 via-purple-600 to-fuchsia-600 text-transparent bg-clip-text">
+                        <h3 className="text-2xl font-bold text-white">
                           {item.title}
                         </h3>
                         {getStatusIcon(item.status)}
                       </div>
-                      <p className="text-gray-700 mb-8 text-lg leading-relaxed">{item.description}</p>
+                      <p className="text-orange-100 mb-8 text-lg leading-relaxed">{item.description}</p>
                       <div className="flex items-center justify-between">
                         <span className={`px-8 py-3 rounded-full text-sm font-bold border-2 ${getStatusClass(item.status)} shadow-lg transform hover:scale-105 transition-transform duration-300`}>
                           {item.status === 'fake' ? 'FAKE NEWS' : item.status === 'true' ? 'VERDADEIRO' : 'PARCIALMENTE VERDADEIRO'}
                         </span>
                         <div className="flex items-center space-x-8">
-                          <div className="flex items-center text-purple-600 hover:text-fuchsia-600 transition-colors duration-300">
+                          <div className="flex items-center text-yellow-300 hover:text-yellow-400 transition-colors duration-300">
                             <Share2 size={20} className="mr-2" />
                             <span className="text-base font-semibold">{item.shares.toLocaleString()}</span>
                           </div>
-                          <span className="text-violet-600 text-base font-medium">{item.date}</span>
+                          <span className="text-yellow-200 text-base font-medium">{item.date}</span>
                         </div>
                       </div>
                     </div>
@@ -386,18 +385,17 @@ function Pesquisa() {
       <div className="text-center mb-8">
         <Link
           to="/"
-          className="inline-block mt-4 bg-white text-purple-600 px-6 py-3 rounded-full text-sm font-medium hover:bg-gray-100 transition-colors hover:scale-105 shadow-lg"
+          className="inline-block mt-4 bg-white text-orange-600 px-6 py-3 rounded-full text-sm font-medium hover:bg-gray-100 transition-colors hover:scale-105 shadow-lg"
         >
           Voltar para página inicial
         </Link>
       </div>
 
       {/* Footer */}
-      <footer className="bg-gradient-to-br from-blue-600/90 via-purple-600/90 to-pink-500/90 py-8 md:py-12 border-t-4 border-white/20">
-        {/* Gradiente principal: azul -> roxo -> rosa com 90% de opacidade */}
+      <footer className="bg-orange-900/30 backdrop-blur-md py-8 md:py-12 border-t border-orange-200/20">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-            {/* Coluna 1 - Logo e Descrição (Estilo Home) */}
+            {/* Coluna 1 - Logo e Descrição */}
             <div>
               <div className="flex items-center gap-2 mb-3 md:mb-4 cursor-pointer group hover:scale-105 transition-transform">
                 <img
@@ -405,24 +403,24 @@ function Pesquisa() {
                   alt="Observatório Logo"
                   className="h-10 w-10 rounded-full object-cover"
                 />
-                <span className="font-bold group-hover:text-pink-300 transition-colors text-white">
+                <span className="font-bold group-hover:text-yellow-300 transition-colors text-white">
                   Observatório Norte
                 </span>
               </div>
-              <p className="text-xs md:text-sm text-white/80 group-hover:text-white/90 transition-colors">
+              <p className="text-xs md:text-sm text-orange-100 group-hover:text-white transition-colors">
                 Combate à desinformação e fake news com pesquisa e educação.
               </p>
             </div>
 
-            {/* Coluna 2 - Links (Conteúdo da Pesquisa) */}
+            {/* Coluna 2 - Links */}
             <div>
-              <h4 className="font-semibold mb-3 md:mb-4 hover:text-pink-300 transition-colors cursor-pointer text-sm md:text-base text-white">
+              <h4 className="font-semibold mb-3 md:mb-4 hover:text-yellow-300 transition-colors cursor-pointer text-sm md:text-base text-white">
                 Links Úteis
               </h4>
-              <ul className="space-y-1 md:space-y-2 text-white/80">
+              <ul className="space-y-1 md:space-y-2 text-orange-100">
                 {['Sobre', 'Pesquisa', 'Publicações', 'Contato'].map((item) => (
                   <li key={item}>
-                    <Link to="#" className="hover:text-pink-300 transition-colors hover:translate-x-1 inline-block transform text-xs md:text-sm">
+                    <Link to="#" className="hover:text-yellow-300 transition-colors hover:translate-x-1 inline-block transform text-xs md:text-sm">
                       {item}
                     </Link>
                   </li>
@@ -430,15 +428,15 @@ function Pesquisa() {
               </ul>
             </div>
 
-            {/* Coluna 3 - Recursos (Conteúdo da Pesquisa) */}
+            {/* Coluna 3 - Recursos */}
             <div>
-              <h4 className="font-semibold mb-3 md:mb-4 hover:text-pink-300 transition-colors cursor-pointer text-sm md:text-base text-white">
+              <h4 className="font-semibold mb-3 md:mb-4 hover:text-yellow-300 transition-colors cursor-pointer text-sm md:text-base text-white">
                 Recursos
               </h4>
-              <ul className="space-y-1 md:space-y-2 text-white/80">
+              <ul className="space-y-1 md:space-y-2 text-orange-100">
                 {['Base de Conhecimento', 'Ferramentas', 'API', 'FAQ'].map((item) => (
                   <li key={item}>
-                    <Link to="#" className="hover:text-pink-300 transition-colors hover:translate-x-1 inline-block transform text-xs md:text-sm">
+                    <Link to="#" className="hover:text-yellow-300 transition-colors hover:translate-x-1 inline-block transform text-xs md:text-sm">
                       {item}
                     </Link>
                   </li>
@@ -446,31 +444,31 @@ function Pesquisa() {
               </ul>
             </div>
 
-            {/* Coluna 4 - Newsletter (Estilo Home) */}
+            {/* Coluna 4 - Newsletter */}
             <div>
-              <h4 className="font-semibold mb-3 md:mb-4 hover:text-pink-300 transition-colors cursor-pointer text-sm md:text-base text-white">
+              <h4 className="font-semibold mb-3 md:mb-4 hover:text-yellow-300 transition-colors cursor-pointer text-sm md:text-base text-white">
                 Newsletter
               </h4>
-              <p className="text-xs md:text-sm text-white/80 mb-3 md:mb-4">
+              <p className="text-xs md:text-sm text-orange-100 mb-3 md:mb-4">
                 Receba as últimas atualizações sobre pesquisas.
               </p>
               <div className="flex gap-2">
                 <input
                   type="email"
                   placeholder="Seu e-mail"
-                  className="bg-white/10 rounded-full px-3 py-1 md:px-4 md:py-2 flex-1 focus:outline-none focus:ring-2 focus:ring-pink-500 hover:bg-white/20 transition-colors text-xs md:text-sm text-white placeholder-white/60"
+                  className="bg-orange-900/50 rounded-full px-3 py-1 md:px-4 md:py-2 flex-1 focus:outline-none focus:ring-2 focus:ring-yellow-500 hover:bg-orange-900/70 transition-colors text-xs md:text-sm text-white placeholder-orange-200"
                 />
-                <button className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white rounded-full px-3 py-1 md:px-4 md:py-2 transition-all duration-300 hover:scale-105 text-xs md:text-sm">
+                <button className="bg-gradient-to-r from-yellow-500 to-orange-600 hover:from-yellow-600 hover:to-orange-700 text-white rounded-full px-3 py-1 md:px-4 md:py-2 transition-all duration-300 hover:scale-105 text-xs md:text-sm">
                   Enviar
                 </button>
               </div>
             </div>
           </div>
 
-          {/* Rodapé Inferior (Estilo Pesquisa) */}
-          <div className="border-t border-white/20 mt-8 md:mt-12 pt-6 md:pt-8">
+          {/* Rodapé Inferior */}
+          <div className="border-t border-orange-200/20 mt-8 md:mt-12 pt-6 md:pt-8">
             <div className="text-center">
-              <p className="text-white/80 text-xs md:text-sm hover:text-white transition-colors">
+              <p className="text-orange-100 text-xs md:text-sm hover:text-white transition-colors">
                 © {new Date().getFullYear()} Observatório Norte. Todos os direitos reservados.
               </p>
             </div>
@@ -480,4 +478,5 @@ function Pesquisa() {
     </div>
   );
 }
+
 export default Pesquisa;
