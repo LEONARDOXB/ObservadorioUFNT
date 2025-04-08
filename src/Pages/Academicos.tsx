@@ -214,7 +214,7 @@ export function Academicos() {
           <span className="text-white/70">|</span>
           <Link to="/mestrandos" className="text-pink-300 hover:text-pink-400 transition">MESTRANDOS</Link>
           <span className="text-white/70">|</span>
-          <Link to="/equipe" className="text-pink-300 hover:text-pink-400 transition">DOUTORES</Link>
+          <Link to="/doutores" className="text-pink-300 hover:text-pink-400 transition">DOUTORES</Link>
           <span className="text-white/70">|</span>
           <Link to="/pesquisadores" className="text-pink-300 hover:text-pink-400 transition">PESQUISADORES</Link>
         </div>

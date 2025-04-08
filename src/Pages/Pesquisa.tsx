@@ -384,16 +384,17 @@ function Pesquisa() {
         )}
       </main>
       <div className="text-center mb-8">
-  <Link
-    to="/"
-    className="inline-block mt-4 bg-white text-purple-600 px-6 py-3 rounded-full text-sm font-medium hover:bg-gray-100 transition-colors hover:scale-105 shadow-lg"
-  >
-    Voltar para página inicial
-  </Link>
-</div>
+        <Link
+          to="/"
+          className="inline-block mt-4 bg-white text-purple-600 px-6 py-3 rounded-full text-sm font-medium hover:bg-gray-100 transition-colors hover:scale-105 shadow-lg"
+        >
+          Voltar para página inicial
+        </Link>
+      </div>
 
       {/* Footer */}
       <footer className="bg-gradient-to-br from-blue-600/90 via-purple-600/90 to-pink-500/90 py-8 md:py-12 border-t-4 border-white/20">
+        {/* Gradiente principal: azul -> roxo -> rosa com 90% de opacidade */}
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {/* Coluna 1 - Logo e Descrição (Estilo Home) */}
@@ -469,11 +470,9 @@ function Pesquisa() {
           {/* Rodapé Inferior (Estilo Pesquisa) */}
           <div className="border-t border-white/20 mt-8 md:mt-12 pt-6 md:pt-8">
             <div className="text-center">
-
               <p className="text-white/80 text-xs md:text-sm hover:text-white transition-colors">
                 © {new Date().getFullYear()} Observatório Norte. Todos os direitos reservados.
               </p>
-
             </div>
           </div>
         </div>
@@ -481,5 +480,4 @@ function Pesquisa() {
     </div>
   );
 }
-
 export default Pesquisa;
