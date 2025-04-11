@@ -1,172 +1,367 @@
-import React from 'react';
-import { AlertTriangle, XCircle } from 'lucide-react';
+import React, { useState } from 'react';
+import { BookOpen, Users, Youtube, ArrowRight, Menu, X, XCircle, Search, Newspaper } from 'lucide-react';
+import { FaFacebook, FaInstagram, FaTwitter, FaTiktok, FaYoutube } from "react-icons/fa";
 
 function Noticias() {
+  const [activeSection, setActiveSection] = useState('#news');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
-    <div className="min-h-screen bg-red-50">
-      <header className="bg-red-600 text-white py-4 shadow-lg">
+    <div className="min-h-screen bg-gradient-to-b from-red-800 via-red-700 to-orange-900">
+      {/* Header */}
+      <header className="bg-red-950/30 backdrop-blur-md border-b border-orange-200/20">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <AlertTriangle size={32} />
-              <h1 className="text-2xl font-bold">Verificador de Fake News</h1>
+          <nav className="flex items-center justify-between py-4">
+            <div className="flex items-center gap-2 cursor-pointer hover:scale-105 transition-transform">
+              <img
+                src="/imagens/observatorio-logo.png.jpeg"
+                alt="Observatório de Desinformação & Fake News - Norte"
+                className="h-20 w-20 rounded-full object-cover border-2 border-orange-200/50"
+              />
+              <span className="text-2xl font-bold text-orange-50">
+                Observatório Norte
+              </span>
             </div>
-          </div>
+
+            <button
+              className="md:hidden p-2 rounded-md text-orange-50 focus:outline-none"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+
+            <div className="hidden md:flex items-center gap-4 lg:gap-8">
+              <div className="hidden md:flex items-center gap-3">
+                <a href="https://www.youtube.com/@observatorionorte" target="_blank" rel="noopener noreferrer">
+                  <FaYoutube size={18} className="text-orange-50 hover:text-orange-300 transition-all" />
+                </a>
+                <a href="https://www.tiktok.com/@norteobservatorio?_t=ZM-8uzZfAmW1AM&_r=1" target="_blank" rel="noopener noreferrer">
+                  <FaTiktok size={18} className="text-orange-50 hover:text-orange-300 transition-all" />
+                </a>
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                  <FaFacebook size={18} className="text-orange-50 hover:text-orange-300 transition-all" />
+                </a>
+                <a href="https://www.instagram.com/observatorio.norte/" target="_blank" rel="noopener noreferrer">
+                  <FaInstagram size={18} className="text-orange-50 hover:text-orange-300 transition-all" />
+                </a>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                  <FaTwitter size={18} className="text-orange-50 hover:text-orange-300 transition-all" />
+                </a>
+              </div>
+
+              <div className="flex flex-wrap justify-center gap-4 lg:gap-8">
+                <a
+                  href="/"
+                  onClick={() => setActiveSection('#articles')}
+                  className={`group flex items-center gap-2 text-sm font-medium transition-all duration-300 
+                    ${activeSection === '#articles'
+                      ? 'text-orange-300 scale-105'
+                      : 'text-orange-50 hover:text-orange-300 hover:scale-105'}`}
+                >
+                  <BookOpen size={20} className="transition-colors duration-300 group-hover:text-orange-300" />
+                  ARTIGOS
+                </a>
+                <a
+                  href="/equipe"
+                  onClick={() => setActiveSection('#equipe')}
+                  className={`group flex items-center gap-2 text-sm font-medium transition-all duration-300 
+                    ${activeSection === '#equipe'
+                      ? 'text-orange-300 scale-105'
+                      : 'text-orange-50 hover:text-orange-300 hover:scale-105'}`}
+                >
+                  <Users size={20} className="transition-colors duration-300 group-hover:text-orange-300" />
+                  EQUIPE
+                </a>
+                <a
+                  href="/pesquisa"
+                  onClick={() => setActiveSection('#research')}
+                  className={`group flex items-center gap-2 text-sm font-medium transition-all duration-300 
+                    ${activeSection === '#research'
+                      ? 'text-orange-300 scale-105'
+                      : 'text-orange-50 hover:text-orange-300 hover:scale-105'}`}
+                >
+                  <Search size={20} className="transition-colors duration-300 group-hover:text-orange-300" />
+                  PESQUISA
+                </a>
+                <a
+                  href="noticias"
+                  onClick={() => setActiveSection('#news')}
+                  className={`group flex items-center gap-2 text-sm font-medium transition-all duration-300 
+                    ${activeSection === '#news'
+                      ? 'text-orange-300 scale-105'
+                      : 'text-orange-50 hover:text-orange-300 hover:scale-105'}`}
+                >
+                  <Newspaper size={20} className="transition-colors duration-300 group-hover:text-orange-300" />
+                  NOTÍCIAS
+                </a>
+                <a
+                  href="#"
+                  onClick={() => setActiveSection('#lectures')}
+                  className={`group flex items-center gap-2 text-sm font-medium transition-all duration-300 
+                    ${activeSection === '#lectures'
+                      ? 'text-orange-300 scale-105'
+                      : 'text-orange-50 hover:text-orange-300 hover:scale-105'}`}
+                >
+                  <Youtube size={20} className="transition-colors duration-300 group-hover:text-orange-300" />
+                  PALESTRAS
+                </a>
+              </div>
+              <button className="bg-orange-50 hover:bg-orange-100 text-red-900 px-4 lg:px-6 py-2 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-orange-200/20 flex items-center gap-2">
+                ENTRAR
+                <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+              </button>
+            </div>
+          </nav>
+
+          {mobileMenuOpen && (
+            <div className="md:hidden mt-4 bg-red-950/90 rounded-lg p-4 backdrop-blur-sm border border-orange-200/20">
+              <div className="flex flex-col space-y-4">
+                <a
+                  href="#"
+                  onClick={() => {
+                    setActiveSection('#articles');
+                    setMobileMenuOpen(false);
+                  }}
+                  className={`group flex items-center gap-2 text-sm font-medium transition-all duration-300 
+                    ${activeSection === '#articles'
+                      ? 'text-orange-300 scale-105'
+                      : 'text-orange-50 hover:text-orange-300 hover:scale-105'}`}
+                >
+                  <BookOpen size={20} className="transition-colors duration-300 group-hover:text-orange-300" />
+                  ARTIGOS
+                </a>
+              </div>
+            </div>
+          )}
         </div>
       </header>
 
+      {/* Main Content */}
       <main className="container mx-auto px-4 py-8">
-        <div className="bg-white rounded-lg shadow-lg p-6 max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-red-600 mb-8">Fake News Desmascaradas</h2>
-          
+        <div className="bg-orange-50 rounded-3xl shadow-2xl p-8 max-w-5xl mx-auto">
+          <h2 className="text-4xl font-bold text-red-800 mb-8 text-center">Fake News Desmascaradas</h2>
+
           <div className="space-y-8">
             {/* Fake News 1 */}
-            <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <img 
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden border-l-8 border-red-600 transform hover:scale-[1.01] transition-transform">
+              <img
                 src="https://images.unsplash.com/photo-1584483766114-2cea6facdf57?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
                 alt="Laboratório de Pesquisa"
                 className="w-full h-64 object-cover"
               />
               <div className="p-6">
                 <div className="flex items-center gap-2 mb-4">
-                  <XCircle className="text-red-600" size={24} />
+                  <XCircle className="text-red-600 animate-pulse" size={28} />
                   <span className="text-red-600 font-bold">FAKE NEWS</span>
                 </div>
-                <h3 className="text-xl font-bold mb-3">Brasil anuncia vacina 100% nacional contra a dengue</h3>
-                <p className="text-gray-700 mb-4">
+                <h3 className="text-2xl font-bold mb-3 text-gray-900">Brasil anuncia vacina 100% nacional contra a dengue</h3>
+                <p className="text-gray-700 mb-4 text-lg">
                   Esta notícia que circula nas redes sociais é falsa. A única vacina contra dengue aprovada pela Anvisa é a Qdenga, do laboratório Takeda.
                 </p>
-                <div className="bg-red-50 p-4 rounded-lg">
-                  <h4 className="font-semibold mb-2">A Verdade:</h4>
+                <div className="bg-orange-50 p-4 rounded-lg border-2 border-red-200">
+                  <h4 className="font-semibold mb-2 text-red-800">A Verdade:</h4>
                   <ul className="space-y-2 text-gray-700">
-                    <li>• A vacina Qdenga é produzida pelo laboratório japonês Takeda</li>
-                    <li>• Foi aprovada pela Anvisa em março de 2023</li>
-                    <li>• O Brasil ainda não possui vacina própria contra a dengue</li>
+                    <li className="flex items-start">
+                      <span className="text-red-500 mr-2">•</span>
+                      A vacina Qdenga é produzida pelo laboratório japonês Takeda
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-red-500 mr-2">•</span>
+                      Foi aprovada pela Anvisa em março de 2023
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-red-500 mr-2">•</span>
+                      O Brasil ainda não possui vacina própria contra a dengue
+                    </li>
                   </ul>
                 </div>
               </div>
             </div>
 
             {/* Fake News 2 */}
-            <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <img 
-                src="https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
-                alt="Hospital"
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden border-l-8 border-red-600 transform hover:scale-[1.01] transition-transform">
+              <img
+                src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
+                alt="Medicamentos"
                 className="w-full h-64 object-cover"
               />
               <div className="p-6">
                 <div className="flex items-center gap-2 mb-4">
-                  <XCircle className="text-red-600" size={24} />
+                  <XCircle className="text-red-600 animate-pulse" size={28} />
                   <span className="text-red-600 font-bold">FAKE NEWS</span>
                 </div>
-                <h3 className="text-xl font-bold mb-3">Chá de boldo cura dengue em 24 horas</h3>
-                <p className="text-gray-700 mb-4">
-                  Esta informação que circula em grupos de mensagens é falsa e perigosa. Não existe cura natural para a dengue.
+                <h3 className="text-2xl font-bold mb-3 text-gray-900">Ivermectina previne contra a dengue</h3>
+                <p className="text-gray-700 mb-4 text-lg">
+                  Mensagens virais afirmam falsamente que a ivermectina pode prevenir a dengue. Não há evidência científica que comprove essa informação.
                 </p>
-                <div className="bg-red-50 p-4 rounded-lg">
-                  <h4 className="font-semibold mb-2">A Verdade:</h4>
+                <div className="bg-orange-50 p-4 rounded-lg border-2 border-red-200">
+                  <h4 className="font-semibold mb-2 text-red-800">A Verdade:</h4>
                   <ul className="space-y-2 text-gray-700">
-                    <li>• Não existe cura natural para a dengue</li>
-                    <li>• O tratamento adequado requer acompanhamento médico</li>
-                    <li>• Hidratação e monitoramento são essenciais</li>
+                    <li className="flex items-start">
+                      <span className="text-red-500 mr-2">•</span>
+                      Não existe medicamento que previna a dengue
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-red-500 mr-2">•</span>
+                      A ivermectina é um antiparasitário sem efeito contra vírus
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-red-500 mr-2">•</span>
+                      A prevenção eficaz é combater o mosquito transmissor
+                    </li>
                   </ul>
                 </div>
               </div>
             </div>
 
             {/* Fake News 3 */}
-            <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <img 
-                src="https://images.unsplash.com/photo-1583324113626-70df0f4deaab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden border-l-8 border-red-600 transform hover:scale-[1.01] transition-transform">
+              <img
+                src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
                 alt="Mosquito"
                 className="w-full h-64 object-cover"
               />
               <div className="p-6">
                 <div className="flex items-center gap-2 mb-4">
-                  <XCircle className="text-red-600" size={24} />
+                  <XCircle className="text-red-600 animate-pulse" size={28} />
                   <span className="text-red-600 font-bold">FAKE NEWS</span>
                 </div>
-                <h3 className="text-xl font-bold mb-3">Água sanitária na piscina mata o mosquito da dengue</h3>
-                <p className="text-gray-700 mb-4">
-                  Esta informação viral é falsa e perigosa. A água sanitária não é eficaz contra as larvas do mosquito e pode ser prejudicial à saúde.
+                <h3 className="text-2xl font-bold mb-3 text-gray-900">Fumacê do governo espalha o vírus da dengue</h3>
+                <p className="text-gray-700 mb-4 text-lg">
+                  Esta teoria conspiratória é completamente falsa. O fumacê contém inseticida que elimina mosquitos adultos transmissores da dengue.
                 </p>
-                <div className="bg-red-50 p-4 rounded-lg">
-                  <h4 className="font-semibold mb-2">A Verdade:</h4>
+                <div className="bg-orange-50 p-4 rounded-lg border-2 border-red-200">
+                  <h4 className="font-semibold mb-2 text-red-800">A Verdade:</h4>
                   <ul className="space-y-2 text-gray-700">
-                    <li>• Água sanitária não é aprovada para tratamento de piscinas</li>
-                    <li>• O correto é usar produtos específicos para piscinas</li>
-                    <li>• A melhor prevenção é eliminar água parada</li>
+                    <li className="flex items-start">
+                      <span className="text-red-500 mr-2">•</span>
+                      O fumacê contém inseticida específico para mosquitos
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-red-500 mr-2">•</span>
+                      É uma medida complementar de controle do Aedes aegypti
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-red-500 mr-2">•</span>
+                      A aplicação segue normas técnicas e de segurança
+                    </li>
                   </ul>
                 </div>
               </div>
             </div>
 
             {/* Fake News 4 */}
-            <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <img 
-                src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
-                alt="Vacina"
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden border-l-8 border-red-600 transform hover:scale-[1.01] transition-transform">
+              <img
+                src="https://images.unsplash.com/photo-1576671081837-49000212a370?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
+                alt="Plantas Medicinais"
                 className="w-full h-64 object-cover"
               />
               <div className="p-6">
                 <div className="flex items-center gap-2 mb-4">
-                  <XCircle className="text-red-600" size={24} />
+                  <XCircle className="text-red-600 animate-pulse" size={28} />
                   <span className="text-red-600 font-bold">FAKE NEWS</span>
                 </div>
-                <h3 className="text-xl font-bold mb-3">Vacina contra dengue causa reação grave em 90% dos casos</h3>
-                <p className="text-gray-700 mb-4">
-                  Esta informação é completamente falsa. A vacina Qdenga é segura e aprovada pela Anvisa após extensivos testes clínicos.
+                <h3 className="text-2xl font-bold mb-3 text-gray-900">Chá de folha de papaia cura dengue em 48 horas</h3>
+                <p className="text-gray-700 mb-4 text-lg">
+                  Esta informação que circula em redes sociais é perigosa e falsa. Não existe "cura natural" para a dengue.
                 </p>
-                <div className="bg-red-50 p-4 rounded-lg">
-                  <h4 className="font-semibold mb-2">A Verdade:</h4>
+                <div className="bg-orange-50 p-4 rounded-lg border-2 border-red-200">
+                  <h4 className="font-semibold mb-2 text-red-800">A Verdade:</h4>
                   <ul className="space-y-2 text-gray-700">
-                    <li>• A vacina passou por todos os testes de segurança</li>
-                    <li>• Reações graves são extremamente raras</li>
-                    <li>• A maioria das reações são leves e esperadas</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            {/* Fake News 5 */}
-            <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <img 
-                src="https://images.unsplash.com/photo-1584467735867-4297ae2ebcee?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
-                alt="Medicamentos"
-                className="w-full h-64 object-cover"
-              />
-              <div className="p-6">
-                <div className="flex items-center gap-2 mb-4">
-                  <XCircle className="text-red-600" size={24} />
-                  <span className="text-red-600 font-bold">FAKE NEWS</span>
-                </div>
-                <h3 className="text-xl font-bold mb-3">Aspirina previne casos graves de dengue</h3>
-                <p className="text-gray-700 mb-4">
-                  Esta informação é perigosamente falsa. O uso de aspirina pode agravar o quadro da dengue e causar complicações sérias.
-                </p>
-                <div className="bg-red-50 p-4 rounded-lg">
-                  <h4 className="font-semibold mb-2">A Verdade:</h4>
-                  <ul className="space-y-2 text-gray-700">
-                    <li>• Aspirina é contraindicada em casos de dengue</li>
-                    <li>• Pode aumentar o risco de hemorragias</li>
-                    <li>• Apenas use medicamentos prescritos pelo médico</li>
+                    <li className="flex items-start">
+                      <span className="text-red-500 mr-2">•</span>
+                      O tratamento da dengue requer acompanhamento médico
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-red-500 mr-2">•</span>
+                      Hidratação adequada é fundamental
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-red-500 mr-2">•</span>
+                      Remédios caseiros podem agravar o quadro
+                    </li>
                   </ul>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="mt-8 p-4 bg-red-50 rounded-lg">
-            <p className="text-red-600 text-sm">
+          <div className="mt-8 p-6 bg-orange-50 rounded-xl border-2 border-red-200">
+            <p className="text-red-800 text-center">
               Todas as verificações são baseadas em dados oficiais do Ministério da Saúde e instituições científicas credenciadas.
             </p>
           </div>
         </div>
       </main>
 
-      <footer className="bg-red-600 text-white py-4 mt-8">
-        <div className="container mx-auto px-4 text-center">
-          <p>© 2024 Verificador de Fake News - Combatendo a desinformação</p>
+      {/* Footer */}
+      <footer className="bg-red-950/30 backdrop-blur-md py-8 md:py-12 border-t border-orange-200/20">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+            <div>
+              <div className="flex items-center gap-2 mb-3 md:mb-4 cursor-pointer group hover:scale-105 transition-transform">
+                <img
+                  src="/imagens/observatorio-logo.png.jpeg"
+                  alt="Observatoire Norte Logo"
+                  className="h-10 w-10 rounded-full object-cover"
+                />
+                <span className="font-bold group-hover:text-orange-300 transition-colors text-orange-50">
+                  Observatoire Norte
+                </span>
+              </div>
+              <p className="text-xs md:text-sm text-orange-100">
+                Conduite à desinterrogation d'une revue com-preparée n° 042-0250.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-semibold text-orange-200 mb-3 md:mb-4">Limis Unies</h3>
+              <ul className="space-y-2 text-xs md:text-sm text-orange-100">
+                <li>Sobre</li>
+                <li>Propriété</li>
+                <li>Professionnelle</li>
+                <li>Contacts</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="font-semibold text-orange-200 mb-3 md:mb-4">Recurses</h3>
+              <ul className="space-y-2 text-xs md:text-sm text-orange-100">
+                <li>Base de Confessionnels</li>
+                <li>Formatoires</li>
+                <li>API</li>
+                <li>FASI</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-semibold mb-3 md:mb-4 hover:text-yellow-300 transition-colors cursor-pointer text-sm md:text-base text-white">
+                Newsletter
+              </h4>
+              <p className="text-xs md:text-sm text-orange-100 mb-3 md:mb-4">
+                Receba as últimas atualizações sobre pesquisas.
+              </p>
+              <div className="flex gap-2">
+                <input
+                  type="email"
+                  placeholder="Seu e-mail"
+                  className="bg-orange-900/50 rounded-full px-3 py-1 md:px-4 md:py-2 flex-1 focus:outline-none focus:ring-2 focus:ring-yellow-500 hover:bg-orange-900/70 transition-colors text-xs md:text-sm text-white placeholder-orange-200"
+                />
+                <button className="bg-gradient-to-r bg-white to-white hover:from-yellow-600 hover:to-orange-300 text-white rounded-full px-3 py-1 md:px-4 md:py-2 transition-all duration-300 hover:scale-105 text-xs md:text-sm">
+                  Enviar
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div className="border-t border-orange-200/20 mt-8 md:mt-12 pt-6 md:pt-8">
+            <div className="text-center">
+              <p className="text-orange-100 text-xs md:text-sm">
+                © {new Date().getFullYear()} Observatoire Norte, boire ou étudier reservable.
+              </p>
+            </div>
+          </div>
         </div>
       </footer>
     </div>
@@ -174,3 +369,5 @@ function Noticias() {
 }
 
 export default Noticias;
+
+export { Noticias }

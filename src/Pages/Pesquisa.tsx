@@ -189,7 +189,7 @@ function Pesquisa() {
                   PESQUISA
                 </a>
                 <a
-                  href="#"
+                  href="noticias"
                   onClick={() => setActiveSection('#news')}
                   className={`group flex items-center gap-2 text-sm font-medium transition-all duration-300 
                     ${activeSection === '#news'

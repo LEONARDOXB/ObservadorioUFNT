@@ -6,6 +6,7 @@ import { Mestrandos } from '../Pages/Mestrandos';
 import { Doutores } from '../Pages/Doutores';
 import { Pesquisadores } from '../Pages/Pesquisadores';
 import Pesquisa from '../Pages/Pesquisa';
+import Noticias from '../Pages/Noticias';
 
 export function AppRouter() {
   return (
@@ -18,6 +19,7 @@ export function AppRouter() {
         <Route path="/doutores" element={<Doutores />} />
         <Route path="/pesquisadores" element={<Pesquisadores />} />
         <Route path="/pesquisa" element={<Pesquisa />} />
+        <Route path="/noticias" element={<Noticias />} />
       </Routes>
     </BrowserRouter>
   );

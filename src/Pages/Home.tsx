@@ -48,7 +48,7 @@ function Home() {
                   <FaTwitter size={18} className="text-white hover:text-blue-400 transition-all" />
                 </a>
               </div>
-              
+
               <div className="flex flex-wrap justify-center gap-4 lg:gap-8">
                 <a
                   href="#"
@@ -410,11 +410,11 @@ function Home() {
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-8 items-center">
             <img src="/imagens/brasil ufnt.png" alt="Brasil UFNT" className="h-16 object-contain mx-auto hover:scale-110 transition-transform rounded-2xl" />
             <img src="/imagens/cnpq.png" alt="CNPq" className="h-16 object-contain mx-auto hover:scale-110 transition-transform rounded-2xl" />
-            <img src="/imagens/governofederal.png "alt="Governo Federal" className="h-16 object-contain mx-auto hover:scale-110 transition-transform rounded-2xl" />
+            <img src="/imagens/governofederal.png " alt="Governo Federal" className="h-16 object-contain mx-auto hover:scale-110 transition-transform rounded-2xl" />
             <img src="/imagens/observatorio.png" alt="Observatório" className="h-16 object-contain mx-auto hover:scale-110 transition-transform rounded-2xl" />
             <img src="/imagens/sus.png" alt="SUS" className="h-16 object-contain mx-auto hover:scale-110 transition-transform rounded-2xl" />
             <img src="/imagens/ufnt.png" alt="UFNT" className="h-16 object-contain mx-auto hover:scale-110 transition-transform rounded-2xl" />
-            <img src="/imagens/observatorio-logo.png.jpeg"alt="Observatório Logo" className="h-16 object-contain mx-auto hover:scale-110 transition-transform rounded-2xl" />
+            <img src="/imagens/observatorio-logo.png.jpeg" alt="Observatório Logo" className="h-16 object-contain mx-auto hover:scale-110 transition-transform rounded-2xl" />
           </div>
         </div>
       </section>
