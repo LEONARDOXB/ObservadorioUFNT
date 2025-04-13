@@ -1,12 +1,14 @@
 import { BookOpen, Users, Rss, BookOpenText, Youtube, ArrowRight, Menu, X, AlertTriangle, Share2, CheckCircle2, XCircle, Search, Brain, Newspaper } from 'lucide-react';
 import { useState } from 'react';
-import { FaFacebook, FaInstagram, FaTwitter, FaTiktok, FaYoutube } from "react-icons/fa";
-// Importando as imagens locais
-
+import { FaFacebook, FaInstagram, FaTiktok, FaYoutube } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXTwitter ,faSpotify } from '@fortawesome/free-brands-svg-icons';
 function Home() {
-
   const [activeSection, setActiveSection] = useState('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-800 via-purple-700 to-pink-800 text-white">
       <header className="bg-blue-900/90 py-4 sticky top-0 z-50 backdrop-blur-sm border-b border-white/10">
@@ -29,9 +31,11 @@ function Home() {
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
 
-
             <div className="hidden md:flex items-center gap-4 lg:gap-8">
               <div className="hidden md:flex items-center gap-3">
+              <a href="https://open.spotify.com/" target="_blank" rel="noopener noreferrer">
+  <FontAwesomeIcon icon={faSpotify} className="text-white hover:text-green-500 transition-all h-5 w-5" />
+</a>
                 <a href="https://www.youtube.com/@observatorionorte" target="_blank" rel="noopener noreferrer">
                   <FaYoutube size={18} className="text-white hover:text-blue-500 transition-all" />
                 </a>
@@ -45,7 +49,7 @@ function Home() {
                   <FaInstagram size={18} className="text-white hover:text-pink-500 transition-all" />
                 </a>
                 <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                  <FaTwitter size={18} className="text-white hover:text-blue-400 transition-all" />
+                  <FontAwesomeIcon icon={faXTwitter} className="text-white hover:text-gray-800 transition-all h-4 w-4" />
                 </a>
               </div>
 
@@ -106,7 +110,10 @@ function Home() {
                   PALESTRAS
                 </a>
               </div>
-              <button className="bg-pink-600 hover:bg-pink-700 active:bg-pink-800 text-white px-4 lg:px-6 py-2 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-pink-600/20 flex items-center gap-2">
+              <button 
+                onClick={() => navigate('/login')}
+                className="bg-pink-600 hover:bg-pink-700 active:bg-pink-800 text-white px-4 lg:px-6 py-2 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-pink-600/20 flex items-center gap-2"
+              >
                 ENTRAR
                 <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
               </button>
@@ -186,7 +193,13 @@ function Home() {
                   <Youtube size={20} className="transition-colors duration-300 group-hover:text-pink-400" />
                   PALESTRAS
                 </a>
-                <button className="bg-pink-600 hover:bg-pink-700 active:bg-pink-800 text-white px-6 py-2 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-pink-600/20 flex items-center justify-center gap-2">
+                <button 
+                  onClick={() => {
+                    navigate('/login');
+                    setMobileMenuOpen(false);
+                  }}
+                  className="bg-pink-600 hover:bg-pink-700 active:bg-pink-800 text-white px-6 py-2 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-pink-600/20 flex items-center justify-center gap-2"
+                >
                   ENTRAR
                   <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
                 </button>
@@ -491,7 +504,6 @@ function Home() {
         </div>
       </footer>
     </div>
-
   );
 }
 
