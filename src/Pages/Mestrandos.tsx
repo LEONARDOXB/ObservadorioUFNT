@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
-import {Menu, X, ArrowRight, BookOpen, Users, Search, Newspaper, Video, Youtube } from 'lucide-react';
-import { FaYoutube, FaTiktok, FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
+import { Menu, X, ArrowRight, BookOpen, Users, Search, Newspaper, Video, Youtube } from 'lucide-react';
 import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXTwitter, faSpotify, faYoutube, faTiktok, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 export function Mestrandos() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -20,8 +21,9 @@ export function Mestrandos() {
                 alt="Observatório de Desinformação & Fake News - Norte"
                 className="h-20 w-20 rounded-full object-cover shadow-lg shadow-purple-500/20"
               />
-              <span className="text-xl font-bold text-white">Observatório Norte</span>
-            </div>
+              <span className="text-2xl font-bold text-orange-50">
+                Observatório Norte
+              </span>               </div>
 
             {/* Mobile Menu Button */}
             <button
@@ -35,20 +37,22 @@ export function Mestrandos() {
             <div className="hidden md:flex items-center gap-4 lg:gap-8">
               {/* Social Icons */}
               <div className="hidden md:flex items-center gap-3">
-                <a href="https://www.youtube.com/@observatorionorte" target="_blank" rel="noopener noreferrer">
-                  <FaYoutube size={18} className="text-white hover:text-pink-300 transition-all" />
+                <a href="https://open.spotify.com/" target="_blank" rel="noopener noreferrer">
+                  <FontAwesomeIcon icon={faSpotify} className="text-white hover:text-green-500 transition-all h-5 w-5" />
                 </a>
-                <a href="https://www.tiktok.com/@norteobservatorio?_t=ZM-8uzZfAmW1AM&_r=1" target="_blank" rel="noopener noreferrer">
-                  <FaTiktok size={18} className="text-white hover:text-pink-300 transition-all" />
+                <a href="https://www.youtube.com/@observatorionorte" target="_blank" rel="noopener noreferrer">
+                  <FontAwesomeIcon icon={faYoutube} className="text-white hover:text-red-500 transition-all h-5 w-5" />
+                </a>           <a href="https://www.tiktok.com/@norteobservatorio?_t=ZM-8uzZfAmW1AM&_r=1" target="_blank" rel="noopener noreferrer">
+                  <FontAwesomeIcon icon={faTiktok} className="text-white hover:text-blue-500 transition-all h-5 w-5" />
                 </a>
                 <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-                  <FaFacebook size={18} className="text-white hover:text-pink-300 transition-all" />
+                  <FontAwesomeIcon icon={faFacebook} className="text-white hover:text-blue-500 transition-all h-5 w-5" />
                 </a>
                 <a href="https://www.instagram.com/observatorio.norte/" target="_blank" rel="noopener noreferrer">
-                  <FaInstagram size={18} className="text-white hover:text-pink-300 transition-all" />
+                  <FontAwesomeIcon icon={faInstagram} className="text-white hover:text-pink-500 transition-all h-5 w-5" />
                 </a>
                 <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                  <FaTwitter size={18} className="text-white hover:text-pink-300 transition-all" />
+                  <FontAwesomeIcon icon={faXTwitter} className="text-white hover:text-gray-800 transition-all  h-5 w-5" />
                 </a>
               </div>
 
@@ -217,7 +221,7 @@ export function Mestrandos() {
           <Link to="/doutores" className="text-pink-300 hover:text-pink-400 transition">DOUTORES</Link>
           <span className="text-white/70">|</span>
           <Link to="/pesquisadores" className="text-pink-300 hover:text-pink-400 transition">PESQUISADORES</Link>
-          
+
 
 
         </div>
@@ -237,13 +241,13 @@ export function Mestrandos() {
             {[...Array(6)].map((_, i) => (
               <div key={i} className="bg-white/10 rounded-xl p-6 backdrop-blur-sm hover:shadow-lg hover:shadow-pink-400/20 transition-all">
                 <div className="flex items-center gap-4 mb-4">
-                  <img 
+                  <img
                     src={`https://source.unsplash.com/random/100x100?student&${i}`}
                     alt="Aluno"
                     className="w-16 h-16 rounded-full object-cover"
                   />
                   <div>
-                    <h3 className="text-white font-semibold text-lg">Aluno {i+1}</h3>
+                    <h3 className="text-white font-semibold text-lg">Aluno {i + 1}</h3>
                     <p className="text-white/80 text-sm">Curso/Área</p>
                   </div>
                 </div>
@@ -256,8 +260,8 @@ export function Mestrandos() {
 
           {/* Back Button */}
           <div className="flex justify-center mt-12">
-            <Link 
-              to="/equipe" 
+            <Link
+              to="/equipe"
               className="flex items-center space-x-2 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white px-6 py-3 rounded-full transition-all hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20"
             >
               <span>Voltar Para Equipe</span>
@@ -266,77 +270,77 @@ export function Mestrandos() {
         </div>
       </main>
       <footer className="bg-gradient-to-br from-blue-600/90 via-purple-600/90 to-pink-500/90 py-8 md:py-12">
-  <div className="container mx-auto px-4">
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-      <div>
-        <div className="flex items-center gap-2 mb-3 md:mb-4 cursor-pointer group hover:scale-105 transition-transform">
-          <img
-            src="/imagens/observatorio-logo.png.jpeg"
-            alt="Observatório Logo"
-            className="h-10 w-10 rounded-full object-cover"
-          />
-          <span className="font-bold group-hover:text-pink-300 transition-colors text-white">
-            Observatório Norte
-          </span>
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+            <div>
+              <div className="flex items-center gap-2 mb-3 md:mb-4 cursor-pointer group hover:scale-105 transition-transform">
+                <img
+                  src="/imagens/observatorio-logo.png.jpeg"
+                  alt="Observatório Logo"
+                  className="h-10 w-10 rounded-full object-cover"
+                />
+                <span className="font-bold group-hover:text-pink-300 transition-colors text-white">
+                  Observatório Norte
+                </span>
+              </div>
+              <p className="text-xs md:text-sm text-white/80 group-hover:text-white/90 transition-colors">
+                Promovendo a verdade e combatendo a desinformação através da pesquisa e educação.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-3 md:mb-4 hover:text-pink-300 transition-colors cursor-pointer text-sm md:text-base text-white">
+                Links Rápidos
+              </h4>
+              <ul className="space-y-1 md:space-y-2 text-white/80">
+                {['Sobre', 'Pesquisa', 'Publicações', 'Contato'].map((item) => (
+                  <li key={item}>
+                    <a href="#" className="hover:text-pink-300 transition-colors hover:translate-x-1 inline-block transform text-xs md:text-sm">
+                      {item}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-3 md:mb-4 hover:text-pink-300 transition-colors cursor-pointer text-sm md:text-base text-white">
+                Recursos
+              </h4>
+              <ul className="space-y-1 md:space-y-2 text-white/80">
+                {['Base de Conhecimento', 'Ferramentas', 'API', 'FAQ'].map((item) => (
+                  <li key={item}>
+                    <a href="#" className="hover:text-pink-300 transition-colors hover:translate-x-1 inline-block transform text-xs md:text-sm">
+                      {item}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-3 md:mb-4 hover:text-pink-300 transition-colors cursor-pointer text-sm md:text-base text-white">
+                Newsletter
+              </h4>
+              <p className="text-xs md:text-sm text-white/80 mb-3 md:mb-4">
+                Receba as últimas atualizações sobre pesquisas e eventos.
+              </p>
+              <div className="flex gap-2">
+                <input
+                  type="email"
+                  placeholder="Seu e-mail"
+                  className="bg-white/10 rounded-full px-3 py-1 md:px-4 md:py-2 flex-1 focus:outline-none focus:ring-2 focus:ring-pink-500 hover:bg-white/20 transition-colors text-xs md:text-sm text-white placeholder-white/60"
+                />
+                <button className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 active:bg-pink-800 rounded-full px-3 py-1 md:px-4 md:py-2 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-pink-600/20 text-xs md:text-sm whitespace-nowrap text-white">
+                  Inscrever
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className="border-t border-white/10 mt-8 md:mt-12 pt-6 md:pt-8 text-center text-white/80">
+            <p className="hover:text-white transition-colors text-xs md:text-sm">
+              &copy; {new Date().getFullYear()} Observatório Norte. Todos os direitos reservados.
+            </p>
+          </div>
         </div>
-        <p className="text-xs md:text-sm text-white/80 group-hover:text-white/90 transition-colors">
-          Promovendo a verdade e combatendo a desinformação através da pesquisa e educação.
-        </p>
-      </div>
-      <div>
-        <h4 className="font-semibold mb-3 md:mb-4 hover:text-pink-300 transition-colors cursor-pointer text-sm md:text-base text-white">
-          Links Rápidos
-        </h4>
-        <ul className="space-y-1 md:space-y-2 text-white/80">
-          {['Sobre', 'Pesquisa', 'Publicações', 'Contato'].map((item) => (
-            <li key={item}>
-              <a href="#" className="hover:text-pink-300 transition-colors hover:translate-x-1 inline-block transform text-xs md:text-sm">
-                {item}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div>
-        <h4 className="font-semibold mb-3 md:mb-4 hover:text-pink-300 transition-colors cursor-pointer text-sm md:text-base text-white">
-          Recursos
-        </h4>
-        <ul className="space-y-1 md:space-y-2 text-white/80">
-          {['Base de Conhecimento', 'Ferramentas', 'API', 'FAQ'].map((item) => (
-            <li key={item}>
-              <a href="#" className="hover:text-pink-300 transition-colors hover:translate-x-1 inline-block transform text-xs md:text-sm">
-                {item}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div>
-        <h4 className="font-semibold mb-3 md:mb-4 hover:text-pink-300 transition-colors cursor-pointer text-sm md:text-base text-white">
-          Newsletter
-        </h4>
-        <p className="text-xs md:text-sm text-white/80 mb-3 md:mb-4">
-          Receba as últimas atualizações sobre pesquisas e eventos.
-        </p>
-        <div className="flex gap-2">
-          <input
-            type="email"
-            placeholder="Seu e-mail"
-            className="bg-white/10 rounded-full px-3 py-1 md:px-4 md:py-2 flex-1 focus:outline-none focus:ring-2 focus:ring-pink-500 hover:bg-white/20 transition-colors text-xs md:text-sm text-white placeholder-white/60"
-          />
-          <button className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 active:bg-pink-800 rounded-full px-3 py-1 md:px-4 md:py-2 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-pink-600/20 text-xs md:text-sm whitespace-nowrap text-white">
-            Inscrever
-          </button>
-        </div>
-      </div>
-    </div>
-    <div className="border-t border-white/10 mt-8 md:mt-12 pt-6 md:pt-8 text-center text-white/80">
-      <p className="hover:text-white transition-colors text-xs md:text-sm">
-        &copy; {new Date().getFullYear()} Observatório Norte. Todos os direitos reservados.
-      </p>
-    </div>
-  </div>
-</footer>
+      </footer>
     </div>
   );
 }

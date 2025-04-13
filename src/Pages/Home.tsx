@@ -1,9 +1,8 @@
 import { BookOpen, Users, Rss, BookOpenText, Youtube, ArrowRight, Menu, X, AlertTriangle, Share2, CheckCircle2, XCircle, Search, Brain, Newspaper } from 'lucide-react';
 import { useState } from 'react';
-import { FaFacebook, FaInstagram, FaTiktok, FaYoutube } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXTwitter ,faSpotify } from '@fortawesome/free-brands-svg-icons';
+import { faXTwitter, faSpotify, faYoutube, faTiktok, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
 function Home() {
   const [activeSection, setActiveSection] = useState('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -21,8 +20,9 @@ function Home() {
                 alt="Observatório de Desinformação & Fake News - Norte"
                 className="h-20 w-20 rounded-full object-cover"
               />
-              <span className="text-xl font-bold">Observatório Norte</span>
-            </div>
+              <span className="text-2xl font-bold text-orange-50">
+                Observatório Norte
+              </span>            </div>
             {/* Mobile Menu Button */}
             <button
               className="md:hidden p-2 rounded-md text-white focus:outline-none"
@@ -33,23 +33,22 @@ function Home() {
 
             <div className="hidden md:flex items-center gap-4 lg:gap-8">
               <div className="hidden md:flex items-center gap-3">
-              <a href="https://open.spotify.com/" target="_blank" rel="noopener noreferrer">
-  <FontAwesomeIcon icon={faSpotify} className="text-white hover:text-green-500 transition-all h-5 w-5" />
-</a>
-                <a href="https://www.youtube.com/@observatorionorte" target="_blank" rel="noopener noreferrer">
-                  <FaYoutube size={18} className="text-white hover:text-blue-500 transition-all" />
+                <a href="https://open.spotify.com/" target="_blank" rel="noopener noreferrer">
+                  <FontAwesomeIcon icon={faSpotify} className="text-white hover:text-green-500 transition-all h-5 w-5" />
                 </a>
-                <a href="https://www.tiktok.com/@norteobservatorio?_t=ZM-8uzZfAmW1AM&_r=1" target="_blank" rel="noopener noreferrer">
-                  <FaTiktok size={18} className="text-white hover:text-blue-500 transition-all" />
+                <a href="https://www.youtube.com/@observatorionorte" target="_blank" rel="noopener noreferrer">
+                  <FontAwesomeIcon icon={faYoutube} className="text-white hover:text-red-500 transition-all h-5 w-5" />
+                </a>           <a href="https://www.tiktok.com/@norteobservatorio?_t=ZM-8uzZfAmW1AM&_r=1" target="_blank" rel="noopener noreferrer">
+                  <FontAwesomeIcon icon={faTiktok} className="text-white hover:text-blue-500 transition-all h-5 w-5" />
                 </a>
                 <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-                  <FaFacebook size={18} className="text-white hover:text-blue-500 transition-all" />
+                  <FontAwesomeIcon icon={faFacebook} className="text-white hover:text-blue-500 transition-all h-5 w-5" />
                 </a>
                 <a href="https://www.instagram.com/observatorio.norte/" target="_blank" rel="noopener noreferrer">
-                  <FaInstagram size={18} className="text-white hover:text-pink-500 transition-all" />
+                  <FontAwesomeIcon icon={faInstagram} className="text-white hover:text-pink-500 transition-all h-5 w-5" />
                 </a>
                 <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                  <FontAwesomeIcon icon={faXTwitter} className="text-white hover:text-gray-800 transition-all h-4 w-4" />
+                  <FontAwesomeIcon icon={faXTwitter} className="text-white hover:text-gray-800 transition-all  h-5 w-5" />
                 </a>
               </div>
 
@@ -110,7 +109,7 @@ function Home() {
                   PALESTRAS
                 </a>
               </div>
-              <button 
+              <button
                 onClick={() => navigate('/login')}
                 className="bg-pink-600 hover:bg-pink-700 active:bg-pink-800 text-white px-4 lg:px-6 py-2 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-pink-600/20 flex items-center gap-2"
               >
@@ -193,7 +192,7 @@ function Home() {
                   <Youtube size={20} className="transition-colors duration-300 group-hover:text-pink-400" />
                   PALESTRAS
                 </a>
-                <button 
+                <button
                   onClick={() => {
                     navigate('/login');
                     setMobileMenuOpen(false);

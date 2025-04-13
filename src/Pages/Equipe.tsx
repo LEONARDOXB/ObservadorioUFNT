@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import { Menu, X, ArrowRight, BookOpen, Users, Search, Newspaper, Video, Youtube } from 'lucide-react';
-import { FaYoutube, FaTiktok, FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 import { useState } from 'react';
+import { faXTwitter, faSpotify, faYoutube, faTiktok, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export function Equipe() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -20,8 +21,10 @@ export function Equipe() {
                 alt="Observatório de Desinformação & Fake News - Norte"
                 className="h-20 w-20 rounded-full object-cover shadow-lg shadow-purple-500/20"
               />
-              <span className="text-xl font-bold text-white">Observatório Norte</span>
-            </div>
+              <span className="text-2xl font-bold text-orange-50">
+                Observatório Norte
+              </span>          
+                </div>
 
             {/* Mobile Menu Button */}
             <button
@@ -35,20 +38,22 @@ export function Equipe() {
             <div className="hidden md:flex items-center gap-4 lg:gap-8">
               {/* Social Icons */}
               <div className="hidden md:flex items-center gap-3">
-                <a href="https://www.youtube.com/@observatorionorte" target="_blank" rel="noopener noreferrer">
-                  <FaYoutube size={18} className="text-white hover:text-pink-300 transition-all" />
+                <a href="https://open.spotify.com/" target="_blank" rel="noopener noreferrer">
+                  <FontAwesomeIcon icon={faSpotify} className="text-white hover:text-green-500 transition-all h-5 w-5" />
                 </a>
-                <a href="https://www.tiktok.com/@norteobservatorio?_t=ZM-8uzZfAmW1AM&_r=1" target="_blank" rel="noopener noreferrer">
-                  <FaTiktok size={18} className="text-white hover:text-pink-300 transition-all" />
+                <a href="https://www.youtube.com/@observatorionorte" target="_blank" rel="noopener noreferrer">
+                  <FontAwesomeIcon icon={faYoutube} className="text-white hover:text-red-500 transition-all h-5 w-5" />
+                </a>           <a href="https://www.tiktok.com/@norteobservatorio?_t=ZM-8uzZfAmW1AM&_r=1" target="_blank" rel="noopener noreferrer">
+                  <FontAwesomeIcon icon={faTiktok} className="text-white hover:text-blue-500 transition-all h-5 w-5" />
                 </a>
                 <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-                  <FaFacebook size={18} className="text-white hover:text-pink-300 transition-all" />
+                  <FontAwesomeIcon icon={faFacebook} className="text-white hover:text-blue-500 transition-all h-5 w-5" />
                 </a>
                 <a href="https://www.instagram.com/observatorio.norte/" target="_blank" rel="noopener noreferrer">
-                  <FaInstagram size={18} className="text-white hover:text-pink-300 transition-all" />
+                  <FontAwesomeIcon icon={faInstagram} className="text-white hover:text-pink-500 transition-all h-5 w-5" />
                 </a>
                 <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                  <FaTwitter size={18} className="text-white hover:text-pink-300 transition-all" />
+                  <FontAwesomeIcon icon={faXTwitter} className="text-white hover:text-gray-800 transition-all  h-5 w-5" />
                 </a>
               </div>
 
