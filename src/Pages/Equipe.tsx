@@ -23,8 +23,8 @@ export function Equipe() {
               />
               <span className="text-2xl font-bold text-orange-50">
                 Observatório Norte
-              </span>          
-                </div>
+              </span>
+            </div>
 
             {/* Mobile Menu Button */}
             <button
@@ -93,7 +93,7 @@ export function Equipe() {
                   PESQUISA
                 </Link>
                 <Link
-                  to="#"
+                  to="/noticias"
                   onClick={() => setActiveSection('#news')}
                   className={`group flex items-center gap-2 text-sm font-medium transition-all duration-300 
                     ${activeSection === '#news'
@@ -157,7 +157,7 @@ export function Equipe() {
                   EQUIPE
                 </Link>
                 <Link
-                  to="#/pesquisa"
+                  to="/pesquisa"
                   onClick={() => {
                     setActiveSection('#research');
                     setMobileMenuOpen(false);

@@ -87,7 +87,7 @@ function Home() {
                   PESQUISA
                 </a>
                 <a
-                  href="#"
+                  href="/noticias"
                   onClick={() => setActiveSection('#news')}
                   className={`group flex items-center gap-2 text-sm font-medium transition-all duration-300 
                     ${activeSection === '#news'
@@ -420,13 +420,20 @@ function Home() {
             Parceiros
           </h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-8 items-center">
-            <img src="/imagens/brasil ufnt.png" alt="Brasil UFNT" className="h-16 object-contain mx-auto hover:scale-110 transition-transform rounded-2xl" />
-            <img src="/imagens/cnpq.png" alt="CNPq" className="h-16 object-contain mx-auto hover:scale-110 transition-transform rounded-2xl" />
-            <img src="/imagens/governofederal.png " alt="Governo Federal" className="h-16 object-contain mx-auto hover:scale-110 transition-transform rounded-2xl" />
-            <img src="/imagens/observatorio.png" alt="Observatório" className="h-16 object-contain mx-auto hover:scale-110 transition-transform rounded-2xl" />
-            <img src="/imagens/sus.png" alt="SUS" className="h-16 object-contain mx-auto hover:scale-110 transition-transform rounded-2xl" />
-            <img src="/imagens/ufnt.png" alt="UFNT" className="h-16 object-contain mx-auto hover:scale-110 transition-transform rounded-2xl" />
-            <img src="/imagens/observatorio-logo.png.jpeg" alt="Observatório Logo" className="h-16 object-contain mx-auto hover:scale-110 transition-transform rounded-2xl" />
+            <img src="/imagens/brasil ufnt.png" alt="Brasil UFNT" className="h-16 object-contain mx-auto hover:scale-110 transition-transform rounded-2xl"
+            />
+            <img src="/imagens/cnpq.png" alt="CNPq" className="h-16 object-contain mx-auto hover:scale-110 transition-transform rounded-2xl"
+            />
+            <img src="/imagens/governofederal.png " alt="Governo Federal" className="h-16 object-contain mx-auto hover:scale-110 transition-transform rounded-2xl"
+            />
+            <img src="/imagens/observatorio.png" alt="Observatório" className="h-16 object-contain mx-auto hover:scale-110 transition-transform rounded-2xl"
+            />
+            <img src="/imagens/sus.png" alt="SUS" className="h-16 object-contain mx-auto hover:scale-110 transition-transform rounded-2xl"
+            />
+            <img src="/imagens/ufnt.png" alt="UFNT" className="h-16 object-contain mx-auto hover:scale-110 transition-transform rounded-2xl"
+            />
+            <img src="/imagens/observatorio-logo.png.jpeg" alt="Observatório Logo" className="h-16 object-contain mx-auto hover:scale-110 transition-transform rounded-2xl"
+            />
           </div>
         </div>
       </section>
@@ -448,6 +455,7 @@ function Home() {
                 Promovendo a verdade e combatendo a desinformação através da pesquisa e educação.
               </p>
             </div>
+
             <div>
               <h4 className="font-semibold mb-3 md:mb-4 hover:text-pink-400 transition-colors cursor-pointer text-sm md:text-base">
                 Links Rápidos
@@ -466,6 +474,7 @@ function Home() {
               <h4 className="font-semibold mb-3 md:mb-4 hover:text-pink-400 transition-colors cursor-pointer text-sm md:text-base">
                 Recursos
               </h4>
+
               <ul className="space-y-1 md:space-y-2 text-white/80">
                 {['Base de Conhecimento', 'Ferramentas', 'API', 'FAQ'].map((item) => (
                   <li key={item}>
