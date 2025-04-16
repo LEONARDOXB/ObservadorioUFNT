@@ -228,7 +228,7 @@ export function Equipe() {
       {/* Team Section */}
       <main className="bg-gradient-to-br from-blue-600 via-purple-600 to-pink-500 px-6 py-16">
         <div className="max-w-7xl mx-auto">
-          <div className="text-pink-300 uppercase text-sm mb-4">CONHEÇA NOSSO TIME</div>
+          <div className="text-white uppercase text-sm mb-4">CONHEÇA NOSSOS PROFESSORES</div>
           <h1 className="text-white text-5xl font-bold mb-6">Nossa Equipe</h1>
           <p className="text-white/90 text-lg max-w-3xl mb-16">
             Conheça os profissionais dedicados que compõem nossa equipe no Observatório Digital.
@@ -238,19 +238,57 @@ export function Equipe() {
 
           {/* Team Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[...Array(8)].map((_, i) => (
-              <div key={i} className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
-                <img
-                  src={`https://source.unsplash.com/random/400x500?portrait&${i}`}
-                  alt="Membro da equipe"
-                  className="w-full h-[400px] object-cover grayscale group-hover:grayscale-0 transition duration-300 group-hover:scale-105"
-                />
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
-                  <h3 className="text-white font-semibold text-lg">Membro da Equipe</h3>
-                  <p className="text-white/80 text-sm">Cargo/Função</p>
-                </div>
+            {/* Wagner Mariano */}
+            <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
+              <img
+                src="/imagens/file.jpg"
+                alt="Foto de Wagner Mariano"
+                className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
+                <h3 className="text-white font-semibold text-lg">Wagner Mariano</h3>
+                <p className="text-white/80 text-sm"></p>
               </div>
-            ))}
+            </div>
+
+            {/* Domenica */}
+            <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
+              <img
+                src="/imagens/Domenica_imagem.jpg"
+                alt="Foto de Domenica"
+                className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
+                <h3 className="text-white font-semibold text-lg">Domenica</h3>
+                <p className="text-white/80 text-sm"></p>
+              </div>
+            </div>
+
+            {/* Digitalizado */}
+            <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
+              <img
+                src="/imagens/Digitalizado.jpg"
+                alt="Foto de Membro da Equipe"
+                className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
+                <h3 className="text-white font-semibold text-lg">Elizângela Melo</h3>
+                <p className="text-white/80 text-sm"></p>
+              </div>
+            </div>
+
+            {/* Beatriz */}
+            <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
+              <img
+                src="/imagens/beatriz.jpg"
+                alt="Foto de Membro da Equipe"
+                className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
+                <h3 className="text-white font-semibold text-lg">Beatriz Croriz</h3>
+                <p className="text-white/80 text-sm"></p>
+              </div>
+            </div>
           </div>
 
           {/* Back Button */}
