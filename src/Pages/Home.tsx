@@ -1,19 +1,52 @@
-import { BookOpen, Users, Rss, BookOpenText, Youtube, ArrowRight, Menu, X, AlertTriangle, Share2, CheckCircle2, XCircle, Search, Brain, Newspaper } from 'lucide-react';
+import { BookOpen, Users, Rss, BookOpenText, Youtube, ArrowRight, Menu, X, AlertTriangle, Share2, CheckCircle2, XCircle, Search, Brain, Newspaper, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXTwitter, faSpotify, faYoutube, faTiktok, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
+
 function Home() {
   const [activeSection, setActiveSection] = useState('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
   const navigate = useNavigate();
+
+  const articles = [
+    {
+      id: 1,
+      title: "Exemplo de Fake News sobre Saúde",
+      category: "ALERTA",
+      image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef",
+      link: "#"
+    },
+    {
+      id: 2,
+      title: "Como Identificar Notícias Falsas",
+      category: "EDUCAÇÃO",
+      image: "https://images.unsplash.com/photo-1586339949916-3e9457bef6d3",
+      link: "#"
+    },
+    {
+      id: 3,
+      title: "Pesquisas Recentes sobre Desinformação",
+      category: "PESQUISA",
+      image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40",
+      link: "#"
+    }
+  ];
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev === articles.length - 1 ? 0 : prev + 1));
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev === 0 ? articles.length - 1 : prev - 1));
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-800 via-purple-700 to-pink-800 text-white">
       <header className="bg-blue-900/90 py-4 sticky top-0 z-50 backdrop-blur-sm border-b border-white/10">
         <div className="container mx-auto px-4">
           <nav className="flex items-center justify-between">
-            {/* Logo with increased size */}
             <div className="flex items-center gap-2 cursor-pointer hover:scale-105 transition-transform">
               <img
                 src="/imagens/observatorio-logo.png.jpeg"
@@ -22,8 +55,8 @@ function Home() {
               />
               <span className="text-2xl font-bold text-orange-50">
                 Observatório Norte
-              </span>            </div>
-            {/* Mobile Menu Button */}
+              </span>
+            </div>
             <button
               className="md:hidden p-2 rounded-md text-white focus:outline-none"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -38,7 +71,8 @@ function Home() {
                 </a>
                 <a href="https://www.youtube.com/@observatorionorte" target="_blank" rel="noopener noreferrer">
                   <FontAwesomeIcon icon={faYoutube} className="text-white hover:text-red-500 transition-all h-5 w-5" />
-                </a>           <a href="https://www.tiktok.com/@norteobservatorio?_t=ZM-8uzZfAmW1AM&_r=1" target="_blank" rel="noopener noreferrer">
+                </a>
+                <a href="https://www.tiktok.com/@norteobservatorio?_t=ZM-8uzZfAmW1AM&_r=1" target="_blank" rel="noopener noreferrer">
                   <FontAwesomeIcon icon={faTiktok} className="text-white hover:text-blue-500 transition-all h-5 w-5" />
                 </a>
                 <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
@@ -48,7 +82,7 @@ function Home() {
                   <FontAwesomeIcon icon={faInstagram} className="text-white hover:text-pink-500 transition-all h-5 w-5" />
                 </a>
                 <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                  <FontAwesomeIcon icon={faXTwitter} className="text-white hover:text-gray-800 transition-all  h-5 w-5" />
+                  <FontAwesomeIcon icon={faXTwitter} className="text-white hover:text-gray-800 transition-all h-5 w-5" />
                 </a>
               </div>
 
@@ -62,7 +96,7 @@ function Home() {
                       : 'hover:text-pink-400 hover:scale-105'}`}
                 >
                   <BookOpen size={20} className="transition-colors duration-300 group-hover:text-pink-400" />
-                  ARTIGOS
+                  REPOSITÓRIO 
                 </a>
                 <a
                   href="/equipe"
@@ -134,7 +168,7 @@ function Home() {
                       : 'hover:text-pink-400 hover:scale-105'}`}
                 >
                   <BookOpen size={20} className="transition-colors duration-300 group-hover:text-pink-400" />
-                  ARTIGOS
+                  REPOSITÓRIO
                 </a>
                 <a
                   href="#"
@@ -207,18 +241,79 @@ function Home() {
           )}
         </div>
       </header>
-      <div className="relative py-12 md:py-20 overflow-hidden">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent animate-gradient">
-              Bem-vindo Ao Observatório
-            </h1>
-            <p className="text-lg md:text-xl text-white/90 mb-6 md:mb-8">
-              Combate à desinformação e fake news com pesquisa e educação.
-            </p>
-          </div>
+
+      {/* Full-width Carousel without borders */}
+      <div className="relative w-full overflow-hidden">
+        <div className="relative h-[500px] w-full">
+          {articles.map((article, index) => (
+            <div
+              key={article.id}
+              className={`absolute inset-0 w-full h-full transition-opacity duration-500 ${
+                index === currentSlide ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              <div className="relative w-full h-full">
+                {article.image ? (
+                  <>
+                    <img
+                      src={article.image}
+                      alt={article.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black bg-opacity-40" />
+                  </>
+                ) : (
+                  <div className="w-full h-full bg-gray-800 flex items-center justify-center">
+                    <div className="text-white text-6xl font-mono">
+                      {article.content}
+                    </div>
+                  </div>
+                )}
+                <div className="absolute inset-0 flex flex-col justify-center items-center text-white text-center px-4">
+                  <span className="text-red-400 text-sm font-semibold mb-4">
+                    {article.category}
+                  </span>
+                  <h2 className="text-3xl font-bold max-w-2xl mb-8">
+                    {article.title}
+                  </h2>
+                  <a
+                    href={article.link}
+                    className="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-full transition-colors duration-200"
+                  >
+                    Verifique os fatos
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <button
+          onClick={prevSlide}
+          className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full transition-colors duration-200 z-10"
+        >
+          <ChevronLeft className="w-6 h-6" />
+        </button>
+        <button
+          onClick={nextSlide}
+          className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full transition-colors duration-200 z-10"
+        >
+          <ChevronRight className="w-6 h-6" />
+        </button>
+
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+          {articles.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`w-2 h-2 rounded-full transition-colors duration-200 ${
+                index === currentSlide ? 'bg-red-500' : 'bg-white/50'
+              }`}
+            />
+          ))}
         </div>
       </div>
+
       <div className="relative px-4 py-8 md:py-12 lg:py-16 bg-gradient-to-r from-blue-900/50 to-purple-900/50">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-center">
           <div className="space-y-4 md:space-y-6 lg:space-y-8 order-2 lg:order-1">
@@ -226,8 +321,6 @@ function Home() {
             <p className="text-sm md:text-base lg:text-lg text-white/90">
               No mundo digital de hoje, a disseminação de fake news tornou-se um desafio global. Notícias falsas podem influenciar opiniões públicas, manipular eleições e até mesmo causar pânico em massa. É crucial combater essa onda de desinformação com pesquisa rigorosa e educação.
             </p>
-            <ul className="space-y-2 md:space-y-3 lg:space-y-4">
-            </ul>
           </div> 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 order-1 lg:order-2">
             {["https://images.unsplash.com/photo-1544531585-9847b68c8c86?auto=format&fit=crop&q=80", "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&q=80"].map((src, index) => (
@@ -241,6 +334,7 @@ function Home() {
           </div>
         </div>
       </div>
+
       <section className="py-12 md:py-16 lg:py-20 bg-gradient-to-r from-blue-900/40 to-purple-900/40">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-center hover:text-pink-400 transition-colors cursor-pointer">
@@ -406,6 +500,7 @@ function Home() {
           </div>
         </div>
       </section>
+
       <section className="py-16 bg-gradient-to-r from-blue-900/40 to-purple-900/40">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-bold mb-12 text-center">
@@ -429,6 +524,7 @@ function Home() {
           </div>
         </div>
       </section>
+
       <footer className="bg-blue-900/90 py-8 md:py-12">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">

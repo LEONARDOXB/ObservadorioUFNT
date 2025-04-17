@@ -168,7 +168,7 @@ function Pesquisa() {
                       : 'text-white hover:text-yellow-300 hover:scale-105'}`}
                 >
                   <BookOpen size={20} className="transition-colors duration-300 group-hover:text-yellow-300" />
-                  ARTIGOS
+                  REPOSITÓRIO
                 </a>
                 <a
                   href="/equipe"
@@ -240,7 +240,7 @@ function Pesquisa() {
                       : 'text-white hover:text-yellow-300 hover:scale-105'}`}
                 >
                   <BookOpen size={20} className="transition-colors duration-300 group-hover:text-yellow-300" />
-                  ARTIGOS
+                  REPOSITÓRIO
                 </a>
                 <a
                   href="/equipe"

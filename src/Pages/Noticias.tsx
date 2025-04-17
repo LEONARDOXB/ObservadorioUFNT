@@ -63,7 +63,7 @@ function Noticias() {
                       : 'text-orange-50 hover:text-orange-300 hover:scale-105'}`}
                 >
                   <BookOpen size={20} className="transition-colors duration-300 group-hover:text-orange-300" />
-                  ARTIGOS
+                  REPOSITÓRIO
                 </a>
                 <a
                   href="/equipe"
@@ -135,7 +135,7 @@ function Noticias() {
                       : 'text-orange-50 hover:text-orange-300 hover:scale-105'}`}
                 >
                   <BookOpen size={20} className="transition-colors duration-300 group-hover:text-orange-300" />
-                  ARTIGOS
+                  REPOSITÓRIO
                 </a>
               </div>
             </div>

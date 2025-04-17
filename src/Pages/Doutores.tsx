@@ -69,7 +69,7 @@ export function Doutores() {
                       : 'text-white hover:text-pink-300 hover:scale-105'}`}
                 >
                   <BookOpen size={20} />
-                  ARTIGOS
+                  REPOSITÓRIO
                 </Link>
                 <Link
                   to="/equipe"
@@ -149,7 +149,7 @@ export function Doutores() {
                 >
                   <BookOpen size={20}
                   />
-                  ARTIGOS
+                  REPOSITÓRIO
                 </Link>
                 <Link
                   to="/equipe"
