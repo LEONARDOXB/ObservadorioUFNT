@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BookOpen, Users, Rss, Youtube, ArrowRight, Menu, X, AlertTriangle, Share2, CheckCircle2, XCircle, Search, Newspaper, } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXTwitter, faSpotify, faYoutube, faTiktok, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
@@ -18,6 +18,7 @@ function Pesquisa() {
   const [searchTerm, setSearchTerm] = useState('');
   const [activeSection, setActiveSection] = useState('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const news: NewsItem[] = [
     {
@@ -214,7 +215,10 @@ function Pesquisa() {
                   PALESTRAS
                 </a>
               </div>
-              <button className="bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600 text-orange-900 px-4 lg:px-6 py-2 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-yellow-400/20 flex items-center gap-2">
+              <button
+                onClick={() => navigate('/login')}
+
+                className="bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600 text-orange-900 px-4 lg:px-6 py-2 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-yellow-400/20 flex items-center gap-2">
                 ENTRAR
                 <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
               </button>
@@ -294,7 +298,10 @@ function Pesquisa() {
                   <Youtube size={20} className="transition-colors duration-300 group-hover:text-yellow-300" />
                   PALESTRAS
                 </a>
-                <button className="bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600 text-orange-900 px-6 py-2 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-yellow-400/20 flex items-center justify-center gap-2">
+                <button
+                  onClick={() => navigate('/login')}
+
+                  className="bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600 text-orange-900 px-6 py-2 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-yellow-400/20 flex items-center justify-center gap-2">
                   ENTRAR
                   <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
                 </button>
