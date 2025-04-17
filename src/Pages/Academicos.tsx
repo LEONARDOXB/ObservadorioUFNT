@@ -226,13 +226,14 @@ export function Academicos() {
         </div>
       </div>
 
+
       {/* Conteúdo dos Alunos */}
       <main className="bg-gradient-to-br from-blue-600 via-purple-600 to-pink-500 px-6 py-16">
         <div className="max-w-7xl mx-auto">
           <div className="text-pink-300 uppercase text-sm mb-4">CONHEÇA NOSSOS</div>
           <h1 className="text-white text-5xl font-bold mb-6">Acadêmicos</h1>
           <p className="text-white/90 text-lg max-w-3xl mb-16">
-            Conheça os Acadêmicos que fazem parte do nosso observatório e contribuem para o combate à desinformação.
+            Conheça os Acadêmicos que fazem parte do nosso Observatório e contribuem para o combate à desinformação.
           </p>
 
           {/* Grid de Alunos - Estilo igual ao da Equipe */}
@@ -304,6 +305,39 @@ export function Academicos() {
             <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
               <img
                 src="/imagens/IMG-20250406-WA0081.jpg"
+                alt="Foto de Acadêmico 4"
+                className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
+                <h3 className="text-white font-semibold text-lg">Nome do Acadêmico 5</h3>
+                <p className="text-white/80 text-sm"></p>
+              </div>
+            </div>
+            <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
+              <img
+                src="/imagens/ALISSON.jpg"
+                alt="Foto de Acadêmico 4"
+                className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
+                <h3 className="text-white font-semibold text-lg">Nome do Acadêmico 5</h3>
+                <p className="text-white/80 text-sm"></p>
+              </div>
+            </div>
+            <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
+              <img
+                src="/imagens/IMG_20250403_180259_713.webp"
+                alt="Foto de Acadêmico 4"
+                className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
+                <h3 className="text-white font-semibold text-lg">Nome do Acadêmico 5</h3>
+                <p className="text-white/80 text-sm"></p>
+              </div>
+            </div>
+            <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
+              <img
+                src="/imagens/Thauane Maria 2025-04-07 à(s) 15.25.06_44697b1d.jpg"
                 alt="Foto de Acadêmico 4"
                 className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
               />

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Menu, X, ArrowRight, BookOpen, Users, Search, Newspaper, Video, Youtube } from 'lucide-react';
 import { useState } from 'react';
 import { faXTwitter, faSpotify, faYoutube, faTiktok, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 export function Equipe() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
+  const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-600 via-purple-600 to-pink-500">
@@ -117,7 +118,10 @@ export function Equipe() {
               </div>
 
               {/* Login Button */}
-              <button className="bg-gradient-to-r from-pink-500 to-purple-600 text-white px-4 lg:px-6 py-2 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20 flex items-center gap-2">
+              <button
+                onClick={() => navigate('/login')}
+
+                className="bg-gradient-to-r from-pink-500 to-purple-600 text-white px-4 lg:px-6 py-2 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20 flex items-center gap-2">
                 ENTRAR
                 <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
               </button>
@@ -171,7 +175,7 @@ export function Equipe() {
                   PESQUISA
                 </Link>
                 <Link
-                  to="#"
+                  to="noticias"
                   onClick={() => {
                     setActiveSection('#news');
                     setMobileMenuOpen(false);
@@ -198,7 +202,10 @@ export function Equipe() {
                   <Video size={20} />
                   PALESTRAS
                 </Link>
-                <button className="bg-gradient-to-r from-pink-500 to-purple-600 text-white px-6 py-2 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20 flex items-center justify-center gap-2">
+                <button
+                  onClick={() => navigate('/login')}
+
+                  className="bg-gradient-to-r from-pink-500 to-purple-600 text-white px-6 py-2 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20 flex items-center justify-center gap-2">
                   ENTRAR
                   <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
                 </button>
@@ -241,7 +248,7 @@ export function Equipe() {
             {/* Wagner Mariano */}
             <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
               <img
-                src="/imagens/file.jpg"
+                src="/imagens/Imagem do WhatsApp de 2025-04-15 à(s) 21.28.20_4feb981d.jpg"
                 alt="Foto de Wagner Mariano"
                 className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
               />
@@ -353,7 +360,7 @@ export function Equipe() {
                 Newsletter
               </h4>
               <p className="text-xs md:text-sm text-white/80 mb-3 md:mb-4">
-                Receba as últimas atualizações sobre pesquisas e eventos.
+                Receba as últimas Atualizações sobre Pesquisas e Eventos.
               </p>
               <div className="flex gap-2">
                 <input
@@ -369,7 +376,7 @@ export function Equipe() {
           </div>
           <div className="border-t border-white/10 mt-8 md:mt-12 pt-6 md:pt-8 text-center text-white/80">
             <p className="hover:text-white transition-colors text-xs md:text-sm">
-              &copy; {new Date().getFullYear()} Observatório Norte. Todos os direitos reservados.
+              &copy; {new Date().getFullYear()} Observatório Norte. Todos os Direitos Reservados.
             </p>
           </div>
         </div>

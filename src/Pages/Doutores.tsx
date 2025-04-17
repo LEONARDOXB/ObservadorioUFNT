@@ -247,28 +247,102 @@ export function Doutores() {
 
           {/* Team Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[...Array(8)].map((_, i) => (
-              <div key={i} className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
-                <img
-                  src={`https://source.unsplash.com/random/400x500?portrait&${i}`}
-                  alt="Membro da equipe"
-                  className="w-full h-[400px] object-cover grayscale group-hover:grayscale-0 transition duration-300 group-hover:scale-105"
-                />
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
-                  <h3 className="text-white font-semibold text-lg">Membro da Equipe</h3>
-                  <p className="text-white/80 text-sm">Cargo/Função</p>
-                </div>
+            {/* Acadêmico 1 */}
+            <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
+              <img
+                src="/imagens/2F9A1555.jpg"
+                alt="Foto de Doutores 1"
+                className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
+                <h3 className="text-white font-semibold text-lg">Nome do Doutores 1</h3>
+                <p className="text-white/80 text-sm"></p>
               </div>
-            ))}
+            </div>
+
+            {/* Acadêmico 2 */}
+            <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
+              <img
+                src="/imagens/8a75c550-992f-4138-8c0d-a32dadf41e0a.jpg"
+                alt="Foto de Acadêmico 2"
+                className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
+                <h3 className="text-white font-semibold text-lg">Nome do Doutores 2</h3>
+                <p className="text-white/80 text-sm"></p>
+              </div>
+            </div>
+
+            {/* Acadêmico 3 */}
+            <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
+              <img
+                src="/imagens/NATÃ (681).JPG"
+                alt="Foto de Acadêmico 3"
+                className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
+                <h3 className="text-white font-semibold text-lg">Nome do Doutores 3</h3>
+                <p className="text-white/80 text-sm"></p>
+              </div>
+            </div>
+
+            {/* Acadêmico 4 */}
+            <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
+              <img
+                src="/imagens/WhatsApp Image 2025-04-06 at 22.43.51.jpeg"
+                alt="Foto de Acadêmico 4"
+                className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
+                <h3 className="text-white font-semibold text-lg">Nome do Doutores 4</h3>
+                <p className="text-white/80 text-sm"></p>
+              </div>
+            </div>
+
+            <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
+              <img
+                src="/imagens/"
+                alt="Foto de Acadêmico 4"
+                className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
+                <h3 className="text-white font-semibold text-lg">Nome do Mestrandos 5</h3>
+                <p className="text-white/80 text-sm"></p>
+              </div>
+            </div>
+
+            <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
+              <img
+                src="/imagens/"
+                alt="Foto de Acadêmico 4"
+                className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
+                <h3 className="text-white font-semibold text-lg">Nome do Mestrandos 5</h3>
+                <p className="text-white/80 text-sm"></p>
+              </div>
+            </div>
+
+            <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
+              <img
+                src="/imagens/"
+                alt="Foto de Acadêmico 4"
+                className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
+                <h3 className="text-white font-semibold text-lg">Nome do Mestrandos 5</h3>
+                <p className="text-white/80 text-sm"></p>
+              </div>
+            </div>
           </div>
 
           {/* Back Button */}
           <div className="flex justify-center mt-12">
             <Link
-              to="/"
+              to="/equipe"
               className="flex items-center space-x-2 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white px-6 py-3 rounded-full transition-all hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20"
             >
-              <span>Voltar Para Início</span>
+              <span>Voltar Para Equipe</span>
             </Link>
           </div>
         </div>
