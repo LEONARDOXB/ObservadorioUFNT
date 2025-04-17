@@ -188,7 +188,7 @@ export function Mestrandos() {
                   NOTÍCIAS
                 </Link>
                 <Link
-                  to="#"
+                  to=""
                   onClick={() => {
                     setActiveSection('#lectures');
                     setMobileMenuOpen(false);
@@ -224,8 +224,6 @@ export function Mestrandos() {
           <Link to="/academicos" className="text-pink-300 hover:text-pink-400 transition">ACADÊMICOS</Link>
           <span className="text-white/70">|</span>
           <Link to="/mestrandos" className="text-white">MESTRANDOS</Link>
-          <span className="text-white/70">|</span>
-          <Link to="/doutores" className="text-pink-300 hover:text-pink-400 transition">DOUTORES</Link>
           <span className="text-white/70">|</span>
           <Link to="/pesquisadores" className="text-pink-300 hover:text-pink-400 transition">PESQUISADORES</Link>
 
@@ -271,71 +269,11 @@ export function Mestrandos() {
                 <p className="text-white/80 text-sm"></p>
               </div>
             </div>
-
-            {/* Acadêmico 3 */}
-            <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
-              <img
-                src="/imagens/Imagem do WhatsApp de 2025-04-15 à(s) 21.28.20_4feb981d.jpg"
-                alt="Foto de Acadêmico 3"
-                className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
-                <h3 className="text-white font-semibold text-lg">Nome do Mestrandos 3</h3>
-                <p className="text-white/80 text-sm"></p>
-              </div>
-            </div>
-
-            {/* Acadêmico 4 */}
-            <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
-              <img
-                src="/imagens/Ducy.jpeg"
-                alt="Foto de Acadêmico 4"
-                className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
-                <h3 className="text-white font-semibold text-lg">Nome do Mestrandos 4</h3>
-                <p className="text-white/80 text-sm"></p>
-              </div>
-            </div>
-
-            <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
-              <img
-                src="/imagens/Domenica_imagem.jpg"
-                alt="Foto de Acadêmico 4"
-                className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
-                <h3 className="text-white font-semibold text-lg">Nome do Mestrandos 5</h3>
-                <p className="text-white/80 text-sm"></p>
-              </div>
-            </div>
-
-            <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
-              <img
-                src="/imagens/Digitalizado.jpg"
-                alt="Foto de Acadêmico 4"
-                className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
-                <h3 className="text-white font-semibold text-lg">Nome do Mestrandos 5</h3>
-                <p className="text-white/80 text-sm"></p>
-              </div>
-            </div>
+           
 
             <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
               <img
                 src="/imagens/20250324_112712.jpg"
-                alt="Foto de Acadêmico 4"
-                className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
-                <h3 className="text-white font-semibold text-lg">Nome do Mestrandos 5</h3>
-                <p className="text-white/80 text-sm"></p>
-              </div>
-            </div>
-            <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
-              <img
-                src="/imagens/Imagem do WhatsApp de 2025-04-16 à(s) 11.25.03_d197d932.jpg"
                 alt="Foto de Acadêmico 4"
                 className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
               />

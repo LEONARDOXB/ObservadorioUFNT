@@ -223,8 +223,6 @@ export function Pesquisadores() {
           <span className="text-white/70">|</span>
           <Link to="/mestrandos" className="text-pink-300 hover:text-pink-400 transition">MESTRANDOS</Link>
           <span className="text-white/70">|</span>
-          <Link to="/doutores" className="text-pink-300 hover:text-pink-400 transition">DOUTORES</Link>
-          <span className="text-white/70">|</span>
           <span className="text-white">PESQUISADORES</span>
         </div>
       </div>

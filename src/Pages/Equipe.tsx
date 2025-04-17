@@ -189,7 +189,7 @@ export function Equipe() {
                   NOTÍCIAS
                 </Link>
                 <Link
-                  to="#"
+                  to="https://www.youtube.com/@observatorionorte"
                   onClick={() => {
                     setActiveSection('#lectures');
                     setMobileMenuOpen(false);
@@ -225,8 +225,6 @@ export function Equipe() {
           <Link to="/academicos" className="text-pink-300 hover:text-pink-400 transition">ACADÊMICOS</Link>
           <span className="text-white/70">|</span>
           <Link to="/mestrandos" className="text-pink-300 hover:text-pink-400 transition">MESTRANDOS</Link>
-          <span className="text-white/70">|</span>
-          <Link to="/academicos" className="text-pink-300 hover:text-pink-400 transition">DOUTORES</Link>
           <span className="text-white/70">|</span>
           <Link to="/pesquisadores" className="text-pink-300 hover:text-pink-400 transition">PESQUISADORES</Link>
         </div>

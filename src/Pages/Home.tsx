@@ -98,7 +98,7 @@ function Home() {
                   NOTÍCIAS
                 </a>
                 <a
-                  href="#"
+                  href="https://www.youtube.com/@observatorionorte"
                   onClick={() => setActiveSection('#lectures')}
                   className={`group flex items-center gap-2 text-sm font-medium transition-all duration-300 
                     ${activeSection === '#lectures'
@@ -216,14 +216,6 @@ function Home() {
             <p className="text-lg md:text-xl text-white/90 mb-6 md:mb-8">
               Combate à desinformação e fake news com pesquisa e educação.
             </p>
-            <div className="flex flex-wrap gap-3 sm:gap-4 justify-center">
-              <button className="bg-pink-600 hover:bg-pink-700 active:bg-pink-800 text-white px-6 py-2 md:px-8 md:py-3 rounded-full font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-pink-600/20 text-sm md:text-base">
-                Começar Agora
-              </button>
-              <button className="bg-white/20 hover:bg-white/30 active:bg-white/40 text-white px-6 py-2 md:px-8 md:py-3 rounded-full font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-white/20 backdrop-blur-sm text-sm md:text-base">
-                Saiba Mais
-              </button>
-            </div>
           </div>
         </div>
       </div>
@@ -236,7 +228,7 @@ function Home() {
             </p>
             <ul className="space-y-2 md:space-y-3 lg:space-y-4">
             </ul>
-          </div>
+          </div> 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 order-1 lg:order-2">
             {["https://images.unsplash.com/photo-1544531585-9847b68c8c86?auto=format&fit=crop&q=80", "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&q=80"].map((src, index) => (
               <img
