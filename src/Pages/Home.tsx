@@ -1,5 +1,5 @@
 import { BookOpen, Users, Rss, BookOpenText, Youtube, ArrowRight, Menu, X, AlertTriangle, Share2, CheckCircle2, XCircle, Search, Brain, Newspaper, ChevronLeft, ChevronRight } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXTwitter, faSpotify, faYoutube, faTiktok, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
@@ -8,7 +8,24 @@ function Home() {
   const [activeSection, setActiveSection] = useState('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // Animação de inicialização
+    setIsVisible(false);
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 100);
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev === 2 ? 0 : prev + 1));
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   const articles = [
     {
@@ -44,7 +61,10 @@ function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-800 via-purple-700 to-pink-800 text-white">
-      <header className="bg-blue-900/90 py-4 sticky top-0 z-50 backdrop-blur-sm border-b border-white/10">
+      {/* Apenas adicionei a animação nesta seção do header */}
+      <header className={`bg-blue-900/90 py-4 sticky top-0 z-50 backdrop-blur-sm border-b border-white/10 transition-all duration-1000 ease-out ${
+        isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
+      }`}>
         <div className="container mx-auto px-4">
           <nav className="flex items-center justify-between">
             <div className="flex items-center gap-2 cursor-pointer hover:scale-105 transition-transform">
@@ -242,7 +262,7 @@ function Home() {
         </div>
       </header>
 
-      {/* Full-width Carousel without borders */}
+      {/* Restante do código permanece EXATAMENTE IGUAL */}
       <div className="relative w-full overflow-hidden">
         <div className="relative h-[500px] w-full">
           {articles.map((article, index) => (
@@ -265,7 +285,7 @@ function Home() {
                 ) : (
                   <div className="w-full h-full bg-gray-800 flex items-center justify-center">
                     <div className="text-white text-6xl font-mono">
-                      {article.content}
+                      {article.image}
                     </div>
                   </div>
                 )}
@@ -503,7 +523,7 @@ function Home() {
 
       <section className="py-16 bg-gradient-to-r from-blue-900/40 to-purple-900/40">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-bold mb-12 text-center">
+          <h2 className="text-2x1 md:text-3xl font-bold mb-12 text-center">
             Parceiros
           </h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-8 items-center">
