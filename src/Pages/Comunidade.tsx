@@ -4,6 +4,7 @@ import { Menu, X, ArrowRight, BookOpen, Users, Search, Newspaper, Video, Youtube
 import { useState } from 'react';
 import { faXTwitter, faSpotify, faYoutube, faTiktok, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLink } from '@fortawesome/free-solid-svg-icons'; // Ícone específico
 
 export function Comunidade() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -192,7 +193,7 @@ export function Comunidade() {
                 <Link
                   to="https://www.youtube.com/@observatorionorte"
                   onClick={() => {
-                    
+
                     setActiveSection('#lectures');
                     setMobileMenuOpen(false);
                   }}
@@ -231,6 +232,8 @@ export function Comunidade() {
           <Link to="/pesquisadores" className="text-pink-300 hover:text-pink-400 transition">PESQUISADORES</Link>
           <span className="text-white/70">|</span>
           <Link to="/comunidade" className="text-white hover:text-pink-400 transition">COMUNIDADE EXTERNA</Link>
+          <span className="text-white/70">|</span>
+          <Link to="/servidores" className="text-white hover:text-pink-400 transition">SERVIDORES</Link>
 
 
         </div>
@@ -258,8 +261,15 @@ export function Comunidade() {
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
                 <h3 className="text-white font-semibold text-lg">Guilherme</h3>
-                <p className="text-white/80 text-sm"></p>
               </div>
+              <a
+                href="https://lattes.cnpq.br/2359492111253555"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-4 right-4 bg-black/70 hover:bg-black/90 p-2 rounded-full transition"
+              >
+                <FontAwesomeIcon icon={faLink} className="text-white" /> {/* Ícone corrigido */}
+              </a>
             </div>
 
             {/* Domenica */}

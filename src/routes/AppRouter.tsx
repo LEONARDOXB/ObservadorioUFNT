@@ -8,6 +8,7 @@ import Pesquisa from '../Pages/Pesquisa';
 import Noticias from '../Pages/Noticias';
 import Login from '../Pages/Login';
 import { Comunidade } from '../Pages/Comunidade';
+import { Servidores } from '../Pages/Servidores';
 
 export function AppRouter() {
   return (
@@ -22,6 +23,7 @@ export function AppRouter() {
         <Route path="/noticias" element={<Noticias />} />
         <Route path="/login" element={<Login />} />
         <Route path="/comunidade" element={<Comunidade />} />
+        <Route path="/servidores" element={<Servidores />} />
       </Routes>
     </BrowserRouter>
   );

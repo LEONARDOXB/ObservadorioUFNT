@@ -230,6 +230,8 @@ export function Equipe() {
           <Link to="/pesquisadores" className="text-pink-300 hover:text-pink-400 transition">PESQUISADORES</Link>
           <span className="text-white/70">|</span>
           <Link to="/comunidade" className="text-pink-300 hover:text-pink-400 transition">COMUNIDADE EXTERNA</Link>
+          <span className="text-white/70">|</span>
+          <Link to="/servidores" className="text-pink-300 hover:text-pink-400 transition">SERVIDORES</Link>
 
 
         </div>
@@ -290,7 +292,7 @@ export function Equipe() {
             {/* Beatriz */}
             <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
               <img
-                src="/imagens/beatriz.jpg"
+                src="/imagens/2F9A1555.jpg"
                 alt="Foto de Membro da Equipe"
                 className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
               />

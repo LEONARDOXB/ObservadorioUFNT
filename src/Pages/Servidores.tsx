@@ -1,10 +1,12 @@
+
 import { Link, useNavigate } from 'react-router-dom';
 import { Menu, X, ArrowRight, BookOpen, Users, Search, Newspaper, Video, Youtube } from 'lucide-react';
 import { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXTwitter, faSpotify, faYoutube, faTiktok, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLink } from '@fortawesome/free-solid-svg-icons'; // Ícone específico
 
-export function Academicos() {
+export function Servidores() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
   const navigate = useNavigate();
@@ -44,8 +46,7 @@ export function Academicos() {
                 </a>
                 <a href="https://www.youtube.com/@observatorionorte" target="_blank" rel="noopener noreferrer">
                   <FontAwesomeIcon icon={faYoutube} className="text-white hover:text-red-500 transition-all h-5 w-5" />
-                </a>
-                <a href="https://www.tiktok.com/@norteobservatorio?_t=ZM-8uzZfAmW1AM&_r=1" target="_blank" rel="noopener noreferrer">
+                </a>           <a href="https://www.tiktok.com/@norteobservatorio?_t=ZM-8uzZfAmW1AM&_r=1" target="_blank" rel="noopener noreferrer">
                   <FontAwesomeIcon icon={faTiktok} className="text-white hover:text-blue-500 transition-all h-5 w-5" />
                 </a>
                 <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
@@ -55,7 +56,7 @@ export function Academicos() {
                   <FontAwesomeIcon icon={faInstagram} className="text-white hover:text-pink-500 transition-all h-5 w-5" />
                 </a>
                 <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                  <FontAwesomeIcon icon={faXTwitter} className="text-white hover:text-gray-800 transition-all h-5 w-5" />
+                  <FontAwesomeIcon icon={faXTwitter} className="text-white hover:text-gray-800 transition-all  h-5 w-5" />
                 </a>
               </div>
 
@@ -121,6 +122,7 @@ export function Academicos() {
               {/* Login Button */}
               <button
                 onClick={() => navigate('/login')}
+
                 className="bg-gradient-to-r from-pink-500 to-purple-600 text-white px-4 lg:px-6 py-2 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20 flex items-center gap-2">
                 ENTRAR
                 <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
@@ -175,7 +177,7 @@ export function Academicos() {
                   PESQUISA
                 </Link>
                 <Link
-                  to="#"
+                  to="noticias"
                   onClick={() => {
                     setActiveSection('#news');
                     setMobileMenuOpen(false);
@@ -189,8 +191,9 @@ export function Academicos() {
                   NOTÍCIAS
                 </Link>
                 <Link
-                  to="#"
+                  to="https://www.youtube.com/@observatorionorte"
                   onClick={() => {
+
                     setActiveSection('#lectures');
                     setMobileMenuOpen(false);
                   }}
@@ -222,138 +225,92 @@ export function Academicos() {
           <span className="text-white/70">|</span>
           <Link to="/equipe" className="text-pink-300 hover:text-pink-400 transition">PROFESSORES</Link>
           <span className="text-white/70">|</span>
-          <Link to="/academicos" className="text-white">ACADÊMICOS</Link>
+          <Link to="/academicos" className="text-pink-300 hover:text-pink-400 transition">ACADÊMICOS</Link>
           <span className="text-white/70">|</span>
           <Link to="/mestrandos" className="text-pink-300 hover:text-pink-400 transition">MESTRANDOS</Link>
           <span className="text-white/70">|</span>
           <Link to="/pesquisadores" className="text-pink-300 hover:text-pink-400 transition">PESQUISADORES</Link>
           <span className="text-white/70">|</span>
-          <Link to="/comunidade" className="text-pink-300 hover:text-pink-400 transition">COMUNIDADE EXTERNA</Link>
+          <Link to="/comunidade" className="text-white hover:text-pink-400 transition">COMUNIDADE EXTERNA</Link>
           <span className="text-white/70">|</span>
-          <Link to="/servidores" className="text-pink-300 hover:text-pink-400 transition">SERVIDORES</Link>
-
-
+          <Link to="/servidores" className="text-white  transition">SERVIDORES</Link>
 
         </div>
       </div>
-
-
-      {/* Conteúdo dos Alunos */}
+      {/* Team Section */}
       <main className="bg-gradient-to-br from-blue-600 via-purple-600 to-pink-500 px-6 py-16">
         <div className="max-w-7xl mx-auto">
-          <div className="text-pink-300 uppercase text-sm mb-4">CONHEÇA NOSSOS</div>
-          <h1 className="text-white text-5xl font-bold mb-6">Acadêmicos</h1>
+          <div className="text-white uppercase text-sm mb-4">CONHEÇA COMUNIDADE EXTERNA</div>
+          <h1 className="text-white text-5xl font-bold mb-6">Nossa Equipe</h1>
           <p className="text-white/90 text-lg max-w-3xl mb-16">
-            Conheça os Acadêmicos que fazem parte do nosso Observatório e contribuem para o combate à desinformação.
+            Conheça os profissionais dedicados que compõem nossa equipe no Observatório Digital.
+            São especialistas em diversas áreas trabalhando juntos para combater a desinformação
+            e promover o conhecimento científico.
           </p>
 
-          {/* Grid de Alunos - Estilo igual ao da Equipe */}
+          {/* Team Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Acadêmico 1 */}
+            {/* Wagner Mariano */}
             <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
               <img
-                src="/imagens/IMG_5398.jpg"
-                alt="Foto de Acadêmico 1"
+                src="/imagens/Imagem do WhatsApp de 2025-04-20 à(s) 19.50.29_eaeb37f5.jpg"
+                alt="Foto de Wagner Mariano"
                 className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
-                <h3 className="text-white font-semibold text-lg">Nome do Acadêmico 1</h3>
+                <h3 className="text-white font-semibold text-lg">Sheylene</h3>
+              </div>
+              <a
+                href="https://"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-4 right-4 bg-black/70 hover:bg-black/90 p-2 rounded-full transition"
+              >
+                <FontAwesomeIcon icon={faLink} className="text-white" /> {/* Ícone corrigido */}
+              </a>
+            </div>
+            {/* Domenica */}
+            <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
+              <img
+                src="/imagens/Fabricio Rodrigues B. Neto.jpg"
+                alt="Foto de Wagner Mariano"
+                className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
+                <h3 className="text-white font-semibold text-lg">Sheylene</h3>
+              </div>
+              <a
+                href="https://"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-4 right-4 bg-black/70 hover:bg-black/90 p-2 rounded-full transition"
+              >
+                <FontAwesomeIcon icon={faLink} className="text-white" /> {/* Ícone corrigido */}
+              </a>
+            </div>
+
+            {/* Digitalizado */}
+            <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
+              <img
+                src="/imagens/Digitalizado.jpg"
+                alt="Foto de Membro da Equipe"
+                className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
+                <h3 className="text-white font-semibold text-lg">Elizângela Melo</h3>
                 <p className="text-white/80 text-sm"></p>
               </div>
             </div>
 
-            {/* Acadêmico 2 */}
+            {/* Beatriz */}
             <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
               <img
-                src="/imagens/cb6e7d69-a44b-4c40-92b5-fbb1649effd1.jpg"
-                alt="Foto de Acadêmico 2"
+                src="/imagens/beatriz.jpg"
+                alt="Foto de Membro da Equipe"
                 className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
-                <h3 className="text-white font-semibold text-lg">Nome do Acadêmico 2</h3>
-                <p className="text-white/80 text-sm"></p>
-              </div>
-            </div>
-
-            {/* Acadêmico 3 */}
-            <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
-              <img
-                src="/imagens/FF6DDD48-F840-4CBC-A9E9-C16C4C61777C.jpg"
-                alt="Foto de Acadêmico 3"
-                className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
-                <h3 className="text-white font-semibold text-lg">Nome do Acadêmico 3</h3>
-                <p className="text-white/80 text-sm"></p>
-              </div>
-            </div>
-
-            {/* Acadêmico 4 */}
-            <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
-              <img
-                src="/imagens/20250204_115837.jpg"
-                alt="Foto de Acadêmico 4"
-                className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
-                <h3 className="text-white font-semibold text-lg">Nome do Acadêmico 4</h3>
-                <p className="text-white/80 text-sm"></p>
-              </div>
-            </div>
-
-            <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
-              <img
-                src="/imagens/IMG-20250405-WA0277.jpg"
-                alt="Foto de Acadêmico 4"
-                className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
-                <h3 className="text-white font-semibold text-lg">Nome do Acadêmico 5</h3>
-                <p className="text-white/80 text-sm"></p>
-              </div>
-            </div>
-
-            <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
-              <img
-                src="/imagens/IMG-20250406-WA0081.jpg"
-                alt="Foto de Acadêmico 4"
-                className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
-                <h3 className="text-white font-semibold text-lg">Nome do Acadêmico 5</h3>
-                <p className="text-white/80 text-sm"></p>
-              </div>
-            </div>
-            <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
-              <img
-                src="/imagens/ALISSON.jpg"
-                alt="Foto de Acadêmico 4"
-                className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
-                <h3 className="text-white font-semibold text-lg">Nome do Acadêmico 5</h3>
-                <p className="text-white/80 text-sm"></p>
-              </div>
-            </div>
-            <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
-              <img
-                src="/imagens/IMG_20250403_180259_713.webp"
-                alt="Foto de Acadêmico 4"
-                className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
-                <h3 className="text-white font-semibold text-lg">Nome do Acadêmico 5</h3>
-                <p className="text-white/80 text-sm"></p>
-              </div>
-            </div>
-            <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
-              <img
-                src="/imagens/Thauane Maria 2025-04-07 à(s) 15.25.06_44697b1d.jpg"
-                alt="Foto de Acadêmico 4"
-                className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
-                <h3 className="text-white font-semibold text-lg">Nome do Acadêmico 5</h3>
+                <h3 className="text-white font-semibold text-lg">Beatriz Croriz</h3>
                 <p className="text-white/80 text-sm"></p>
               </div>
             </div>
@@ -362,16 +319,14 @@ export function Academicos() {
           {/* Back Button */}
           <div className="flex justify-center mt-12">
             <Link
-              to="/equipe"
+              to="/"
               className="flex items-center space-x-2 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white px-6 py-3 rounded-full transition-all hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20"
             >
-              <span>Voltar Para Equipe</span>
+              <span>Voltar Para Início</span>
             </Link>
           </div>
         </div>
       </main>
-
-      {/* Footer */}
       <footer className="bg-gradient-to-br from-blue-600/90 via-purple-600/90 to-pink-500/90 py-8 md:py-12">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
@@ -423,7 +378,7 @@ export function Academicos() {
                 Newsletter
               </h4>
               <p className="text-xs md:text-sm text-white/80 mb-3 md:mb-4">
-                Receba as últimas atualizações sobre pesquisas e eventos.
+                Receba as últimas Atualizações sobre Pesquisas e Eventos.
               </p>
               <div className="flex gap-2">
                 <input
@@ -439,7 +394,7 @@ export function Academicos() {
           </div>
           <div className="border-t border-white/10 mt-8 md:mt-12 pt-6 md:pt-8 text-center text-white/80">
             <p className="hover:text-white transition-colors text-xs md:text-sm">
-              &copy; {new Date().getFullYear()} Observatório Norte. Todos os direitos reservados.
+              &copy; {new Date().getFullYear()} Observatório Norte. Todos os Direitos Reservados.
             </p>
           </div>
         </div>
