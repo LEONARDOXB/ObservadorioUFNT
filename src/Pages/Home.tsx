@@ -579,7 +579,7 @@ function Home() {
           </div>
         </section>
 
-        <section className="py-16 bg-gradient-to-r from-blue-900/40 to-purple-900/40">
+       <section className="py-16 bg-gradient-to-r from-blue-900/40 to-purple-900/40">
   <div className="container mx-auto px-4">
     <h2 className="text-2xl md:text-3xl font-bold mb-12 text-center">
       Parceiros

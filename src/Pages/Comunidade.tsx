@@ -222,7 +222,7 @@ export function Comunidade() {
         <div className="container mx-auto flex items-center space-x-2 text-sm">
           <Link to="/" className="text-pink-300 hover:text-pink-400 transition">HOME</Link>
           <span className="text-white/70">|</span>
-          <span className="text-pink-300 hover:text-pink-400">PROFESSORES</span>
+          <Link to="/equipe" className="text-pink-300 hover:text-pink-400 transition">PROFESSORES</Link>
           <span className="text-white/70">|</span>
           <Link to="/academicos" className="text-pink-300 hover:text-pink-400 transition">ACADÊMICOS</Link>
           <span className="text-white/70">|</span>
@@ -239,7 +239,7 @@ export function Comunidade() {
       {/* Team Section */}
       <main className="bg-gradient-to-br from-blue-600 via-purple-600 to-pink-500 px-6 py-16">
         <div className="max-w-7xl mx-auto">
-          <div className="text-white uppercase text-sm mb-4">CONHEÇA NOSSOS PROFESSORES</div>
+          <div className="text-white uppercase text-sm mb-4">CONHEÇA COMUNIDADE EXTERNA</div>
           <h1 className="text-white text-5xl font-bold mb-6">Nossa Equipe</h1>
           <p className="text-white/90 text-lg max-w-3xl mb-16">
             Conheça os profissionais dedicados que compõem nossa equipe no Observatório Digital.
@@ -252,12 +252,12 @@ export function Comunidade() {
             {/* Wagner Mariano */}
             <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
               <img
-                src="/imagens/Imagem do WhatsApp de 2025-04-15 à(s) 21.28.20_4feb981d.jpg"
+                src="/imagens/IMG-20240715-WA0035 (1).jpg"
                 alt="Foto de Wagner Mariano"
                 className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
-                <h3 className="text-white font-semibold text-lg">Wagner Mariano</h3>
+                <h3 className="text-white font-semibold text-lg">Guilherme</h3>
                 <p className="text-white/80 text-sm"></p>
               </div>
             </div>
@@ -265,12 +265,12 @@ export function Comunidade() {
             {/* Domenica */}
             <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
               <img
-                src="/imagens/Domenica_imagem.jpg"
-                alt="Foto de Domenica"
+                src="/imagens/WhatsApp Image 2025-04-07 at 16.31.27 (1).jpeg"
+                alt="Foto de Leonardo"
                 className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
-                <h3 className="text-white font-semibold text-lg">Domenica</h3>
+                <h3 className="text-white font-semibold text-lg">Leonardo</h3>
                 <p className="text-white/80 text-sm"></p>
               </div>
             </div>
