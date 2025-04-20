@@ -233,7 +233,8 @@ export function Doutores() {
           <Link to="/mestrandos" className="text-pink-300 hover:text-pink-400 transition">MESTRANDOS</Link>
           <span className="text-white/70">|</span>
           <Link to="/pesquisadores" className="text-pink-300 hover:text-pink-400 transition">PESQUISADORES</Link>
-
+          <span className="text-white/70">|</span>
+          <Link to="/comunidade" className="text-pink-300 hover:text-pink-400 transition">COMUNIDADE EXTERNA</Link>
 
         </div>
       </div>

@@ -1,10 +1,11 @@
+
 import { Link, useNavigate } from 'react-router-dom';
 import { Menu, X, ArrowRight, BookOpen, Users, Search, Newspaper, Video, Youtube } from 'lucide-react';
 import { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXTwitter, faSpotify, faYoutube, faTiktok, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-export function Mestrandos() {
+export function Comunidade() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
   const navigate = useNavigate();
@@ -24,7 +25,8 @@ export function Mestrandos() {
               />
               <span className="text-2xl font-bold text-orange-50">
                 Observatório Norte
-              </span>               </div>
+              </span>
+            </div>
 
             {/* Mobile Menu Button */}
             <button
@@ -174,7 +176,7 @@ export function Mestrandos() {
                   PESQUISA
                 </Link>
                 <Link
-                  to="#"
+                  to="noticias"
                   onClick={() => {
                     setActiveSection('#news');
                     setMobileMenuOpen(false);
@@ -188,8 +190,9 @@ export function Mestrandos() {
                   NOTÍCIAS
                 </Link>
                 <Link
-                  to=""
+                  to="https://www.youtube.com/@observatorionorte"
                   onClick={() => {
+                    
                     setActiveSection('#lectures');
                     setMobileMenuOpen(false);
                   }}
@@ -219,77 +222,93 @@ export function Mestrandos() {
         <div className="container mx-auto flex items-center space-x-2 text-sm">
           <Link to="/" className="text-pink-300 hover:text-pink-400 transition">HOME</Link>
           <span className="text-white/70">|</span>
-          <Link to="/equipe" className="text-pink-300 hover:text-pink-400 transition">PROFESSORES</Link>
+          <span className="text-pink-300 hover:text-pink-400">PROFESSORES</span>
           <span className="text-white/70">|</span>
           <Link to="/academicos" className="text-pink-300 hover:text-pink-400 transition">ACADÊMICOS</Link>
           <span className="text-white/70">|</span>
-          <Link to="/mestrandos" className="text-white">MESTRANDOS</Link>
+          <Link to="/mestrandos" className="text-pink-300 hover:text-pink-400 transition">MESTRANDOS</Link>
           <span className="text-white/70">|</span>
           <Link to="/pesquisadores" className="text-pink-300 hover:text-pink-400 transition">PESQUISADORES</Link>
           <span className="text-white/70">|</span>
-          <Link to="/comunidade" className="text-pink-300 hover:text-pink-400 transition">COMUNIDADE EXTERNA</Link>
+          <Link to="/comunidade" className="text-white hover:text-pink-400 transition">COMUNIDADE EXTERNA</Link>
+
 
         </div>
       </div>
 
-      {/* Conteúdo dos Alunos */}
+      {/* Team Section */}
       <main className="bg-gradient-to-br from-blue-600 via-purple-600 to-pink-500 px-6 py-16">
         <div className="max-w-7xl mx-auto">
-          <div className="text-pink-300 uppercase text-sm mb-4">CONHEÇA NOSSOS</div>
-          <h1 className="text-white text-5xl font-bold mb-6">Mestrandos</h1>
+          <div className="text-white uppercase text-sm mb-4">CONHEÇA NOSSOS PROFESSORES</div>
+          <h1 className="text-white text-5xl font-bold mb-6">Nossa Equipe</h1>
           <p className="text-white/90 text-lg max-w-3xl mb-16">
-            Conheça os Mestrandos que fazem parte do nosso observatório e contribuem para o combate à desinformação.
+            Conheça os profissionais dedicados que compõem nossa equipe no Observatório Digital.
+            São especialistas em diversas áreas trabalhando juntos para combater a desinformação
+            e promover o conhecimento científico.
           </p>
 
-          {/* Lista de Alunos */}
-          {/* Grid de Alunos - Estilo igual ao da Equipe */}
+          {/* Team Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Acadêmico 1 */}
+            {/* Wagner Mariano */}
             <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
               <img
-                src="/imagens/1664318755178.jpg"
-                alt="Foto de Acadêmico 1"
+                src="/imagens/Imagem do WhatsApp de 2025-04-15 à(s) 21.28.20_4feb981d.jpg"
+                alt="Foto de Wagner Mariano"
                 className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
-                <h3 className="text-white font-semibold text-lg">Nome do Mestrandos 1</h3>
+                <h3 className="text-white font-semibold text-lg">Wagner Mariano</h3>
                 <p className="text-white/80 text-sm"></p>
               </div>
             </div>
 
-            {/* Acadêmico 2 */}
+            {/* Domenica */}
             <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
               <img
-                src="/imagens/Karen Leticia .jpg"
-                alt="Foto de Acadêmico 2"
+                src="/imagens/Domenica_imagem.jpg"
+                alt="Foto de Domenica"
                 className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
-                <h3 className="text-white font-semibold text-lg">Nome do Mestrandos 2</h3>
+                <h3 className="text-white font-semibold text-lg">Domenica</h3>
                 <p className="text-white/80 text-sm"></p>
               </div>
             </div>
 
-
+            {/* Digitalizado */}
             <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
               <img
-                src="/imagens/20250324_112712.jpg"
-                alt="Foto de Acadêmico 4"
+                src="/imagens/Digitalizado.jpg"
+                alt="Foto de Membro da Equipe"
                 className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
-                <h3 className="text-white font-semibold text-lg">Nome do Mestrandos 5</h3>
+                <h3 className="text-white font-semibold text-lg">Elizângela Melo</h3>
+                <p className="text-white/80 text-sm"></p>
+              </div>
+            </div>
+
+            {/* Beatriz */}
+            <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
+              <img
+                src="/imagens/beatriz.jpg"
+                alt="Foto de Membro da Equipe"
+                className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
+                <h3 className="text-white font-semibold text-lg">Beatriz Croriz</h3>
                 <p className="text-white/80 text-sm"></p>
               </div>
             </div>
           </div>
+
           {/* Back Button */}
           <div className="flex justify-center mt-12">
             <Link
-              to="/equipe"
+              to="/"
               className="flex items-center space-x-2 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white px-6 py-3 rounded-full transition-all hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20"
             >
-              <span>Voltar Para Equipe</span>
+              <span>Voltar Para Início</span>
             </Link>
           </div>
         </div>
@@ -345,7 +364,7 @@ export function Mestrandos() {
                 Newsletter
               </h4>
               <p className="text-xs md:text-sm text-white/80 mb-3 md:mb-4">
-                Receba as últimas atualizações sobre pesquisas e eventos.
+                Receba as últimas Atualizações sobre Pesquisas e Eventos.
               </p>
               <div className="flex gap-2">
                 <input
@@ -361,7 +380,7 @@ export function Mestrandos() {
           </div>
           <div className="border-t border-white/10 mt-8 md:mt-12 pt-6 md:pt-8 text-center text-white/80">
             <p className="hover:text-white transition-colors text-xs md:text-sm">
-              &copy; {new Date().getFullYear()} Observatório Norte. Todos os direitos reservados.
+              &copy; {new Date().getFullYear()} Observatório Norte. Todos os Direitos Reservados.
             </p>
           </div>
         </div>
