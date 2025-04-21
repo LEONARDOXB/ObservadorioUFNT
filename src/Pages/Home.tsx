@@ -104,7 +104,7 @@ function Home() {
                   </div>
 
                   {/* Welcome text */}
-                  <h1 
+                  <h1
                     className={`text-8xl font-bold text-white tracking-wider shadow-glow transition-all duration-1000
                       ${showText ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`}
                   >
@@ -112,7 +112,7 @@ function Home() {
                   </h1>
 
                   {/* Animated underline */}
-                  <div 
+                  <div
                     className={`h-1 bg-gradient-to-r from-transparent via-white to-transparent transition-all duration-1000 delay-500
                       ${showText ? 'w-full opacity-70' : 'w-0 opacity-0'}`}
                   />
@@ -579,43 +579,44 @@ function Home() {
           </div>
         </section>
 
-       <section className="py-16 bg-gradient-to-r from-blue-900/40 to-purple-900/40">
-  <div className="container mx-auto px-4">
-    <h2 className="text-2xl md:text-3xl font-bold mb-12 text-center">
-      Parceiros
-    </h2>
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-8 items-center">
-      <a href="https://www.gov.br" target="_blank" rel="noopener noreferrer">
-        <img src="/imagens/brasil ufnt.png" alt="Brasil UFNT" className="h-16 object-contain mx-auto hover:scale-110 transition-transform rounded-2xl" />
-      </a>
-      
-      <a href="https://www.gov.br/cnpq" target="_blank" rel="noopener noreferrer">
-        <img src="/imagens/cnpq.png" alt="CNPq" className="h-16 object-contain mx-auto hover:scale-110 transition-transform rounded-2xl" />
-      </a>
-      
-      <a href="https://www.gov.br" target="_blank" rel="noopener noreferrer">
-        <img src="/imagens/governofederal.png" alt="Governo Federal" className="h-16 object-contain mx-auto hover:scale-110 transition-transform rounded-2xl" />
-      </a>
-      
-      <a href="https://www.observatorio.org" target="_blank" rel="noopener noreferrer">
-        <img src="/imagens/observatorio.png" alt="Observatório" className="h-16 object-contain mx-auto hover:scale-110 transition-transform rounded-2xl" />
-      </a>
-      
-      <a href="https://www.gov.br/saude" target="_blank" rel="noopener noreferrer">
-        <img src="/imagens/sus.png" alt="SUS" className="h-16 object-contain mx-auto hover:scale-110 transition-transform rounded-2xl" />
-      </a>
-      
-      <a href="https://www.ufnt.edu.br" target="_blank" rel="noopener noreferrer">
-        <img src="/imagens/ufnt.png" alt="UFNT" className="h-16 object-contain mx-auto hover:scale-110 transition-transform rounded-2xl" />
-      </a>
-      
-      <a href="https://www.observatorio.org" target="_blank" rel="noopener noreferrer">
-        <img src="/imagens/observatorio-logo.png.jpeg" alt="Observatório Logo" className="h-16 object-contain mx-auto hover:scale-110 transition-transform rounded-2xl" />
-      </a>
-    </div>
-  </div>
-</section>
+        <section className="py-16 bg-gradient-to-r from-blue-900/40 to-purple-900/40">
+          <div className="container mx-auto px-4">
+            <h2 className="text-2xl md:text-3xl font-bold mb-12 text-center">
+              Parceiros
+            </h2>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-8 items-center">
+              <a href="https://www.gov.br" target="_blank" rel="noopener noreferrer">
+                <img src="/imagens/brasil ufnt.png" alt="Brasil UFNT" className="h-16 object-contain mx-auto hover:scale-110 transition-transform rounded-2xl" />
+              </a>
 
+              <a href="https://www.gov.br/cnpq" target="_blank" rel="noopener noreferrer">
+                <img src="/imagens/cnpq.png" alt="CNPq" className="h-16 object-contain mx-auto hover:scale-110 transition-transform rounded-2xl" />
+              </a>
+
+              <a href="https://www.gov.br" target="_blank" rel="noopener noreferrer">
+                <img src="/imagens/governofederal.png" alt="Governo Federal" className="h-16 object-contain mx-auto hover:scale-110 transition-transform rounded-2xl" />
+              </a>
+
+              <a href="https://www.observatorio.org" target="_blank" rel="noopener noreferrer">
+                <img src="/imagens/observatorio.png" alt="Observatório" className="h-16 object-contain mx-auto hover:scale-110 transition-transform rounded-2xl" />
+              </a>
+
+              <a href="https://www.gov.br/saude" target="_blank" rel="noopener noreferrer">
+                <img src="/imagens/sus.png" alt="SUS" className="h-16 object-contain mx-auto hover:scale-110 transition-transform rounded-2xl" />
+              </a>
+
+              <a href="https://www.ufnt.edu.br" target="_blank" rel="noopener noreferrer">
+                <img src="/imagens/ufnt.png" alt="UFNT" className="h-16 object-contain mx-auto hover:scale-110 transition-transform rounded-2xl" />
+              </a>
+
+              <a href="https://www.observatorio.org" target="_blank" rel="noopener noreferrer">
+                <img src="/imagens/observatorio-logo.png.jpeg" alt="Observatório Logo" className="h-16 object-contain mx-auto hover:scale-110 transition-transform rounded-2xl" />
+              </a>
+            </div>
+          </div>
+        </section>
+        
+        
         <footer className="bg-blue-900/90 py-8 md:py-12">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
@@ -685,7 +686,7 @@ function Home() {
             </div>
             <div className="border-t border-white/10 mt-8 md:mt-12 pt-6 md:pt-8 text-center text-white/80">
               <p className="hover:text-white transition-colors text-xs md:text-sm">
-                &copy; {new Date().getFullYear()} Observatório Digital. Todos os direitos reservados.
+                &copy; {new Date().getFullYear()} Observatório Norte. Todos os direitos reservados.
               </p>
             </div>
           </div>

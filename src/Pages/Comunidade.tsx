@@ -276,13 +276,20 @@ export function Comunidade() {
             <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
               <img
                 src="/imagens/WhatsApp Image 2025-04-07 at 16.31.27 (1).jpeg"
-                alt="Foto de Leonardo"
+                alt="Foto de Wagner Mariano"
                 className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
-                <h3 className="text-white font-semibold text-lg">Leonardo</h3>
-                <p className="text-white/80 text-sm"></p>
+                <h3 className="text-white font-semibold text-lg">Guilherme</h3>
               </div>
+              <a
+                href="https://lattes.cnpq.br/2359492111253555"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-4 right-4 bg-black/70 hover:bg-black/90 p-2 rounded-full transition"
+              >
+                <FontAwesomeIcon icon={faLink} className="text-white" /> {/* Ícone corrigido */}
+              </a>
             </div>
 
             {/* Digitalizado */}
