@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXTwitter, faSpotify, faYoutube, faTiktok, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { Carousel } from '../components/ui/Carousel';
 
 function Home() {
   const [activeSection, setActiveSection] = useState('');
@@ -17,6 +18,29 @@ function Home() {
   const [showText, setShowText] = useState(false);
   const [showSparkles, setShowSparkles] = useState(false);
 
+
+  const slideData = [
+    {
+      title: "Mystic Mountains",
+      button: "Explore Component",
+      src: "https://images.unsplash.com/photo-1494806812796-244fe51b774d?q=80&w=3534&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+    {
+      title: "Urban Dreams",
+      button: "Explore Component",
+      src: "https://images.unsplash.com/photo-1518710843675-2540dd79065c?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+    {
+      title: "Neon Nights",
+      button: "Explore Component",
+      src: "https://images.unsplash.com/photo-1590041794748-2d8eb73a571c?q=80&w=3456&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+    {
+      title: "Desert Whispers",
+      button: "Explore Component",
+      src: "https://images.unsplash.com/photo-1679420437432-80cfbf88986c?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+  ];
   useEffect(() => {
     // Welcome animation sequence
     setTimeout(() => setShowText(true), 500);
@@ -24,15 +48,13 @@ function Home() {
     setTimeout(() => setShowHeader(true), 3500);
     setTimeout(() => {
       setShowWelcome(false);
-      // Start the main page animation after welcome finishes
-      setIsVisible(false);
-      setTimeout(() => setIsVisible(true), 100);
-    }, 5000); // Total de 5 segundos para a animação de welcome
+      setIsVisible(true);
+    }, 5000);
   }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev === 2 ? 0 : prev + 1));
+      setCurrentSlide((prev) => (prev === articles.length - 1 ? 0 : prev + 1));
     }, 5000);
     return () => clearInterval(interval);
   }, []);
@@ -61,6 +83,7 @@ function Home() {
     }
   ];
 
+
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev === articles.length - 1 ? 0 : prev + 1));
   };
@@ -75,7 +98,6 @@ function Home() {
       {showWelcome && (
         <div className="fixed inset-0 z-50 bg-[#1e3a8a]">
           <div className="min-h-screen flex items-center justify-center overflow-hidden">
-            {/* Animated background particles */}
             <div className="absolute inset-0 overflow-hidden">
               {[...Array(20)].map((_, i) => (
                 <div
@@ -92,10 +114,8 @@ function Home() {
             </div>
 
             <div className="relative">
-              {/* Welcome text with glow effect */}
               <div className="flex items-center justify-center">
                 <div className="relative">
-                  {/* Animated stars */}
                   <div className={`absolute -left-16 -top-16 transition-all duration-1000 ${showSparkles ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
                     <Stars className="w-12 h-12 text-yellow-300 animate-spin-slow" />
                   </div>
@@ -103,7 +123,6 @@ function Home() {
                     <Sparkles className="w-12 h-12 text-yellow-300 animate-bounce" />
                   </div>
 
-                  {/* Welcome text */}
                   <h1
                     className={`text-8xl font-bold text-white tracking-wider shadow-glow transition-all duration-1000
                       ${showText ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`}
@@ -111,7 +130,6 @@ function Home() {
                     Bem Vindo!
                   </h1>
 
-                  {/* Animated underline */}
                   <div
                     className={`h-1 bg-gradient-to-r from-transparent via-white to-transparent transition-all duration-1000 delay-500
                       ${showText ? 'w-full opacity-70' : 'w-0 opacity-0'}`}
@@ -328,8 +346,7 @@ function Home() {
             {articles.map((article, index) => (
               <div
                 key={article.id}
-                className={`absolute inset-0 w-full h-full transition-opacity duration-500 ${index === currentSlide ? 'opacity-100' : 'opacity-0'
-                  }`}
+                className={`absolute inset-0 w-full h-full transition-opacity duration-500 ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}
               >
                 <div className="relative w-full h-full">
                   {article.image ? (
@@ -385,8 +402,7 @@ function Home() {
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
-                className={`w-2 h-2 rounded-full transition-colors duration-200 ${index === currentSlide ? 'bg-red-500' : 'bg-white/50'
-                  }`}
+                className={`w-2 h-2 rounded-full transition-colors duration-200 ${index === currentSlide ? 'bg-red-500' : 'bg-white/50'}`}
               />
             ))}
           </div>
@@ -588,35 +604,29 @@ function Home() {
               <a href="https://www.gov.br" target="_blank" rel="noopener noreferrer">
                 <img src="/imagens/brasil ufnt.png" alt="Brasil UFNT" className="h-16 object-contain mx-auto hover:scale-110 transition-transform rounded-2xl" />
               </a>
-
               <a href="https://www.gov.br/cnpq" target="_blank" rel="noopener noreferrer">
                 <img src="/imagens/cnpq.png" alt="CNPq" className="h-16 object-contain mx-auto hover:scale-110 transition-transform rounded-2xl" />
               </a>
-
               <a href="https://www.gov.br" target="_blank" rel="noopener noreferrer">
-                <img src="/imagens/governofederal.png" alt="Governo Federal" className="h-16 object-contain mx-auto hover:scale-110 transition-transform rounded-2xl" />
+                <img src="/imagens/governofederal.png" alt="Governo Federal" className="h-16 object-contain mx-auto hover:scale-110 transition-transform rounded-2xl " />
               </a>
-
               <a href="https://www.observatorio.org" target="_blank" rel="noopener noreferrer">
                 <img src="/imagens/observatorio.png" alt="Observatório" className="h-16 object-contain mx-auto hover:scale-110 transition-transform rounded-2xl" />
               </a>
-
               <a href="https://www.gov.br/saude" target="_blank" rel="noopener noreferrer">
                 <img src="/imagens/sus.png" alt="SUS" className="h-16 object-contain mx-auto hover:scale-110 transition-transform rounded-2xl" />
               </a>
-
               <a href="https://www.ufnt.edu.br" target="_blank" rel="noopener noreferrer">
                 <img src="/imagens/ufnt.png" alt="UFNT" className="h-16 object-contain mx-auto hover:scale-110 transition-transform rounded-2xl" />
               </a>
-
               <a href="https://www.observatorio.org" target="_blank" rel="noopener noreferrer">
                 <img src="/imagens/observatorio-logo.png.jpeg" alt="Observatório Logo" className="h-16 object-contain mx-auto hover:scale-110 transition-transform rounded-2xl" />
               </a>
             </div>
           </div>
+          <Carousel slides={slideData}/>
         </section>
-        
-        
+
         <footer className="bg-blue-900/90 py-8 md:py-12">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
@@ -686,7 +696,7 @@ function Home() {
             </div>
             <div className="border-t border-white/10 mt-8 md:mt-12 pt-6 md:pt-8 text-center text-white/80">
               <p className="hover:text-white transition-colors text-xs md:text-sm">
-                &copy; {new Date().getFullYear()} Observatório Norte. Todos os direitos reservados.
+                © {new Date().getFullYear()} Observatório Norte. Todos os direitos reservados.
               </p>
             </div>
           </div>

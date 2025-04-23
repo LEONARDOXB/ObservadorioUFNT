@@ -232,8 +232,6 @@ export function Equipe() {
           <Link to="/comunidade" className="text-pink-300 hover:text-pink-400 transition">COMUNIDADE EXTERNA</Link>
           <span className="text-white/70">|</span>
           <Link to="/servidores" className="text-pink-300 hover:text-pink-400 transition">SERVIDORES</Link>
-
-
         </div>
       </div>
 
