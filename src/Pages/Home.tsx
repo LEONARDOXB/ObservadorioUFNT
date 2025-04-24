@@ -2,7 +2,7 @@ import { BookOpen, Users, Rss, BookOpenText, Youtube, ArrowRight, Menu, X, Alert
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXTwitter, faSpotify, faYoutube, faTiktok, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faXTwitter, faSpotify, faYoutube, faTiktok, faFacebook, faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { Carousel } from '../components/ui/Carousel';
 
 function Home() {
@@ -669,6 +669,21 @@ function Home() {
             </div>
           </div>
         </footer>
+
+        {/* Botão do WhatsApp Flutuante */}
+        <a
+          href="https://api.whatsapp.com/send?phone=+556392480518&text=Quero%20fazer%20um%20agendamento!"
+          className="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 group"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-aos="zoom-in-up"
+          data-aos-delay="400"
+        >
+          <FontAwesomeIcon icon={faWhatsapp} className="h-6 w-6" />
+          <span className="absolute right-full top-1/2 -translate-y-1/2 mr-3 bg-white text-gray-800 text-xs font-medium px-2 py-1 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-md">
+            Comunidade Observatório
+          </span>
+        </a>
       </div>
     </div>
   );
