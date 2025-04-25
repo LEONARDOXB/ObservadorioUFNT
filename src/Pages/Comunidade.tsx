@@ -207,7 +207,6 @@ export function Comunidade() {
                 </Link>
                 <button
                   onClick={() => navigate('/login')}
-
                   className="bg-gradient-to-r from-pink-500 to-purple-600 text-white px-6 py-2 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20 flex items-center justify-center gap-2">
                   ENTRAR
                   <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
@@ -231,11 +230,9 @@ export function Comunidade() {
           <span className="text-white/70">|</span>
           <Link to="/pesquisadores" className="text-pink-300 hover:text-pink-400 transition">PESQUISADORES</Link>
           <span className="text-white/70">|</span>
-          <Link to="/comunidade" className="text-white hover:text-pink-400 transition">COMUNIDADE EXTERNA</Link>
+          <Link to="/comunidade" className="text-white  transition">COMUNIDADE EXTERNA</Link>
           <span className="text-white/70">|</span>
-          <Link to="/servidores" className="text-white hover:text-pink-400 transition">SERVIDORES</Link>
-
-
+          <Link to="/servidores" className=" text-pink-300 hover:text-pink-400 transition">SERVIDORES</Link>
         </div>
       </div>
 
