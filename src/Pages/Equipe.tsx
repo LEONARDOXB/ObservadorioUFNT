@@ -349,7 +349,7 @@ export function Equipe() {
                 Recursos
               </h4>
               <ul className="space-y-1 md:space-y-2 text-white/80">
-                {['Base de Conhecimento', 'Ferramentas', 'API', 'FAQ'].map((item) => (
+                {['Base de Conhecimento','Ferramentas','API','FAQ'].map((item) => (
                   <li key={item}>
                     <a href="#" className="hover:text-pink-300 transition-colors hover:translate-x-1 inline-block transform text-xs md:text-sm">
                       {item}

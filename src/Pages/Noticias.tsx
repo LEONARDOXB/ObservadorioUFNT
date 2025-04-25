@@ -146,6 +146,11 @@ function Noticias() {
       {/* Main Content */}
       <main className="container mx-auto px-4 py-8">
         <div className="bg-orange-50 rounded-3xl shadow-2xl p-8 max-w-5xl mx-auto">
+        <img
+            src="/imagens/G1.png"
+            alt="Fake News Desmascaradas"
+            className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover shadow-md"
+          />
           <h2 className="text-4xl font-bold text-red-800 mb-8 text-center">Fake News Desmascaradas</h2>
 
           <div className="space-y-8">
