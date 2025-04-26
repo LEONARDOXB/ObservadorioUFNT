@@ -3,6 +3,7 @@ import { BookOpen, Users, Youtube, ArrowRight, Menu, X, XCircle, Search, Newspap
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXTwitter, faSpotify, faYoutube, faTiktok, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { useNavigate } from 'react-router-dom';
+
 function Noticias() {
   const [activeSection, setActiveSection] = useState('#news');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -111,9 +112,8 @@ function Noticias() {
                 </a>
               </div>
               <button
-                              onClick={() => navigate('/login')}
-
-              className="bg-orange-50 hover:bg-orange-100 text-red-900 px-4 lg:px-6 py-2 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-orange-200/20 flex items-center gap-2">
+                onClick={() => navigate('/login')}
+                className="bg-orange-50 hover:bg-orange-100 text-red-900 px-4 lg:px-6 py-2 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-orange-200/20 flex items-center gap-2">
                 ENTRAR
                 <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
               </button>
@@ -146,26 +146,27 @@ function Noticias() {
       {/* Main Content */}
       <main className="container mx-auto px-4 py-8">
         <div className="bg-orange-50 rounded-3xl shadow-2xl p-8 max-w-5xl mx-auto">
-        <img
-            src="/imagens/G1.png"
-            alt="Fake News Desmascaradas"
-            className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover shadow-md"
-          />
-          <h2 className="text-4xl font-bold text-red-800 mb-8 text-center">Fake News Desmascaradas</h2>
-
+    
           <div className="space-y-8">
             {/* Fake News 1 */}
             <div className="bg-white rounded-xl shadow-lg overflow-hidden border-l-8 border-red-600 transform hover:scale-[1.01] transition-transform">
+              <div className="flex items-center gap-4 p-6">
+                <img
+                  src="/imagens/G1.png"
+                  alt="Fake News Desmascaradas"
+                  className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover shadow-md"
+                />
+                <div className="flex items-center gap-2">
+                  <XCircle className="text-red-600 animate-pulse" size={28} />
+                  <span className="text-red-600 font-bold">FAKE NEWS</span>
+                </div>
+              </div>
               <img
                 src="https://images.unsplash.com/photo-1584483766114-2cea6facdf57?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
                 alt="Laboratório de Pesquisa"
                 className="w-full h-64 object-cover"
               />
               <div className="p-6">
-                <div className="flex items-center gap-2 mb-4">
-                  <XCircle className="text-red-600 animate-pulse" size={28} />
-                  <span className="text-red-600 font-bold">FAKE NEWS</span>
-                </div>
                 <h3 className="text-2xl font-bold mb-3 text-gray-900">Brasil anuncia vacina 100% nacional contra a dengue</h3>
                 <p className="text-gray-700 mb-4 text-lg">
                   Esta notícia que circula nas redes sociais é falsa. A única vacina contra dengue aprovada pela Anvisa é a Qdenga, do laboratório Takeda.
@@ -192,16 +193,23 @@ function Noticias() {
 
             {/* Fake News 2 */}
             <div className="bg-white rounded-xl shadow-lg overflow-hidden border-l-8 border-red-600 transform hover:scale-[1.01] transition-transform">
+              <div className="flex items-center gap-4 p-6">
+                <img
+                  src="/imagens/G1.png"
+                  alt="Fake News Desmascaradas"
+                  className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover shadow-md"
+                />
+                <div className="flex items-center gap-2">
+                  <XCircle className="text-red-600 animate-pulse" size={28} />
+                  <span className="text-red-600 font-bold">FAKE NEWS</span>
+                </div>
+              </div>
               <img
                 src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
                 alt="Medicamentos"
                 className="w-full h-64 object-cover"
               />
               <div className="p-6">
-                <div className="flex items-center gap-2 mb-4">
-                  <XCircle className="text-red-600 animate-pulse" size={28} />
-                  <span className="text-red-600 font-bold">FAKE NEWS</span>
-                </div>
                 <h3 className="text-2xl font-bold mb-3 text-gray-900">Ivermectina previne contra a dengue</h3>
                 <p className="text-gray-700 mb-4 text-lg">
                   Mensagens virais afirmam falsamente que a ivermectina pode prevenir a dengue. Não há evidência científica que comprove essa informação.
@@ -228,16 +236,23 @@ function Noticias() {
 
             {/* Fake News 3 */}
             <div className="bg-white rounded-xl shadow-lg overflow-hidden border-l-8 border-red-600 transform hover:scale-[1.01] transition-transform">
+              <div className="flex items-center gap-4 p-6">
+                <img
+                  src="/imagens/G1.png"
+                  alt="Fake News Desmascaradas"
+                  className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover shadow-md"
+                />
+                <div className="flex items-center gap-2">
+                  <XCircle className="text-red-600 animate-pulse" size={28} />
+                  <span className="text-red-600 font-bold">FAKE NEWS</span>
+                </div>
+              </div>
               <img
                 src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
                 alt="Mosquito"
                 className="w-full h-64 object-cover"
               />
               <div className="p-6">
-                <div className="flex items-center gap-2 mb-4">
-                  <XCircle className="text-red-600 animate-pulse" size={28} />
-                  <span className="text-red-600 font-bold">FAKE NEWS</span>
-                </div>
                 <h3 className="text-2xl font-bold mb-3 text-gray-900">Fumacê do governo espalha o vírus da dengue</h3>
                 <p className="text-gray-700 mb-4 text-lg">
                   Esta teoria conspiratória é completamente falsa. O fumacê contém inseticida que elimina mosquitos adultos transmissores da dengue.
@@ -264,16 +279,23 @@ function Noticias() {
 
             {/* Fake News 4 */}
             <div className="bg-white rounded-xl shadow-lg overflow-hidden border-l-8 border-red-600 transform hover:scale-[1.01] transition-transform">
+              <div className="flex items-center gap-4 p-6">
+                <img
+                  src="/imagens/G1.png"
+                  alt="Fake News Desmascaradas"
+                  className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover shadow-md"
+                />
+                <div className="flex items-center gap-2">
+                  <XCircle className="text-red-600 animate-pulse" size={28} />
+                  <span className="text-red-600 font-bold">FAKE NEWS</span>
+                </div>
+              </div>
               <img
                 src="https://images.unsplash.com/photo-1576671081837-49000212a370?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
                 alt="Plantas Medicinais"
                 className="w-full h-64 object-cover"
               />
               <div className="p-6">
-                <div className="flex items-center gap-2 mb-4">
-                  <XCircle className="text-red-600 animate-pulse" size={28} />
-                  <span className="text-red-600 font-bold">FAKE NEWS</span>
-                </div>
                 <h3 className="text-2xl font-bold mb-3 text-gray-900">Chá de folha de papaia cura dengue em 48 horas</h3>
                 <p className="text-gray-700 mb-4 text-lg">
                   Esta informação que circula em redes sociais é perigosa e falsa. Não existe "cura natural" para a dengue.
