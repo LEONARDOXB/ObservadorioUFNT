@@ -1,6 +1,6 @@
 import { BookOpen, Users, Rss, BookOpenText, Youtube, ArrowRight, Menu, X, AlertTriangle, Share2, CheckCircle2, XCircle, Search, Brain, Newspaper, ChevronLeft, ChevronRight, Sparkles, Stars } from 'lucide-react';
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXTwitter, faSpotify, faYoutube, faTiktok, faFacebook, faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { Carousel } from '../components/ui/Carousel';
@@ -146,105 +146,115 @@ function Home() {
 
       {/* Main Page Content */}
       <div className={`transition-opacity duration-1000 ${showHeader ? 'opacity-100' : 'opacity-0'}`}>
-        <header
-          className={`bg-blue-900/90 py-3 sticky top-0 z-40 backdrop-blur-sm border-bV1 border-b border-white/10 transition-all duration-1000 ease-out ${
-            isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
-          }`}
-        >
-          <div className="container mx-auto px-4 sm:px-6">
+        {/* Header with bg-blue-900/90 matching footer */}
+        <header className="bg-blue-900/90 border-b border-white/10 py-4 sticky top-0 z-50 backdrop-blur-sm">
+          <div className="container mx-auto px-4">
             <nav className="flex items-center justify-between">
+              {/* Logo */}
               <div className="flex items-center gap-2 cursor-pointer hover:scale-105 transition-transform">
                 <img
                   src="/imagens/observatorio-logo.png.jpeg"
                   alt="Observatório de Desinformação & Fake News - Norte"
-                  className="h-12 w-12 sm:h-16 sm:w-16 rounded-full object-cover"
+                  className="h-20 w-20 rounded-full object-cover shadow-lg shadow-purple-500/20"
                 />
-                <span className="text-lg sm:text-xl font-bold text-orange-50">
+                <span className="text-2xl font-bold text-orange-50">
                   Observatório Norte
                 </span>
               </div>
+
+              {/* Mobile Menu Button */}
               <button
-                className="md:hidden p-2 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-pink-500"
+                className="md:hidden p-2 rounded-md text-white focus:outline-none"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                aria-label={mobileMenuOpen ? 'Fechar menu' : 'Abrir menu'}
               >
-                {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+                {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
 
-              <div className="hidden md:flex items-center gap-4 lg:gap-6">
-                <div className="flex items-center gap-2 sm:gap-3">
-                  {[
-                    { href: 'https://open.spotify.com/', icon: faSpotify, color: 'hover:text-green-500' },
-                    { href: 'https://www.youtube.com/@observatorionorte', icon: faYoutube, color: 'hover:text-red-500' },
-                    { href: 'https://www.tiktok.com/@norteobservatorio?_t=ZM-8uzZfAmW1AM&_r=1', icon: faTiktok, color: 'hover:text-blue-500' },
-                    { href: 'https://facebook.com', icon: faFacebook, color: 'hover:text-blue-500' },
-                    { href: 'https://www.instagram.com/observatorio.norte/', icon: faInstagram, color: 'hover:text-pink-500' },
-                    { href: 'https://twitter.com', icon: faXTwitter, color: 'hover:text-gray-800' },
-                  ].map(({ href, icon, color }, index) => (
-                    <a key={index} href={href} target="_blank" rel="noopener noreferrer">
-                      <FontAwesomeIcon
-                        icon={icon}
-                        className={`text-white ${color} transition-all h-4 w-4 sm:h-5 sm:w-5`}
-                      />
-                    </a>
-                  ))}
+              {/* Desktop Menu */}
+              <div className="hidden md:flex items-center gap-4 lg:gap-8">
+                {/* Social Icons */}
+                <div className="hidden md:flex items-center gap-3">
+                  <a href="https://open.spotify.com/" target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={faSpotify} className="text-white hover:text-green-500 transition-all h-5 w-5" />
+                  </a>
+                  <a href="https://www.youtube.com/@observatorionorte" target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={faYoutube} className="text-white hover:text-red-500 transition-all h-5 w-5" />
+                  </a>
+                  <a href="https://www.tiktok.com/@norteobservatorio?_t=ZM-8uzZfAmW1AM&_r=1" target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={faTiktok} className="text-white hover:text-blue-500 transition-all h-5 w-5" />
+                  </a>
+                  <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={faFacebook} className="text-white hover:text-blue-500 transition-all h-5 w-5" />
+                  </a>
+                  <a href="https://www.instagram.com/observatorio.norte/" target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={faInstagram} className="text-white hover:text-pink-500 transition-all h-5 w-5" />
+                  </a>
+                  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={faXTwitter} className="text-white hover:text-gray-800 transition-all h-5 w-5" />
+                  </a>
                 </div>
 
-                <div className="flex flex-wrap justify-center gap-3 lg:gap-6">
-                  {[
-                    { href: '#', section: '#articles', label: 'REPOSITÓRIO', icon: BookOpen },
-                    { href: '/equipe', section: '#equipe', label: 'EQUIPE', icon: Users },
-                    { href: '/pesquisa', section: '#research', label: 'PESQUISA', icon: Search },
-                    { href: '/noticias', section: '#news', label: 'NOTÍCIAS', icon: Newspaper },
-                    { href: 'https://www.youtube.com/@observatorionorte', section: '#lectures', label: 'PALESTRAS', icon: Youtube },
-                  ].map(({ href, section, label, icon: Icon }) => (
-                    <a
-                      key={label}
-                      href={href}
-                      onClick={() => setActiveSection(section)}
-                      className={`group flex items-center gap-1.5 text-xs sm:text-sm font-medium transition-all duration-300 
-                        ${activeSection === section ? 'text-pink-400 scale-105' : 'hover:text-pink-400 hover:scale-105'}`}
-                    >
-                      <Icon size={16} className="transition-colors duration-300 group-hover:text-pink-400" />
-                      {label}
-                    </a>
-                  ))}
+                {/* Navigation Links */}
+                <div className="flex flex-wrap justify-center gap-4 lg:gap-8">
+                  <Link
+                    to="/"
+                    onClick={() => setActiveSection('#articles')}
+                    className={`group flex items-center gap-2 text-sm font-medium transition-all duration-300 
+                      ${activeSection === '#articles'
+                        ? 'text-pink-300 scale-105'
+                        : 'text-white hover:text-pink-300 hover:scale-105'}`}
+                  >
+                    <BookOpen size={20} />
+                    REPOSITÓRIO
+                  </Link>
+                  <Link
+                    to="/equipe"
+                    onClick={() => setActiveSection('#equipe')}
+                    className={`group flex items-center gap-2 text-sm font-medium transition-all duration-300 
+                      ${activeSection === '#equipe'
+                        ? 'text-pink-300 scale-105'
+                        : 'text-white hover:text-pink-300 hover:scale-105'}`}
+                  >
+                    <Users size={20} />
+                    EQUIPE
+                  </Link>
+                  <Link
+                    to="/pesquisa"
+                    onClick={() => setActiveSection('#research')}
+                    className={`group flex items-center gap-2 text-sm font-medium transition-all duration-300 
+                      ${activeSection === '#research'
+                        ? 'text-pink-300 scale-105'
+                        : 'text-white hover:text-pink-300 hover:scale-105'}`}
+                  >
+                    <Search size={20} />
+                    PESQUISA
+                  </Link>
+                  <Link
+                    to="/noticias"
+                    onClick={() => setActiveSection('#news')}
+                    className={`group flex items-center gap-2 text-sm font-medium transition-all duration-300 
+                      ${activeSection === '#news'
+                        ? 'text-pink-300 scale-105'
+                        : 'text-white hover:text-pink-300 hover:scale-105'}`}
+                  >
+                    <Newspaper size={20} />
+                    NOTÍCIAS
+                  </Link>
+                  <Link
+                    to="https://www.youtube.com/@observatorionorte"
+                    onClick={() => setActiveSection('#lectures')}
+                    className={`group flex items-center gap-2 text-sm font-medium transition-all duration-300 
+                      ${activeSection === '#lectures'
+                        ? 'text-pink-300 scale-105'
+                        : 'text-white hover:text-pink-300 hover:scale-105'}`}
+                  >
+                    <Youtube size={20} />
+                    PALESTRAS
+                  </Link>
                 </div>
+
+                {/* Login Button */}
                 <button
-                  onClick={() => navigate('/login')}
-                  className="bg-pink-600 hover:bg-pink-700 active:bg-pink-800 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full font-medium text-xs sm:text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-pink-600/20 flex items-center gap-1.5"
-                >
-                  ENTRAR
-                  <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
-                </button>
-              </div>
-            </nav>
-
-            {mobileMenuOpen && (
-              <div className="md:hidden mt-3 bg-blue-900/80 rounded-lg p-4 backdrop-blur-sm">
-                <div className="flex flex-col space-y-3">
-                  {[
-                    { href: '#', section: '#articles', label: 'REPOSITÓRIO', icon: BookOpen },
-                    { href: '#', section: '#professors', label: 'EQUIPE', icon: Users },
-                    { href: '/pesquisa', section: '#research', label: 'PESQUISA', icon: BookOpenText },
-                    { href: '#', section: '#news', label: 'NOTÍCIAS', icon: Rss },
-                    { href: '#', section: '#lectures', label: 'PALESTRAS', icon: Youtube },
-                  ].map(({ href, section, label, icon: Icon }) => (
-                    <a
-                      key={label}
-                      href={href}
-                      onClick={() => {
-                        setActiveSection(section);
-                        setMobileMenuOpen(false);
-                      }}
-                      className={`group flex items-center gap-2 text-sm font-medium transition-all duration-300 
-                        ${activeSection === section ? 'text-pink-400 scale-105' : 'hover:text-pink-400 hover:scale-105'}`}
-                    >
-                      <Icon size={18} className="transition-colors duration-300 group-hover:text-pink-400" />
-                      {label}
-                    </a>
-                  ))}
-                  <button
                     onClick={() => {
                       navigate('/login');
                       setMobileMenuOpen(false);
@@ -254,12 +264,99 @@ function Home() {
                     ENTRAR
                     <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
                   </button>
+              </div>
+            </nav>
+
+            {/* Mobile Menu */}
+            {mobileMenuOpen && (
+              <div className="md:hidden mt-4 bg-blue-900/90 rounded-lg p-4 backdrop-blur-sm">
+                <div className="flex flex-col space-y-4">
+                  <Link
+                    to="/"
+                    onClick={() => {
+                      setActiveSection('#articles');
+                      setMobileMenuOpen(false);
+                    }}
+                    className={`group flex items-center gap-2 text-sm font-medium transition-all duration-300 
+                      ${activeSection === '#articles'
+                        ? 'text-pink-300 scale-105'
+                        : 'text-white hover:text-pink-300 hover:scale-105'}`}
+                  >
+                    <BookOpen size={20} />
+                    REPOSITÓRIO
+                  </Link>
+                  <Link
+                    to="/equipe"
+                    onClick={() => {
+                      setActiveSection('#equipe');
+                      setMobileMenuOpen(false);
+                    }}
+                    className={`group flex items-center gap-2 text-sm font-medium transition-all duration-300 
+                      ${activeSection === '#equipe'
+                        ? 'text-pink-300 scale-105'
+                        : 'text-white hover:text-pink-300 hover:scale-105'}`}
+                  >
+                    <Users size={20} />
+                    EQUIPE
+                  </Link>
+                  <Link
+                    to="/pesquisa"
+                    onClick={() => {
+                      setActiveSection('#research');
+                      setMobileMenuOpen(false);
+                    }}
+                    className={`group flex items-center gap-2 text-sm font-medium transition-all duration-300 
+                      ${activeSection === '#research'
+                        ? 'text-pink-300 scale-105'
+                        : 'text-white hover:text-pink-300 hover:scale-105'}`}
+                  >
+                    <Search size={20} />
+                    PESQUISA
+                  </Link>
+                  <Link
+                    to="/noticias"
+                    onClick={() => {
+                      setActiveSection('#news');
+                      setMobileMenuOpen(false);
+                    }}
+                    className={`group flex items-center gap-2 text-sm font-medium transition-all duration-300 
+                      ${activeSection === '#news'
+                        ? 'text-pink-300 scale-105'
+                        : 'text-white hover:text-pink-300 hover:scale-105'}`}
+                  >
+                    <Newspaper size={20} />
+                    NOTÍCIAS
+                  </Link>
+                  <Link
+                    to="https://www.youtube.com/@observatorionorte"
+                    onClick={() => {
+                      setActiveSection('#lectures');
+                      setMobileMenuOpen(false);
+                    }}
+                    className={`group flex items-center gap-2 text-sm font-medium transition-all duration-300 
+                      ${activeSection === '#lectures'
+                        ? 'text-pink-300 scale-105'
+                        : 'text-white hover:text-pink-300 hover:scale-105'}`}
+                  >
+                    <Youtube size={20} />
+                    PALESTRAS
+                  </Link>
+                  <button
+                    onClick={() => {
+                      navigate('/login');
+                      setMobileMenuOpen(false);
+                    }}
+                    className="bg-gradient-to-r from-pink-500 to-purple-600 text-white px-6 py-2 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20 flex items-center justify-center gap-2">
+                    ENTRAR
+                    <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+                  </button>
                 </div>
               </div>
             )}
           </div>
         </header>
 
+        {/* Carousel Section */}
         <div className="relative w-full">
           <div className="relative h-[300px] sm:h-[400px] md:h-[500px] w-full">
             {articles.map((article, index) => (
@@ -331,6 +428,7 @@ function Home() {
           </div>
         </div>
 
+        {/* Mission Section */}
         <div className="relative px-4 py-6 sm:py-8 md:py-12 bg-gradient-to-r from-blue-900/50 to-purple-900/50">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 items-center">
             <div className="space-y-3 sm:space-y-4 md:space-y-6 order-2 lg:order-1">
@@ -358,6 +456,7 @@ function Home() {
           </div>
         </div>
 
+        {/* Research Section */}
         <section className="py-8 sm:py-12 md:py-16 bg-gradient-to-r from-blue-900/40 to-purple-900/40">
           <div className="container mx-auto px-4 sm:px-6">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 sm:mb-8 md:mb-12 text-center hover:text-pink-400 transition-colors cursor-pointer">
@@ -373,7 +472,7 @@ function Home() {
                 {
                   title: 'Tecnologias de Verificação',
                   description: 'Novas ferramentas para detecção de notícias falsas',
-                  image: 'https://images.unsplash.com/photo-150486 cubem8584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80',
+                  image: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80',
                 },
                 {
                   title: 'Educação Digital',
@@ -408,6 +507,7 @@ function Home() {
           </div>
         </section>
 
+        {/* Fake News Examples Section */}
         <section className="py-8 sm:py-12 md:py-16 bg-gradient-to-r from-blue-900/40 to-purple-900/40">
           <div className="container mx-auto px-4 sm:px-6">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 sm:mb-8 md:mb-12 text-center hover:text-pink-400 transition-colors cursor-pointer">
@@ -511,6 +611,7 @@ function Home() {
               ))}
             </div>
 
+            {/* How to Identify Fake News */}
             <div className="mt-8 sm:mt-12 bg-white/10 rounded-2xl p-4 sm:p-6 md:p-8 backdrop-blur-sm">
               <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-4 text-center">
                 Como Identificar Fake News
@@ -555,6 +656,7 @@ function Home() {
           </div>
         </section>
 
+        {/* Partners Section */}
         <section className="py-8 sm:py-12 md:py-16 bg-gradient-to-r from-blue-900/40 to-purple-900/40">
           <div className="container mx-auto px-4 sm:px-6">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-8 sm:mb-12 text-center">
@@ -589,6 +691,7 @@ function Home() {
           </div>
         </section>
 
+        {/* Footer */}
         <footer className="bg-blue-900/90 py-6 sm:py-8 md:py-12">
           <div className="container mx-auto px-4 sm:px-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
@@ -670,14 +773,12 @@ function Home() {
           </div>
         </footer>
 
-        {/* Botão do WhatsApp Flutuante */}
+        {/* WhatsApp Floating Button */}
         <a
           href="https://api.whatsapp.com/send?phone=+556392480518&text=Quero%20fazer%20um%20agendamento!"
           className="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 group"
           target="_blank"
           rel="noopener noreferrer"
-          data-aos="zoom-in-up"
-          data-aos-delay="400"
         >
           <FontAwesomeIcon icon={faWhatsapp} className="h-6 w-6" />
           <span className="absolute right-full top-1/2 -translate-y-1/2 mr-3 bg-white text-gray-800 text-xs font-medium px-2 py-1 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-md">
