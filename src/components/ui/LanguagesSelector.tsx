@@ -25,7 +25,7 @@ export function LanguagesSelector() {
     <div className="relative w-[120px]">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center justify-between w-full bg-white/20 px-3 py-2 rounded-lg border border-white/30 hover:bg-white/30 transition-colors"
+        className="flex items-center justify-between w-full bg-white px-3 py-2 rounded-lg border border-gray-300 hover:bg-gray-100 transition-colors"
       >
         <div className="flex items-center gap-2">
           <img 
@@ -33,10 +33,10 @@ export function LanguagesSelector() {
             alt={selectedLang.name} 
             className="w-5 h-4 object-cover rounded-sm" 
           />
-          <span className="font-medium text-white text-sm">{selectedLang.name}</span>
+          <span className="font-medium text-gray-800 text-sm">{selectedLang.name}</span>
         </div>
         <ChevronDown 
-          className={`w-4 h-4 text-white transition-transform ${isOpen ? 'rotate-180' : ''}`} 
+          className={`w-4 h-4 text-gray-800 transition-transform ${isOpen ? 'rotate-180' : ''}`} 
         />
       </button>
       

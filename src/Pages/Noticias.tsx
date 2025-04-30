@@ -124,7 +124,7 @@ function Noticias() {
             <div className="md:hidden mt-4 bg-red-950/90 rounded-lg p-4 backdrop-blur-sm border border-orange-200/20">
               <div className="flex flex-col space-y-4">
                 <a
-                  href="#"
+                  href="/"
                   onClick={() => {
                     setActiveSection('#articles');
                     setMobileMenuOpen(false);
@@ -136,6 +136,62 @@ function Noticias() {
                 >
                   <BookOpen size={20} className="transition-colors duration-300 group-hover:text-orange-300" />
                   REPOSITÓRIO
+                </a>
+                <a
+                  href="#"
+                  onClick={() => {
+                    setActiveSection('#articles');
+                    setMobileMenuOpen(false);
+                  }}
+                  className={`group flex items-center gap-2 text-sm font-medium transition-all duration-300 
+                    ${activeSection === '#articles'
+                      ? 'text-orange-300 scale-105'
+                      : 'text-orange-50 hover:text-orange-300 hover:scale-105'}`}
+                >
+                  <Users size={20} className="transition-colors duration-300 group-hover:text-orange-300" />
+                  EQUIPE
+                </a>
+                <a
+                  href="/pesquisa"
+                  onClick={() => {
+                    setActiveSection('#articles');
+                    setMobileMenuOpen(false);
+                  }}
+                  className={`group flex items-center gap-2 text-sm font-medium transition-all duration-300 
+                    ${activeSection === '#articles'
+                      ? 'text-orange-300 scale-105'
+                      : 'text-orange-50 hover:text-orange-300 hover:scale-105'}`}
+                >
+                  <Search size={20} className="transition-colors duration-300 group-hover:text-orange-300" />
+                  PESQUISA
+                </a>
+                <a
+                  href="/noticias"
+                  onClick={() => {
+                    setActiveSection('#articles');
+                    setMobileMenuOpen(false);
+                  }}
+                  className={`group flex items-center gap-2 text-sm font-medium transition-all duration-300 
+                    ${activeSection === '#articles'
+                      ? 'text-orange-300 scale-105'
+                      : 'text-orange-50 hover:text-orange-300 hover:scale-105'}`}
+                >
+                  <Newspaper size={20} className="transition-colors duration-300 group-hover:text-orange-300" />
+                  NOTÍCIAS
+                </a>
+                <a
+                  href="#"
+                  onClick={() => {
+                    setActiveSection('#articles');
+                    setMobileMenuOpen(false);
+                  }}
+                  className={`group flex items-center gap-2 text-sm font-medium transition-all duration-300 
+                    ${activeSection === '#articles'
+                      ? 'text-orange-300 scale-105'
+                      : 'text-orange-50 hover:text-orange-300 hover:scale-105'}`}
+                >
+                  <Youtube size={20} className="transition-colors duration-300 group-hover:text-orange-300" />
+                  PALESTRA
                 </a>
               </div>
             </div>

@@ -281,7 +281,7 @@ function Pesquisa() {
                       ? 'text-yellow-300 scale-105'
                       : 'text-white hover:text-yellow-300 hover:scale-105'}`}
                 >
-                  <Rss size={20} className="transition-colors duration-300 group-hover:text-yellow-300" />
+                  <Newspaper size={20} className="transition-colors duration-300 group-hover:text-yellow-300" />
                   NOTÍCIAS
                 </a>
                 <Link
