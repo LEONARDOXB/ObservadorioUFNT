@@ -1,9 +1,10 @@
-import { BookOpen, Users, Rss, BookOpenText, Youtube, ArrowRight, Menu, X, AlertTriangle, Share2, CheckCircle2, XCircle, Search, Brain, Newspaper, ChevronLeft, ChevronRight, Sparkles, Stars } from 'lucide-react';
+import { BookOpen, Users, Youtube, ArrowRight, Menu, X, AlertTriangle, Share2, CheckCircle2, XCircle, Search, Brain, Newspaper, ChevronLeft, ChevronRight, Sparkles, Stars } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXTwitter, faSpotify, faYoutube, faTiktok, faFacebook, faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { Carousel } from '../components/ui/Carousel';
+import { LanguagesSelector } from '../components/ui/LanguagesSelector';
 
 function Home() {
   const [activeSection, setActiveSection] = useState('');
@@ -55,10 +56,21 @@ function Home() {
   }, []);
 
   useEffect(() => {
+    const handleResize = () => {
+      // Ajustes específicos para mobile podem ser adicionados aqui
+    };
+    
+    window.addEventListener('resize', handleResize);
+    handleResize();
+    
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev === articles.length - 1 ? 0 : prev + 1));
     }, 5000);
-    return () => clearInterval(interval);
+    
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      clearInterval(interval);
+    };
   }, []);
 
   const articles = [
@@ -97,48 +109,46 @@ function Home() {
     <div className="min-h-screen bg-gradient-to-b from-blue-800 via-purple-700 to-pink-800 text-white overflow-x-hidden">
       {/* Welcome Screen */}
       {showWelcome && (
-        <div className="fixed inset-0 z-50 bg-[#1e3a8a]">
-          <div className="min-h-screen flex items-center justify-center overflow-hidden">
-            <div className="absolute inset-0 overflow-hidden">
-              {[...Array(10)].map((_, i) => (
-                <div
-                  key={i}
-                  className="absolute w-1.5 h-1.5 bg-white rounded-full opacity-20 animate-ping"
-                  style={{
-                    left: `${Math.random() * 100}%`,
-                    top: `${Math.random() * 100}%`,
-                    animationDelay: `${Math.random() * 2000}ms`,
-                    animationDuration: `${1000 + Math.random() * 2000}ms`,
-                  }}
-                />
-              ))}
-            </div>
+        <div className="fixed inset-0 z-50 bg-[#1e3a8a] flex items-center justify-center">
+          <div className="absolute inset-0 overflow-hidden">
+            {[...Array(10)].map((_, i) => (
+              <div
+                key={i}
+                className="absolute w-1.5 h-1.5 bg-white rounded-full opacity-20 animate-ping"
+                style={{
+                  left: `${Math.random() * 100}%`,
+                  top: `${Math.random() * 100}%`,
+                  animationDelay: `${Math.random() * 2000}ms`,
+                  animationDuration: `${1000 + Math.random() * 2000}ms`,
+                }}
+              />
+            ))}
+          </div>
 
-            <div className="relative text-center">
-              <div className="relative">
-                <div
-                  className={`absolute -left-12 -top-12 transition-all duration-1000 ${showSparkles ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-                >
-                  <Stars className="w-8 h-8 text-yellow-300 animate-spin-slow sm:w-10 sm:h-10" />
-                </div>
-                <div
-                  className={`absolute -right-12 -bottom-12 transition-all duration-1000 delay-300 ${showSparkles ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-                >
-                  <Sparkles className="w-8 h-8 text-yellow-300 animate-bounce sm:w-10 sm:h-10" />
-                </div>
-
-                <h1
-                  className={`text-5xl sm:text-6xl md:text-7xl font-bold text-white tracking-wider shadow-glow transition-all duration-1000
-                    ${showText ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`}
-                >
-                  Bem Vindo!
-                </h1>
-
-                <div
-                  className={`h-0.5 bg-gradient-to-r from-transparent via-white to-transparent transition-all duration-1000 delay-500
-                    ${showText ? 'w-full opacity-70' : 'w-0 opacity-0'}`}
-                />
+          <div className="relative text-center px-4">
+            <div className="relative">
+              <div
+                className={`absolute -left-8 sm:-left-12 -top-8 sm:-top-12 transition-all duration-1000 ${showSparkles ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+              >
+                <Stars className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-300 animate-spin-slow" />
               </div>
+              <div
+                className={`absolute -right-8 sm:-right-12 -bottom-8 sm:-bottom-12 transition-all duration-1000 delay-300 ${showSparkles ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+              >
+                <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-300 animate-bounce" />
+              </div>
+
+              <h1
+                className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-wider shadow-glow transition-all duration-1000
+                  ${showText ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`}
+              >
+                Bem Vindo!
+              </h1>
+
+              <div
+                className={`h-0.5 bg-gradient-to-r from-transparent via-white to-transparent transition-all duration-1000 delay-500 mx-auto
+                  ${showText ? 'w-full opacity-70' : 'w-0 opacity-0'}`}
+              />
             </div>
           </div>
         </div>
@@ -146,18 +156,18 @@ function Home() {
 
       {/* Main Page Content */}
       <div className={`transition-opacity duration-1000 ${showHeader ? 'opacity-100' : 'opacity-0'}`}>
-        {/* Header with bg-blue-900/90 matching footer */}
-        <header className="bg-blue-900/90 border-b border-white/10 py-4 sticky top-0 z-50 backdrop-blur-sm">
-          <div className="container mx-auto px-4">
+        {/* Header */}
+        <header className="bg-blue-900/90 border-b border-white/10 py-3 sm:py-4 sticky top-0 z-50 backdrop-blur-sm">
+          <div className="container mx-auto px-4 sm:px-6">
             <nav className="flex items-center justify-between">
               {/* Logo */}
               <div className="flex items-center gap-2 cursor-pointer hover:scale-105 transition-transform">
                 <img
                   src="/imagens/observatorio-logo.png.jpeg"
                   alt="Observatório de Desinformação & Fake News - Norte"
-                  className="h-20 w-20 rounded-full object-cover shadow-lg shadow-purple-500/20"
+                  className="h-12 w-12 sm:h-16 sm:w-16 md:h-20 md:w-20 rounded-full object-cover shadow-lg shadow-purple-500/20"
                 />
-                <span className="text-2xl font-bold text-orange-50">
+                <span className="text-lg sm:text-xl md:text-2xl font-bold text-orange-50">
                   Observatório Norte
                 </span>
               </div>
@@ -166,111 +176,112 @@ function Home() {
               <button
                 className="md:hidden p-2 rounded-md text-white focus:outline-none"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                aria-label="Menu mobile"
               >
                 {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
 
               {/* Desktop Menu */}
-              <div className="hidden md:flex items-center gap-4 lg:gap-8">
+              <div className="hidden md:flex items-center gap-4 lg:gap-6 xl:gap-8">
                 {/* Social Icons */}
-                <div className="hidden md:flex items-center gap-3">
-                  <a href="https://open.spotify.com/" target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon icon={faSpotify} className="text-white hover:text-green-500 transition-all h-5 w-5" />
+                <div className="hidden md:flex items-center gap-2 lg:gap-3">
+                  <a href="https://open.spotify.com/" target="_blank" rel="noopener noreferrer" aria-label="Spotify">
+                    <FontAwesomeIcon icon={faSpotify} className="text-white hover:text-green-500 transition-all h-4 w-4 lg:h-5 lg:w-5" />
                   </a>
-                  <a href="https://www.youtube.com/@observatorionorte" target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon icon={faYoutube} className="text-white hover:text-red-500 transition-all h-5 w-5" />
+                  <a href="https://www.youtube.com/@observatorionorte" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                    <FontAwesomeIcon icon={faYoutube} className="text-white hover:text-red-500 transition-all h-4 w-4 lg:h-5 lg:w-5" />
                   </a>
-                  <a href="https://www.tiktok.com/@norteobservatorio?_t=ZM-8uzZfAmW1AM&_r=1" target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon icon={faTiktok} className="text-white hover:text-blue-500 transition-all h-5 w-5" />
+                  <a href="https://www.tiktok.com/@norteobservatorio?_t=ZM-8uzZfAmW1AM&_r=1" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                    <FontAwesomeIcon icon={faTiktok} className="text-white hover:text-blue-500 transition-all h-4 w-4 lg:h-5 lg:w-5" />
                   </a>
-                  <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon icon={faFacebook} className="text-white hover:text-blue-500 transition-all h-5 w-5" />
+                  <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                    <FontAwesomeIcon icon={faFacebook} className="text-white hover:text-blue-500 transition-all h-4 w-4 lg:h-5 lg:w-5" />
                   </a>
-                  <a href="https://www.instagram.com/observatorio.norte/" target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon icon={faInstagram} className="text-white hover:text-pink-500 transition-all h-5 w-5" />
+                  <a href="https://www.instagram.com/observatorio.norte/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <FontAwesomeIcon icon={faInstagram} className="text-white hover:text-pink-500 transition-all h-4 w-4 lg:h-5 lg:w-5" />
                   </a>
-                  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon icon={faXTwitter} className="text-white hover:text-gray-800 transition-all h-5 w-5" />
+                  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                    <FontAwesomeIcon icon={faXTwitter} className="text-white hover:text-gray-800 transition-all h-4 w-4 lg:h-5 lg:w-5" />
                   </a>
                 </div>
 
                 {/* Navigation Links */}
-                <div className="flex flex-wrap justify-center gap-4 lg:gap-8">
+                <div className="flex flex-wrap justify-center gap-2 lg:gap-4 xl:gap-6">
                   <Link
                     to="/"
                     onClick={() => setActiveSection('#articles')}
-                    className={`group flex items-center gap-2 text-sm font-medium transition-all duration-300 
+                    className={`group flex items-center gap-1 lg:gap-2 text-xs lg:text-sm font-medium transition-all duration-300 
                       ${activeSection === '#articles'
                         ? 'text-pink-300 scale-105'
                         : 'text-white hover:text-pink-300 hover:scale-105'}`}
                   >
-                    <BookOpen size={20} />
-                    REPOSITÓRIO
+                    <BookOpen className="h-4 w-4 lg:h-5 lg:w-5" />
+                    <span>REPOSITÓRIO</span>
                   </Link>
                   <Link
                     to="/equipe"
                     onClick={() => setActiveSection('#equipe')}
-                    className={`group flex items-center gap-2 text-sm font-medium transition-all duration-300 
+                    className={`group flex items-center gap-1 lg:gap-2 text-xs lg:text-sm font-medium transition-all duration-300 
                       ${activeSection === '#equipe'
                         ? 'text-pink-300 scale-105'
                         : 'text-white hover:text-pink-300 hover:scale-105'}`}
                   >
-                    <Users size={20} />
-                    EQUIPE
+                    <Users className="h-4 w-4 lg:h-5 lg:w-5" />
+                    <span>EQUIPE</span>
                   </Link>
                   <Link
                     to="/pesquisa"
                     onClick={() => setActiveSection('#research')}
-                    className={`group flex items-center gap-2 text-sm font-medium transition-all duration-300 
+                    className={`group flex items-center gap-1 lg:gap-2 text-xs lg:text-sm font-medium transition-all duration-300 
                       ${activeSection === '#research'
                         ? 'text-pink-300 scale-105'
                         : 'text-white hover:text-pink-300 hover:scale-105'}`}
                   >
-                    <Search size={20} />
-                    PESQUISA
+                    <Search className="h-4 w-4 lg:h-5 lg:w-5" />
+                    <span>PESQUISA</span>
                   </Link>
                   <Link
                     to="/noticias"
                     onClick={() => setActiveSection('#news')}
-                    className={`group flex items-center gap-2 text-sm font-medium transition-all duration-300 
+                    className={`group flex items-center gap-1 lg:gap-2 text-xs lg:text-sm font-medium transition-all duration-300 
                       ${activeSection === '#news'
                         ? 'text-pink-300 scale-105'
                         : 'text-white hover:text-pink-300 hover:scale-105'}`}
                   >
-                    <Newspaper size={20} />
-                    NOTÍCIAS
+                    <Newspaper className="h-4 w-4 lg:h-5 lg:w-5" />
+                    <span>NOTÍCIAS</span>
                   </Link>
                   <Link
                     to="https://www.youtube.com/@observatorionorte"
                     onClick={() => setActiveSection('#lectures')}
-                    className={`group flex items-center gap-2 text-sm font-medium transition-all duration-300 
+                    className={`group flex items-center gap-1 lg:gap-2 text-xs lg:text-sm font-medium transition-all duration-300 
                       ${activeSection === '#lectures'
                         ? 'text-pink-300 scale-105'
                         : 'text-white hover:text-pink-300 hover:scale-105'}`}
                   >
-                    <Youtube size={20} />
-                    PALESTRAS
+                    <Youtube className="h-4 w-4 lg:h-5 lg:w-5" />
+                    <span>PALESTRAS</span>
                   </Link>
                 </div>
 
                 {/* Login Button */}
                 <button
-                    onClick={() => {
-                      navigate('/login');
-                      setMobileMenuOpen(false);
-                    }}
-                    className="bg-pink-600 hover:bg-pink-700 active:bg-pink-800 text-white px-4 py-2 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-pink-600/20 flex items-center justify-center gap-2"
-                  >
-                    ENTRAR
-                    <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-                  </button>
+                  onClick={() => {
+                    navigate('/login');
+                    setMobileMenuOpen(false);
+                  }}
+                  className="bg-pink-600 hover:bg-pink-700 active:bg-pink-800 text-white px-3 py-1.5 lg:px-4 lg:py-2 rounded-full font-medium text-xs lg:text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-pink-600/20 flex items-center justify-center gap-1 lg:gap-2"
+                >
+                  <span>ENTRAR</span>
+                  <ArrowRight className="h-3 w-3 lg:h-4 lg:w-4 transition-transform group-hover:translate-x-1" />
+                </button>
               </div>
             </nav>
 
             {/* Mobile Menu */}
             {mobileMenuOpen && (
               <div className="md:hidden mt-4 bg-blue-900/90 rounded-lg p-4 backdrop-blur-sm">
-                <div className="flex flex-col space-y-4">
+                <div className="flex flex-col space-y-3">
                   <Link
                     to="/"
                     onClick={() => {
@@ -282,7 +293,7 @@ function Home() {
                         ? 'text-pink-300 scale-105'
                         : 'text-white hover:text-pink-300 hover:scale-105'}`}
                   >
-                    <BookOpen size={20} />
+                    <BookOpen size={18} />
                     REPOSITÓRIO
                   </Link>
                   <Link
@@ -296,7 +307,7 @@ function Home() {
                         ? 'text-pink-300 scale-105'
                         : 'text-white hover:text-pink-300 hover:scale-105'}`}
                   >
-                    <Users size={20} />
+                    <Users size={18} />
                     EQUIPE
                   </Link>
                   <Link
@@ -310,7 +321,7 @@ function Home() {
                         ? 'text-pink-300 scale-105'
                         : 'text-white hover:text-pink-300 hover:scale-105'}`}
                   >
-                    <Search size={20} />
+                    <Search size={18} />
                     PESQUISA
                   </Link>
                   <Link
@@ -324,7 +335,7 @@ function Home() {
                         ? 'text-pink-300 scale-105'
                         : 'text-white hover:text-pink-300 hover:scale-105'}`}
                   >
-                    <Newspaper size={20} />
+                    <Newspaper size={18} />
                     NOTÍCIAS
                   </Link>
                   <Link
@@ -338,7 +349,7 @@ function Home() {
                         ? 'text-pink-300 scale-105'
                         : 'text-white hover:text-pink-300 hover:scale-105'}`}
                   >
-                    <Youtube size={20} />
+                    <Youtube size={18} />
                     PALESTRAS
                   </Link>
                   <button
@@ -346,7 +357,8 @@ function Home() {
                       navigate('/login');
                       setMobileMenuOpen(false);
                     }}
-                    className="bg-gradient-to-r from-pink-500 to-purple-600 text-white px-6 py-2 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20 flex items-center justify-center gap-2">
+                    className="bg-gradient-to-r from-pink-500 to-purple-600 text-white px-4 py-2 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20 flex items-center justify-center gap-2 mt-2"
+                  >
                     ENTRAR
                     <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
                   </button>
@@ -358,7 +370,7 @@ function Home() {
 
         {/* Carousel Section */}
         <div className="relative w-full">
-          <div className="relative h-[300px] sm:h-[400px] md:h-[500px] w-full">
+          <div className="relative h-[250px] sm:h-[350px] md:h-[450px] lg:h-[550px] w-full">
             {articles.map((article, index) => (
               <div
                 key={article.id}
@@ -377,19 +389,19 @@ function Home() {
                     </>
                   ) : (
                     <div className="w-full h-full bg-gray-800 flex items-center justify-center">
-                      <div className="text-white text-4xl sm:text-6xl font-mono">{article.image}</div>
+                      <div className="text-white text-2xl sm:text-4xl md:text-6xl font-mono">{article.image}</div>
                     </div>
                   )}
                   <div className="absolute inset-0 flex flex-col justify-center items-center text-white text-center px-4">
-                    <span className="text-red-400 text-xs sm:text-sm font-semibold mb-2 sm:mb-4">
+                    <span className="text-red-400 text-xs sm:text-sm md:text-base font-semibold mb-2 sm:mb-4">
                       {article.category}
                     </span>
-                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold max-w-2xl mb-4 sm:mb-8">
+                    <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold max-w-2xl mb-3 sm:mb-6">
                       {article.title}
                     </h2>
                     <a
                       href={article.link}
-                      className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 sm:px-6 sm:py-3 rounded-full transition-colors duration-200 text-sm sm:text-base"
+                      className="bg-red-500 hover:bg-red-600 text-white px-3 py-1.5 sm:px-4 sm:py-2 md:px-6 md:py-3 rounded-full transition-colors duration-200 text-xs sm:text-sm md:text-base"
                     >
                       Verifique os fatos
                     </a>
@@ -401,17 +413,17 @@ function Home() {
 
           <button
             onClick={prevSlide}
-            className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-1.5 sm:p-2 rounded-full transition-colors duration-200 z-10"
+            className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-1 sm:p-1.5 md:p-2 rounded-full transition-colors duration-200 z-10"
             aria-label="Slide anterior"
           >
-            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
+            <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
           </button>
           <button
             onClick={nextSlide}
-            className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-1.5 sm:p-2 rounded-full transition-colors duration-200 z-10"
+            className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-1 sm:p-1.5 md:p-2 rounded-full transition-colors duration-200 z-10"
             aria-label="Próximo slide"
           >
-            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
+            <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
           </button>
 
           <div className="absolute bottom-2 sm:bottom-4 left-1/2 -translate-x-1/2 flex space-x-1 sm:space-x-2">
@@ -419,9 +431,7 @@ function Home() {
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
-                className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-colors duration-200 ${
-                  index === currentSlide ? 'bg-red-500' : 'bg-white/50'
-                }`}
+                className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-colors duration-200 ${index === currentSlide ? 'bg-red-500' : 'bg-white/50'}`}
                 aria-label={`Ir para slide ${index + 1}`}
               />
             ))}
@@ -448,7 +458,7 @@ function Home() {
                   key={index}
                   src={src}
                   alt="Imagem"
-                  className="w-full h-32 sm:h-40 md:h-48 lg:h-56 object-cover rounded-lg hover:scale-105 transition-transform duration-300"
+                  className="w-full h-28 sm:h-36 md:h-44 lg:h-52 xl:h-60 object-cover rounded-lg hover:scale-105 transition-transform duration-300"
                   loading="lazy"
                 />
               ))}
@@ -487,7 +497,7 @@ function Home() {
                   <img
                     src={research.image}
                     alt={research.title}
-                    className="w-full h-32 sm:h-40 md:h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+                    className="w-full h-28 sm:h-36 md:h-44 object-cover transition-transform duration-300 group-hover:scale-105"
                     loading="lazy"
                   />
                   <div className="p-4 sm:p-6">
@@ -582,7 +592,7 @@ function Home() {
                     <img
                       src={news.image}
                       alt={news.title}
-                      className="w-full h-36 sm:h-48 object-cover"
+                      className="w-full h-32 sm:h-40 md:h-48 object-cover"
                       loading="lazy"
                     />
                     <span className="absolute top-1.5 right-1.5 bg-pink-500 text-white px-2 py-0.5 rounded-full text-xs">
@@ -669,14 +679,14 @@ function Home() {
                 { href: 'https://www.gov.br', src: '/imagens/governofederal.png', alt: 'Governo Federal' },
                 { href: 'https://www.observatorio.org', src: '/imagens/observatorio.png', alt: 'Observatório' },
                 { href: 'https://www.gov.br/saude', src: '/imagens/sus.png', alt: 'SUS' },
-                { href: 'https://www.ufnt.edu.br', src: '/imagens/ufnt.png', alt: 'UFNT' },
+                { href: 'https://www.ufnt.edu.br', src: '/imagens/ufnt.jpg', alt: 'UFNT' },
                 { href: 'https://www.observatorio.org', src: '/imagens/observatorio-logo.png.jpeg', alt: 'Observatório Logo' },
               ].map(({ href, src, alt }, index) => (
-                <a key={index} href={href} target="_blank" rel="noopener noreferrer">
+                <a key={index} href={href} target="_blank" rel="noopener noreferrer" className="flex justify-center">
                   <img
                     src={src}
                     alt={alt}
-                    className="h-12 sm:h-14 md:h-16 object-contain mx-auto hover:scale-110 transition-transform rounded-2xl"
+                    className="h-10 sm:h-12 md:h-14 lg:h-16 object-contain mx-auto hover:scale-110 transition-transform rounded-lg"
                     loading="lazy"
                   />
                 </a>
@@ -692,9 +702,10 @@ function Home() {
         </section>
 
         {/* Footer */}
-        <footer className="bg-blue-900/90 py-6 sm:py-8 md:py-12">
+        <footer className="bg-blue-900/90 py-6 sm:py-8 md:py-12 relative">
           <div className="container mx-auto px-4 sm:px-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
+              {/* Coluna 1 - Logo, descrição e redes sociais */}
               <div>
                 <div className="flex items-center gap-2 mb-2 sm:mb-4 cursor-pointer group hover:scale-105 transition-transform">
                   <img
@@ -710,8 +721,30 @@ function Home() {
                 <p className="text-xs sm:text-sm text-white/80 group-hover:text-white/90 transition-colors">
                   Promovendo a verdade e combatendo a desinformação através da pesquisa e educação.
                 </p>
+                {/* Redes Sociais */}
+                <div className="flex items-center gap-2 sm:gap-3 mt-3 sm:mt-4">
+                  <a href="https://open.spotify.com/" target="_blank" rel="noopener noreferrer" aria-label="Spotify">
+                    <FontAwesomeIcon icon={faSpotify} className="text-white hover:text-green-500 transition-all h-4 w-4 sm:h-5 sm:w-5" />
+                  </a>
+                  <a href="https://www.youtube.com/@observatorionorte" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                    <FontAwesomeIcon icon={faYoutube} className="text-white hover:text-red-500 transition-all h-4 w-4 sm:h-5 sm:w-5" />
+                  </a>
+                  <a href="https://www.tiktok.com/@norteobservatorio?_t=ZM-8uzZfAmW1AM&_r=1" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                    <FontAwesomeIcon icon={faTiktok} className="text-white hover:text-blue-500 transition-all h-4 w-4 sm:h-5 sm:w-5" />
+                  </a>
+                  <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                    <FontAwesomeIcon icon={faFacebook} className="text-white hover:text-blue-500 transition-all h-4 w-4 sm:h-5 sm:w-5" />
+                  </a>
+                  <a href="https://www.instagram.com/observatorio.norte/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <FontAwesomeIcon icon={faInstagram} className="text-white hover:text-pink-500 transition-all h-4 w-4 sm:h-5 sm:w-5" />
+                  </a>
+                  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                    <FontAwesomeIcon icon={faXTwitter} className="text-white hover:text-gray-800 transition-all h-4 w-4 sm:h-5 sm:w-5" />
+                  </a>
+                </div>
               </div>
 
+              {/* Coluna 2 - Links rápidos */}
               <div>
                 <h4 className="font-semibold mb-2 sm:mb-4 hover:text-pink-400 transition-colors cursor-pointer text-sm sm:text-base">
                   Links Rápidos
@@ -729,6 +762,8 @@ function Home() {
                   ))}
                 </ul>
               </div>
+
+              {/* Coluna 3 - Recursos */}
               <div>
                 <h4 className="font-semibold mb-2 sm:mb-4 hover:text-pink-400 transition-colors cursor-pointer text-sm sm:text-base">
                   Recursos
@@ -746,6 +781,8 @@ function Home() {
                   ))}
                 </ul>
               </div>
+
+              {/* Coluna 4 - Newsletter */}
               <div>
                 <h4 className="font-semibold mb-2 sm:mb-4 hover:text-pink-400 transition-colors cursor-pointer text-sm sm:text-base">
                   Newsletter
@@ -771,17 +808,19 @@ function Home() {
               </p>
             </div>
           </div>
+          <div className="relative">
+            <LanguagesSelector />
+          </div>
         </footer>
-
-        {/* WhatsApp Floating Button */}
         <a
           href="https://api.whatsapp.com/send?phone=+556392480518&text=Quero%20fazer%20um%20agendamento!"
-          className="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 group"
+          className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 bg-green-500 hover:bg-green-600 text-white p-3 sm:p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 group"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="WhatsApp"
         >
-          <FontAwesomeIcon icon={faWhatsapp} className="h-6 w-6" />
-          <span className="absolute right-full top-1/2 -translate-y-1/2 mr-3 bg-white text-gray-800 text-xs font-medium px-2 py-1 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-md">
+          <FontAwesomeIcon icon={faWhatsapp} className="h-5 w-5 sm:h-6 sm:w-6" />
+          <span className="absolute right-full top-1/2 -translate-y-1/2 mr-2 bg-white text-gray-800 text-xs font-medium px-2 py-1 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-md">
             Comunidade Observatório
           </span>
         </a>

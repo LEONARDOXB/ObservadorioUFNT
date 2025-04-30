@@ -3,6 +3,5 @@ import { AppRouter } from './routes/AppRouter';
   return (
    <AppRouter/>
   );
-
 }
 export default App;

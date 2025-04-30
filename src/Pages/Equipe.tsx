@@ -329,6 +329,27 @@ export function Equipe() {
               <p className="text-xs md:text-sm text-white/80 group-hover:text-white/90 transition-colors">
                 Promovendo a verdade e combatendo a desinformação através da pesquisa e educação.
               </p>
+                {/* Redes Sociais */}
+        <div className="flex items-center gap-3 mt-4">
+          <a href="https://open.spotify.com/" target="_blank" rel="noopener noreferrer">
+            <FontAwesomeIcon icon={faSpotify} className="text-white hover:text-green-500 transition-all h-5 w-5" />
+          </a>
+          <a href="https://www.youtube.com/@observatorionorte" target="_blank" rel="noopener noreferrer">
+            <FontAwesomeIcon icon={faYoutube} className="text-white hover:text-red-500 transition-all h-5 w-5" />
+          </a>
+          <a href="https://www.tiktok.com/@norteobservatorio?_t=ZM-8uzZfAmW1AM&_r=1" target="_blank" rel="noopener noreferrer">
+            <FontAwesomeIcon icon={faTiktok} className="text-white hover:text-blue-500 transition-all h-5 w-5" />
+          </a>
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+            <FontAwesomeIcon icon={faFacebook} className="text-white hover:text-blue-500 transition-all h-5 w-5" />
+          </a>
+          <a href="https://www.instagram.com/observatorio.norte/" target="_blank" rel="noopener noreferrer">
+            <FontAwesomeIcon icon={faInstagram} className="text-white hover:text-pink-500 transition-all h-5 w-5" />
+          </a>
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+            <FontAwesomeIcon icon={faXTwitter} className="text-white hover:text-gray-800 transition-all h-5 w-5" />
+          </a>
+        </div>
             </div>
             <div>
               <h4 className="font-semibold mb-3 md:mb-4 hover:text-pink-300 transition-colors cursor-pointer text-sm md:text-base text-white">
