@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { BookOpen, Users, Youtube, ArrowRight, Menu, X, XCircle, Search, Newspaper } from 'lucide-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXTwitter, faSpotify, faYoutube, faTiktok, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Noticias() {
   const [activeSection, setActiveSection] = useState('#news');
@@ -99,17 +99,17 @@ function Noticias() {
                   <Newspaper size={20} className="transition-colors duration-300 group-hover:text-orange-300" />
                   NOTÍCIAS
                 </a>
-                <a
-                  href="#"
+                <Link
+                  to="https://www.youtube.com/@observatorionorte"
                   onClick={() => setActiveSection('#lectures')}
-                  className={`group flex items-center gap-2 text-sm font-medium transition-all duration-300 
-                    ${activeSection === '#lectures'
-                      ? 'text-orange-300 scale-105'
-                      : 'text-orange-50 hover:text-orange-300 hover:scale-105'}`}
+                  className={`group flex items-center gap-1 lg:gap-2 text-xs lg:text-sm font-medium transition-all duration-300 
+                                    ${activeSection === '#lectures'
+                      ? 'text-pink-300 scale-105'
+                      : 'text-white hover:text-pink-300 hover:scale-105'}`}
                 >
-                  <Youtube size={20} className="transition-colors duration-300 group-hover:text-orange-300" />
-                  PALESTRAS
-                </a>
+                  <Youtube className="h-4 w-4 lg:h-5 lg:w-5" />
+                  <span>PALESTRAS</span>
+                </Link>
               </div>
               <button
                 onClick={() => navigate('/login')}

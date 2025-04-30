@@ -203,17 +203,17 @@ function Pesquisa() {
                   <Newspaper size={20} className="transition-colors duration-300 group-hover:text-yellow-300" />
                   NOTÍCIAS
                 </a>
-                <a
-                  href="#"
+                <Link
+                  to="https://www.youtube.com/@observatorionorte"
                   onClick={() => setActiveSection('#lectures')}
-                  className={`group flex items-center gap-2 text-sm font-medium transition-all duration-300 
-                    ${activeSection === '#lectures'
-                      ? 'text-yellow-300 scale-105'
-                      : 'text-white hover:text-yellow-300 hover:scale-105'}`}
+                  className={`group flex items-center gap-1 lg:gap-2 text-xs lg:text-sm font-medium transition-all duration-300 
+                      ${activeSection === '#lectures'
+                      ? 'text-pink-300 scale-105'
+                      : 'text-white hover:text-pink-300 hover:scale-105'}`}
                 >
-                  <Youtube size={20} className="transition-colors duration-300 group-hover:text-yellow-300" />
-                  PALESTRAS
-                </a>
+                  <Youtube className="h-4 w-4 lg:h-5 lg:w-5" />
+                  <span>PALESTRAS</span>
+                </Link>
               </div>
               <button
                 onClick={() => navigate('/login')}
@@ -284,20 +284,17 @@ function Pesquisa() {
                   <Rss size={20} className="transition-colors duration-300 group-hover:text-yellow-300" />
                   NOTÍCIAS
                 </a>
-                <a
-                  href="#"
-                  onClick={() => {
-                    setActiveSection('#lectures');
-                    setMobileMenuOpen(false);
-                  }}
-                  className={`group flex items-center gap-2 text-sm font-medium transition-all duration-300 
-                    ${activeSection === '#lectures'
-                      ? 'text-yellow-300 scale-105'
-                      : 'text-white hover:text-yellow-300 hover:scale-105'}`}
+                <Link
+                  to="https://www.youtube.com/@observatorionorte"
+                  onClick={() => setActiveSection('#lectures')}
+                  className={`group flex items-center gap-1 lg:gap-2 text-xs lg:text-sm font-medium transition-all duration-300 
+                      ${activeSection === '#lectures'
+                      ? 'text-pink-300 scale-105'
+                      : 'text-white hover:text-pink-300 hover:scale-105'}`}
                 >
-                  <Youtube size={20} className="transition-colors duration-300 group-hover:text-yellow-300" />
-                  PALESTRAS
-                </a>
+                  <Youtube className="h-4 w-4 lg:h-5 lg:w-5" />
+                  <span>PALESTRAS</span>
+                </Link>
                 <button
                   onClick={() => navigate('/login')}
 
