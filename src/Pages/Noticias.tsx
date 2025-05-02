@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { BookOpen, Users, Youtube, ArrowRight, Menu, X, XCircle, Search, Newspaper } from 'lucide-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXTwitter, faSpotify, faYoutube, faTiktok, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import { Link, useNavigate } from 'react-router-dom';
 import { LanguagesSelector } from '../components/ui/LanguagesSelector';
 
@@ -207,16 +208,21 @@ function Noticias() {
           <div className="space-y-8">
             {/* Fake News 1 */}
             <div className="bg-white rounded-xl shadow-lg overflow-hidden border-l-8 border-red-600 transform hover:scale-[1.01] transition-transform">
-              <div className="flex items-center gap-4 p-6">
-                <img
-                  src="/imagens/G1.png"
-                  alt="Fake News Desmascaradas"
-                  className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover shadow-md"
-                />
-                <div className="flex items-center gap-2">
-                  <XCircle className="text-red-600 animate-pulse" size={28} />
-                  <span className="text-red-600 font-bold">FAKE NEWS</span>
+              <div className="flex items-center justify-between p-6">
+                <div className="flex items-center gap-4">
+                  <img
+                    src="/imagens/G1.png"
+                    alt="Fake News Desmascaradas"
+                    className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover shadow-md"
+                  />
+                  <div className="flex items-center gap-2">
+                    <XCircle className="text-red-600 animate-pulse" size={28} />
+                    <span className="text-red-600 font-bold">FAKE NEWS</span>
+                  </div>
                 </div>
+                <button className="text-red-600 hover:text-red-800 transition-colors p-2" title="Editar notícia">
+                  <FontAwesomeIcon icon={faPenToSquare} size="lg" />
+                </button>
               </div>
               <img
                 src="https://images.unsplash.com/photo-1584483766114-2cea6facdf57?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
@@ -250,16 +256,21 @@ function Noticias() {
 
             {/* Fake News 2 */}
             <div className="bg-white rounded-xl shadow-lg overflow-hidden border-l-8 border-red-600 transform hover:scale-[1.01] transition-transform">
-              <div className="flex items-center gap-4 p-6">
-                <img
-                  src="/imagens/G1.png"
-                  alt="Fake News Desmascaradas"
-                  className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover shadow-md"
-                />
-                <div className="flex items-center gap-2">
-                  <XCircle className="text-red-600 animate-pulse" size={28} />
-                  <span className="text-red-600 font-bold">FAKE NEWS</span>
+              <div className="flex items-center justify-between p-6">
+                <div className="flex items-center gap-4">
+                  <img
+                    src="/imagens/G1.png"
+                    alt="Fake News Desmascaradas"
+                    className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover shadow-md"
+                  />
+                  <div className="flex items-center gap-2">
+                    <XCircle className="text-red-600 animate-pulse" size={28} />
+                    <span className="text-red-600 font-bold">FAKE NEWS</span>
+                  </div>
                 </div>
+                <button className="text-red-600 hover:text-red-800 transition-colors p-2" title="Editar notícia">
+                  <FontAwesomeIcon icon={faPenToSquare} size="lg" />
+                </button>
               </div>
               <img
                 src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
@@ -293,16 +304,21 @@ function Noticias() {
 
             {/* Fake News 3 */}
             <div className="bg-white rounded-xl shadow-lg overflow-hidden border-l-8 border-red-600 transform hover:scale-[1.01] transition-transform">
-              <div className="flex items-center gap-4 p-6">
-                <img
-                  src="/imagens/G1.png"
-                  alt="Fake News Desmascaradas"
-                  className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover shadow-md"
-                />
-                <div className="flex items-center gap-2">
-                  <XCircle className="text-red-600 animate-pulse" size={28} />
-                  <span className="text-red-600 font-bold">FAKE NEWS</span>
+              <div className="flex items-center justify-between p-6">
+                <div className="flex items-center gap-4">
+                  <img
+                    src="/imagens/G1.png"
+                    alt="Fake News Desmascaradas"
+                    className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover shadow-md"
+                  />
+                  <div className="flex items-center gap-2">
+                    <XCircle className="text-red-600 animate-pulse" size={28} />
+                    <span className="text-red-600 font-bold">FAKE NEWS</span>
+                  </div>
                 </div>
+                <button className="text-red-600 hover:text-red-800 transition-colors p-2" title="Editar notícia">
+                  <FontAwesomeIcon icon={faPenToSquare} size="lg" />
+                </button>
               </div>
               <img
                 src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
@@ -336,16 +352,21 @@ function Noticias() {
 
             {/* Fake News 4 */}
             <div className="bg-white rounded-xl shadow-lg overflow-hidden border-l-8 border-red-600 transform hover:scale-[1.01] transition-transform">
-              <div className="flex items-center gap-4 p-6">
-                <img
-                  src="/imagens/G1.png"
-                  alt="Fake News Desmascaradas"
-                  className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover shadow-md"
-                />
-                <div className="flex items-center gap-2">
-                  <XCircle className="text-red-600 animate-pulse" size={28} />
-                  <span className="text-red-600 font-bold">FAKE NEWS</span>
+              <div className="flex items-center justify-between p-6">
+                <div className="flex items-center gap-4">
+                  <img
+                    src="/imagens/G1.png"
+                    alt="Fake News Desmascaradas"
+                    className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover shadow-md"
+                  />
+                  <div className="flex items-center gap-2">
+                    <XCircle className="text-red-600 animate-pulse" size={28} />
+                    <span className="text-red-600 font-bold">FAKE NEWS</span>
+                  </div>
                 </div>
+                <button className="text-red-600 hover:text-red-800 transition-colors p-2" title="Editar notícia">
+                  <FontAwesomeIcon icon={faPenToSquare} size="lg" />
+                </button>
               </div>
               <img
                 src="https://images.unsplash.com/photo-1576671081837-49000212a370?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
