@@ -3,6 +3,7 @@ import { Menu, X, ArrowRight, BookOpen, Users, Search, Newspaper, Video, Youtube
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXTwitter, faSpotify, faYoutube, faTiktok, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { LanguagesSelector } from '../components/ui/LanguagesSelector';
 
 export function Academicos() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -367,6 +368,9 @@ export function Academicos() {
             >
               <span>Voltar Para Equipe</span>
             </Link>
+            <div className="relative">
+              <LanguagesSelector />
+            </div>
           </div>
         </div>
       </main>

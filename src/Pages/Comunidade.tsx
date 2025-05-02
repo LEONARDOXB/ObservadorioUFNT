@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { faXTwitter, faSpotify, faYoutube, faTiktok, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLink } from '@fortawesome/free-solid-svg-icons'; // Ícone específico
+import { LanguagesSelector } from '../components/ui/LanguagesSelector';
 
 export function Comunidade() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -324,6 +325,9 @@ export function Comunidade() {
             >
               <span>Voltar Para Início</span>
             </Link>
+            <div className="relative">
+              <LanguagesSelector />
+            </div>
           </div>
         </div>
       </main>

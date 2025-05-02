@@ -3,6 +3,7 @@ import { BookOpen, Users, Youtube, ArrowRight, Menu, X, XCircle, Search, Newspap
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXTwitter, faSpotify, faYoutube, faTiktok, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { Link, useNavigate } from 'react-router-dom';
+import { LanguagesSelector } from '../components/ui/LanguagesSelector';
 
 function Noticias() {
   const [activeSection, setActiveSection] = useState('#news');
@@ -475,6 +476,9 @@ function Noticias() {
           </div>
         </div>
       </footer>
+        <div className="relative">
+                <LanguagesSelector />
+              </div>
     </div>
   );
 }

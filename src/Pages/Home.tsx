@@ -59,14 +59,14 @@ function Home() {
     const handleResize = () => {
       // Ajustes específicos para mobile podem ser adicionados aqui
     };
-    
+
     window.addEventListener('resize', handleResize);
     handleResize();
-    
+
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev === articles.length - 1 ? 0 : prev + 1));
     }, 5000);
-    
+
     return () => {
       window.removeEventListener('resize', handleResize);
       clearInterval(interval);

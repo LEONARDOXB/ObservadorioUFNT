@@ -3,6 +3,7 @@ import { BookOpen, Users, Rss, Youtube, ArrowRight, Menu, X, AlertTriangle, Shar
 import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXTwitter, faSpotify, faYoutube, faTiktok, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { LanguagesSelector } from '../components/ui/LanguagesSelector';
 
 interface NewsItem {
   title: string;
@@ -396,6 +397,9 @@ function Pesquisa() {
         >
           Voltar para página inicial
         </Link>
+        <div className="relative">
+          <LanguagesSelector />
+        </div>
       </div>
 
       {/* Footer */}

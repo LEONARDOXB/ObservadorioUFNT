@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Eye, EyeOff, AlertCircle } from 'lucide-react'
+import { LanguagesSelector } from '../components/ui/LanguagesSelector'
 
 function Login() {
   const [email, setEmail] = useState('')
@@ -10,7 +11,7 @@ function Login() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setError('')
-    
+
     try {
       // Simulate login validation
       if (!email.includes('@')) {
@@ -19,7 +20,7 @@ function Login() {
       if (password.length < 6) {
         throw new Error('A senha deve ter pelo menos 6 caracteres')
       }
-      
+
       console.log('Login attempt:', { email, password })
       // Add actual login logic here
     } catch (err) {
@@ -37,18 +38,18 @@ function Login() {
               Combata a desinformação
             </h1>
             <p className="text-lg text-gray-700 mb-8">
-              Em um mundo repleto de fake news, seja parte da solução. 
-              Nossa plataforma utiliza tecnologia avançada e especialistas 
+              Em um mundo repleto de fake news, seja parte da solução.
+              Nossa plataforma utiliza tecnologia avançada e especialistas
               para verificar fatos e promover a verdade.
             </p>
             <div className="grid grid-cols-2 gap-4">
-              <img 
-                src="https://images.unsplash.com/photo-1586880244406-556ebe35f282?w=800&h=600&fit=crop&crop=center" 
+              <img
+                src="https://images.unsplash.com/photo-1586880244406-556ebe35f282?w=800&h=600&fit=crop&crop=center"
                 alt="Fake News Concept"
                 className="rounded-xl shadow-lg w-full object-cover"
               />
-              <img 
-                src="https://images.unsplash.com/photo-1591522811280-a8759970b03f?w=800&h=600&fit=crop&crop=center" 
+              <img
+                src="https://images.unsplash.com/photo-1591522811280-a8759970b03f?w=800&h=600&fit=crop&crop=center"
                 alt="Fact Checking"
                 className="rounded-xl shadow-lg w-full object-cover"
               />
@@ -147,8 +148,8 @@ function Login() {
               </div>
 
               <div className="text-sm">
-                <a 
-                  href="#" 
+                <a
+                  href="#"
                   className="font-medium text-blue-600 hover:text-blue-500 transition-colors"
                 >
                   Esqueceu sua senha?
@@ -187,8 +188,8 @@ function Login() {
           <div className="text-center">
             <p className="text-sm text-gray-600">
               Não tem uma conta?{' '}
-              <a 
-                href="#" 
+              <a
+                href="#"
                 className="font-medium text-blue-600 hover:text-blue-500 transition-colors"
               >
                 Cadastre-se
@@ -197,7 +198,11 @@ function Login() {
           </div>
         </div>
       </div>
+      <div className="relative">
+        <LanguagesSelector />
+      </div>
     </div>
+
   )
 }
 
