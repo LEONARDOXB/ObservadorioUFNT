@@ -5,10 +5,13 @@ import { faXTwitter, faSpotify, faYoutube, faTiktok, faFacebook, faInstagram } f
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import { Link, useNavigate } from 'react-router-dom';
 import { LanguagesSelector } from '../components/ui/LanguagesSelector';
+import { FileUpload } from '../components/ui/file-upload';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '../components/ui/dialog';
 
-function Noticias() {
-  const [activeSection, setActiveSection] = useState('#news');
+function Home() {
+  const [activeSection, setActiveSection] = useState('#home');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [uploadModalOpen, setUploadModalOpen] = useState(false);
   const navigate = useNavigate();
 
   return (
@@ -42,7 +45,8 @@ function Noticias() {
                 </a>
                 <a href="https://www.youtube.com/@observatorionorte" target="_blank" rel="noopener noreferrer">
                   <FontAwesomeIcon icon={faYoutube} className="text-white hover:text-red-500 transition-all h-5 w-5" />
-                </a>           <a href="https://www.tiktok.com/@norteobservatorio?_t=ZM-8uzZfAmW1AM&_r=1" target="_blank" rel="noopener noreferrer">
+                </a>
+                <a href="https://www.tiktok.com/@norteobservatorio?_t=ZM-8uzZfAmW1AM&_r=1" target="_blank" rel="noopener noreferrer">
                   <FontAwesomeIcon icon={faTiktok} className="text-white hover:text-blue-500 transition-all h-5 w-5" />
                 </a>
                 <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
@@ -52,7 +56,7 @@ function Noticias() {
                   <FontAwesomeIcon icon={faInstagram} className="text-white hover:text-pink-500 transition-all h-5 w-5" />
                 </a>
                 <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                  <FontAwesomeIcon icon={faXTwitter} className="text-white hover:text-gray-800 transition-all  h-5 w-5" />
+                  <FontAwesomeIcon icon={faXTwitter} className="text-white hover:text-gray-800 transition-all h-5 w-5" />
                 </a>
               </div>
 
@@ -105,7 +109,7 @@ function Noticias() {
                   to="https://www.youtube.com/@observatorionorte"
                   onClick={() => setActiveSection('#lectures')}
                   className={`group flex items-center gap-1 lg:gap-2 text-xs lg:text-sm font-medium transition-all duration-300 
-                                    ${activeSection === '#lectures'
+                    ${activeSection === '#lectures'
                       ? 'text-pink-300 scale-105'
                       : 'text-white hover:text-pink-300 hover:scale-105'}`}
                 >
@@ -204,9 +208,10 @@ function Noticias() {
       {/* Main Content */}
       <main className="container mx-auto px-4 py-8">
         <div className="bg-orange-50 rounded-3xl shadow-2xl p-8 max-w-5xl mx-auto">
-
+          <h1 className="text-3xl font-bold text-center text-red-900 mb-8">Últimas Notícias Verificadas</h1>
+          
           <div className="space-y-8">
-            {/* Fake News 1 */}
+            {/* Notícia 1 */}
             <div className="bg-white rounded-xl shadow-lg overflow-hidden border-l-8 border-red-600 transform hover:scale-[1.01] transition-transform">
               <div className="flex items-center justify-between p-6">
                 <div className="flex items-center gap-4">
@@ -220,7 +225,11 @@ function Noticias() {
                     <span className="text-red-600 font-bold">FAKE NEWS</span>
                   </div>
                 </div>
-                <button className="text-red-600 hover:text-red-800 transition-colors p-2" title="Editar notícia">
+                <button 
+                  className="text-red-600 hover:text-red-800 transition-colors p-2" 
+                  title="Editar notícia"
+                  onClick={() => setUploadModalOpen(true)}
+                >
                   <FontAwesomeIcon icon={faPenToSquare} size="lg" />
                 </button>
               </div>
@@ -254,7 +263,7 @@ function Noticias() {
               </div>
             </div>
 
-            {/* Fake News 2 */}
+            {/* Notícia 2 */}
             <div className="bg-white rounded-xl shadow-lg overflow-hidden border-l-8 border-red-600 transform hover:scale-[1.01] transition-transform">
               <div className="flex items-center justify-between p-6">
                 <div className="flex items-center gap-4">
@@ -268,7 +277,11 @@ function Noticias() {
                     <span className="text-red-600 font-bold">FAKE NEWS</span>
                   </div>
                 </div>
-                <button className="text-red-600 hover:text-red-800 transition-colors p-2" title="Editar notícia">
+                <button 
+                  className="text-red-600 hover:text-red-800 transition-colors p-2" 
+                  title="Editar notícia"
+                  onClick={() => setUploadModalOpen(true)}
+                >
                   <FontAwesomeIcon icon={faPenToSquare} size="lg" />
                 </button>
               </div>
@@ -302,7 +315,7 @@ function Noticias() {
               </div>
             </div>
 
-            {/* Fake News 3 */}
+            {/* Notícia 3 */}
             <div className="bg-white rounded-xl shadow-lg overflow-hidden border-l-8 border-red-600 transform hover:scale-[1.01] transition-transform">
               <div className="flex items-center justify-between p-6">
                 <div className="flex items-center gap-4">
@@ -316,7 +329,11 @@ function Noticias() {
                     <span className="text-red-600 font-bold">FAKE NEWS</span>
                   </div>
                 </div>
-                <button className="text-red-600 hover:text-red-800 transition-colors p-2" title="Editar notícia">
+                <button 
+                  className="text-red-600 hover:text-red-800 transition-colors p-2" 
+                  title="Editar notícia"
+                  onClick={() => setUploadModalOpen(true)}
+                >
                   <FontAwesomeIcon icon={faPenToSquare} size="lg" />
                 </button>
               </div>
@@ -350,7 +367,7 @@ function Noticias() {
               </div>
             </div>
 
-            {/* Fake News 4 */}
+            {/* Notícia 4 */}
             <div className="bg-white rounded-xl shadow-lg overflow-hidden border-l-8 border-red-600 transform hover:scale-[1.01] transition-transform">
               <div className="flex items-center justify-between p-6">
                 <div className="flex items-center gap-4">
@@ -364,7 +381,11 @@ function Noticias() {
                     <span className="text-red-600 font-bold">FAKE NEWS</span>
                   </div>
                 </div>
-                <button className="text-red-600 hover:text-red-800 transition-colors p-2" title="Editar notícia">
+                <button 
+                  className="text-red-600 hover:text-red-800 transition-colors p-2" 
+                  title="Editar notícia"
+                  onClick={() => setUploadModalOpen(true)}
+                >
                   <FontAwesomeIcon icon={faPenToSquare} size="lg" />
                 </button>
               </div>
@@ -392,6 +413,110 @@ function Noticias() {
                     <li className="flex items-start">
                       <span className="text-red-500 mr-2">•</span>
                       Remédios caseiros podem Agravar o Quadro
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Notícia 5 - Adicionada */}
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden border-l-8 border-red-600 transform hover:scale-[1.01] transition-transform">
+              <div className="flex items-center justify-between p-6">
+                <div className="flex items-center gap-4">
+                  <img
+                    src="/imagens/G1.png"
+                    alt="Fake News Desmascaradas"
+                    className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover shadow-md"
+                  />
+                  <div className="flex items-center gap-2">
+                    <XCircle className="text-red-600 animate-pulse" size={28} />
+                    <span className="text-red-600 font-bold">FAKE NEWS</span>
+                  </div>
+                </div>
+                <button 
+                  className="text-red-600 hover:text-red-800 transition-colors p-2" 
+                  title="Editar notícia"
+                  onClick={() => setUploadModalOpen(true)}
+                >
+                  <FontAwesomeIcon icon={faPenToSquare} size="lg" />
+                </button>
+              </div>
+              <img
+                src="https://images.unsplash.com/photo-1581092921461-39b2f2f8a1c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
+                alt="Tecnologia"
+                className="w-full h-64 object-cover"
+              />
+              <div className="p-6">
+                <h3 className="text-2xl font-bold mb-3 text-gray-900">Tecnologia 5G causa câncer e outras doenças</h3>
+                <p className="text-gray-700 mb-4 text-lg">
+                  Alegações sobre os perigos da tecnologia 5G para a saúde são infundadas e não possuem base científica comprovada.
+                </p>
+                <div className="bg-orange-50 p-4 rounded-lg border-2 border-red-200">
+                  <h4 className="font-semibold mb-2 text-red-800">A Verdade:</h4>
+                  <ul className="space-y-2 text-gray-700">
+                    <li className="flex items-start">
+                      <span className="text-red-500 mr-2">•</span>
+                      A radiação do 5G é não-ionizante e não danifica células
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-red-500 mr-2">•</span>
+                      Estudos mostram que não há relação entre 5G e câncer
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-red-500 mr-2">•</span>
+                      A tecnologia foi amplamente testada antes da implantação
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Notícia 6 - Adicionada */}
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden border-l-8 border-red-600 transform hover:scale-[1.01] transition-transform">
+              <div className="flex items-center justify-between p-6">
+                <div className="flex items-center gap-4">
+                  <img
+                    src="/imagens/G1.png"
+                    alt="Fake News Desmascaradas"
+                    className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover shadow-md"
+                  />
+                  <div className="flex items-center gap-2">
+                    <XCircle className="text-red-600 animate-pulse" size={28} />
+                    <span className="text-red-600 font-bold">FAKE NEWS</span>
+                  </div>
+                </div>
+                <button 
+                  className="text-red-600 hover:text-red-800 transition-colors p-2" 
+                  title="Editar notícia"
+                  onClick={() => setUploadModalOpen(true)}
+                >
+                  <FontAwesomeIcon icon={faPenToSquare} size="lg" />
+                </button>
+              </div>
+              <img
+                src="https://images.unsplash.com/photo-1581094271901-8022df4466f9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
+                alt="Alimentos"
+                className="w-full h-64 object-cover"
+              />
+              <div className="p-6">
+                <h3 className="text-2xl font-bold mb-3 text-gray-900">Alimentos transgênicos causam mutações genéticas</h3>
+                <p className="text-gray-700 mb-4 text-lg">
+                  Esta afirmação sobre alimentos geneticamente modificados é falsa e já foi desmentida por diversos estudos científicos.
+                </p>
+                <div className="bg-orange-50 p-4 rounded-lg border-2 border-red-200">
+                  <h4 className="font-semibold mb-2 text-red-800">A Verdade:</h4>
+                  <ul className="space-y-2 text-gray-700">
+                    <li className="flex items-start">
+                      <span className="text-red-500 mr-2">•</span>
+                      Transgênicos são estudados há mais de 30 anos
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-red-500 mr-2">•</span>
+                      Organismos internacionais atestam sua segurança
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-red-500 mr-2">•</span>
+                      Podem ajudar a combater a fome no mundo
                     </li>
                   </ul>
                 </div>
@@ -497,13 +622,29 @@ function Noticias() {
           </div>
         </div>
       </footer>
-        <div className="relative">
-                <LanguagesSelector />
-              </div>
+      <div className="relative">
+        <LanguagesSelector />
+      </div>
+
+      {/* Modal de Upload */}
+      <Dialog open={uploadModalOpen} onOpenChange={setUploadModalOpen}>
+        <DialogContent className="sm:max-w-[625px]">
+          <DialogHeader>
+            <DialogTitle>Upload de Arquivos</DialogTitle>
+          </DialogHeader>
+          <div className="py-4">
+            <FileUpload 
+              onChange={(files) => {
+                console.log('Arquivos selecionados:', files);
+                // Aqui você pode fazer o que quiser com os arquivos
+                // Por exemplo, enviar para um servidor
+              }} 
+            />
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
 
-export default Noticias;
-
-export { Noticias }
+export default Home;

@@ -24,6 +24,7 @@ export function AppRouter() {
         <Route path="/login" element={<Login />} />
         <Route path="/comunidade" element={<Comunidade />} />
         <Route path="/servidores" element={<Servidores />} />
+
       </Routes>
     </BrowserRouter>
   );
