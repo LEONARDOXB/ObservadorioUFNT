@@ -2,8 +2,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Menu, X, ArrowRight, BookOpen, Users, Search, Newspaper, Video, Youtube } from 'lucide-react';
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXTwitter, faSpotify, faYoutube, faTiktok, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faXTwitter, faSpotify, faYoutube, faTiktok, faFacebook, faInstagram,  } from '@fortawesome/free-brands-svg-icons';
 import { LanguagesSelector } from '../components/ui/LanguagesSelector';
+import { faLink } from '@fortawesome/free-solid-svg-icons';
 
 export function Academicos() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -205,7 +206,6 @@ export function Academicos() {
                 </Link>
                 <button
                   onClick={() => navigate('/login')}
-
                   className="bg-gradient-to-r from-pink-500 to-purple-600 text-white px-6 py-2 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20 flex items-center justify-center gap-2">
                   ENTRAR
                   <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
@@ -232,12 +232,8 @@ export function Academicos() {
           <Link to="/comunidade" className="text-pink-300 hover:text-pink-400 transition">COMUNIDADE EXTERNA</Link>
           <span className="text-white/70">|</span>
           <Link to="/servidores" className="text-pink-300 hover:text-pink-400 transition">SERVIDORES</Link>
-
-
-
         </div>
       </div>
-
 
       {/* Conteúdo dos Alunos */}
       <main className="bg-gradient-to-br from-blue-600 via-purple-600 to-pink-500 px-6 py-16">
@@ -258,9 +254,16 @@ export function Academicos() {
                 className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
-                <h3 className="text-white font-semibold text-lg">Nome do Acadêmico 1</h3>
-                <p className="text-white/80 text-sm"></p>
+                <h3 className="text-white font-semibold text-lg">Adrielle Maciel Cavalcante</h3>
               </div>
+              <a
+                href="http://lattes.cnpq.br/3949087268568139"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-4 right-4 bg-black/70 hover:bg-black/90 p-2 rounded-full transition"
+              >
+                <FontAwesomeIcon icon={faLink} className="text-white" />
+              </a>
             </div>
 
             {/* Acadêmico 2 */}
@@ -271,11 +274,17 @@ export function Academicos() {
                 className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
-                <h3 className="text-white font-semibold text-lg">Nome do Acadêmico 2</h3>
-                <p className="text-white/80 text-sm"></p>
+                <h3 className="text-white font-semibold text-lg">Leonardo de Medeiros</h3>
               </div>
+              <a
+                href="http://lattes.cnpq.br/8495471975591440"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-4 right-4 bg-black/70 hover:bg-black/90 p-2 rounded-full transition"
+              >
+                <FontAwesomeIcon icon={faLink} className="text-white" />
+              </a>
             </div>
-
             {/* Acadêmico 3 */}
             <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
               <img
@@ -285,10 +294,16 @@ export function Academicos() {
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
                 <h3 className="text-white font-semibold text-lg">Nome do Acadêmico 3</h3>
-                <p className="text-white/80 text-sm"></p>
               </div>
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-4 right-4 bg-black/70 hover:bg-black/90 p-2 rounded-full transition"
+              >
+                <FontAwesomeIcon icon={faLink} className="text-white" />
+              </a>
             </div>
-
             {/* Acadêmico 4 */}
             <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
               <img
@@ -297,66 +312,115 @@ export function Academicos() {
                 className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
-                <h3 className="text-white font-semibold text-lg">Nome do Acadêmico 4</h3>
-                <p className="text-white/80 text-sm"></p>
+                <h3 className="text-white font-semibold text-lg">João Vítor Alves Pereira</h3>
               </div>
+              <a
+                href="http://lattes.cnpq.br/1362400452475960"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-4 right-4 bg-black/70 hover:bg-black/90 p-2 rounded-full transition"
+              >
+                <FontAwesomeIcon icon={faLink} className="text-white" />
+              </a>
             </div>
-
+            {/* Acadêmico 5 */}
             <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
               <img
                 src="/imagens/IMG-20250405-WA0277.jpg"
-                alt="Foto de Acadêmico 4"
+                alt="Foto de Acadêmico 5"
                 className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
-                <h3 className="text-white font-semibold text-lg">Nome do Acadêmico 5</h3>
-                <p className="text-white/80 text-sm"></p>
+                <h3 className="text-white font-semibold text-lg">Talita Duarte Guimarães</h3>
               </div>
+              <a
+                href="http://lattes.cnpq.br/3531304261859404"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-4 right-4 bg-black/70 hover:bg-black/90 p-2 rounded-full transition"
+              >
+                <FontAwesomeIcon icon={faLink} className="text-white" />
+              </a>
             </div>
 
+            {/* Acadêmico 6 */}
             <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
               <img
                 src="/imagens/IMG-20250406-WA0081.jpg"
-                alt="Foto de Acadêmico 4"
+                alt="Foto de Acadêmico 6"
                 className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
-                <h3 className="text-white font-semibold text-lg">Nome do Acadêmico 5</h3>
-                <p className="text-white/80 text-sm"></p>
+                <h3 className="text-white font-semibold text-lg">Nome do Acadêmico 6</h3>
               </div>
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-4 right-4 bg-black/70 hover:bg-black/90 p-2 rounded-full transition"
+              >
+                <FontAwesomeIcon icon={faLink} className="text-white" />
+              </a>
             </div>
+
+            {/* Acadêmico 7 */}
             <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
               <img
                 src="/imagens/ALISSON.jpg"
-                alt="Foto de Acadêmico 4"
+                alt="Foto de Acadêmico 7"
                 className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
-                <h3 className="text-white font-semibold text-lg">Nome do Acadêmico 5</h3>
-                <p className="text-white/80 text-sm"></p>
+                <h3 className="text-white font-semibold text-lg">Alisson Sousa Santos</h3>
               </div>
+              <a
+                href="http://lattes.cnpq.br/4131885206183712"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-4 right-4 bg-black/70 hover:bg-black/90 p-2 rounded-full transition"
+              >
+                <FontAwesomeIcon icon={faLink} className="text-white" />
+              </a>
             </div>
+
+            {/* Acadêmico 8 */}
             <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
               <img
                 src="/imagens/IMG_20250403_180259_713.webp"
-                alt="Foto de Acadêmico 4"
+                alt="Foto de Acadêmico 8"
                 className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
-                <h3 className="text-white font-semibold text-lg">Nome do Acadêmico 5</h3>
-                <p className="text-white/80 text-sm"></p>
+                <h3 className="text-white font-semibold text-lg">Arthur Lima de Arruda</h3>
               </div>
+              <a
+                href="http://lattes.cnpq.br/4346701848795376"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-4 right-4 bg-black/70 hover:bg-black/90 p-2 rounded-full transition"
+              >
+                <FontAwesomeIcon icon={faLink} className="text-white" />
+              </a>
             </div>
+
+            {/* Acadêmico 9 */}
             <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
               <img
                 src="/imagens/Thauane Maria 2025-04-07 à(s) 15.25.06_44697b1d.jpg"
-                alt="Foto de Acadêmico 4"
+                alt="Foto de Acadêmico 9"
                 className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
-                <h3 className="text-white font-semibold text-lg">Nome do Acadêmico 5</h3>
-                <p className="text-white/80 text-sm"></p>
+                <h3 className="text-white font-semibold text-lg">Thauane Maria</h3>
               </div>
+              <a
+                href="http://lattes.cnpq.br/1357461904650906"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-4 right-4 bg-black/70 hover:bg-black/90 p-2 rounded-full transition"
+              >
+                <FontAwesomeIcon icon={faLink} className="text-white" />
+              </a>
             </div>
           </div>
 

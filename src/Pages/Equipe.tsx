@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { faXTwitter, faSpotify, faYoutube, faTiktok, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { LanguagesSelector } from '../components/ui/LanguagesSelector';
+import { faLink } from '@fortawesome/free-solid-svg-icons';
 
 export function Equipe() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -258,8 +259,15 @@ export function Equipe() {
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
                 <h3 className="text-white font-semibold text-lg">Wagner Mariano</h3>
-                <p className="text-white/80 text-sm"></p>
               </div>
+              <a
+                href="http://lattes.cnpq.br/4178881542504601"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-4 right-4 bg-black/70 hover:bg-black/90 p-2 rounded-full transition"
+              >
+                <FontAwesomeIcon icon={faLink} className="text-white" />
+              </a>
             </div>
 
             {/* Domenica */}
@@ -270,35 +278,56 @@ export function Equipe() {
                 className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
-                <h3 className="text-white font-semibold text-lg">Domenica</h3>
-                <p className="text-white/80 text-sm"></p>
+                <h3 className="text-white font-semibold text-lg">Domenica Palomaris </h3>
               </div>
+              <a
+                href=" http://lattes.cnpq.br/8557438202102298"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-4 right-4 bg-black/70 hover:bg-black/90 p-2 rounded-full transition"
+              >
+                <FontAwesomeIcon icon={faLink} className="text-white" />
+              </a>
             </div>
 
-            {/* Digitalizado */}
+            {/* Elizângela Melo */}
             <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
               <img
                 src="/imagens/Digitalizado.jpg"
-                alt="Foto de Membro da Equipe"
+                alt="Foto de Elizângela Melo"
                 className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
                 <h3 className="text-white font-semibold text-lg">Elizângela Melo</h3>
-                <p className="text-white/80 text-sm"></p>
               </div>
+              <a
+                href="http://lattes.cnpq.br/8365658032920898"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-4 right-4 bg-black/70 hover:bg-black/90 p-2 rounded-full transition"
+              >
+                <FontAwesomeIcon icon={faLink} className="text-white" />
+              </a>
             </div>
 
-            {/* Beatriz */}
+            {/* Ana Cristina Mendanha Sampaio */}
             <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
               <img
                 src="/imagens/2F9A1555.jpg"
-                alt="Foto de Membro da Equipe"
+                alt="Foto de Ana Cristina Mendanha Sampaio"
                 className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
-                <h3 className="text-white font-semibold text-lg">Beatriz Croriz</h3>
-                <p className="text-white/80 text-sm"></p>
+                <h3 className="text-white font-semibold text-lg">Ana Cristina Mendanha Sampaio</h3>
               </div>
+              <a
+                href="https://lattes.cnpq.br/1604644486862188"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-4 right-4 bg-black/70 hover:bg-black/90 p-2 rounded-full transition"
+              >
+                <FontAwesomeIcon icon={faLink} className="text-white" />
+              </a>
             </div>
           </div>
 

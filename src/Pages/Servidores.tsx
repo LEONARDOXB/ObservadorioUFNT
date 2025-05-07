@@ -259,10 +259,10 @@ export function Servidores() {
                 className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
-                <h3 className="text-white font-semibold text-lg">Sheylene</h3>
+                <h3 className="text-white font-semibold text-lg">Sheylene Alves de Oliveira</h3>
               </div>
               <a
-                href="https://"
+                href="http://lattes.cnpq.br/7600259831740583"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="absolute bottom-4 right-4 bg-black/70 hover:bg-black/90 p-2 rounded-full transition"
@@ -278,10 +278,10 @@ export function Servidores() {
                 className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
-                <h3 className="text-white font-semibold text-lg">Sheylene</h3>
+                <h3 className="text-white font-semibold text-lg">Fabricio Rodrigues Bezerra</h3>
               </div>
               <a
-                href="https://"
+                href="http://lattes.cnpq.br/3190622450206684"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="absolute bottom-4 right-4 bg-black/70 hover:bg-black/90 p-2 rounded-full transition"

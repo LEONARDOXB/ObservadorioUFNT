@@ -258,7 +258,7 @@ export function Comunidade() {
                 className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
-                <h3 className="text-white font-semibold text-lg">Guilherme</h3>
+                <h3 className="text-white font-semibold text-lg">Guilherme Augusto</h3>
               </div>
               <a
                 href="https://lattes.cnpq.br/2359492111253555"
@@ -278,10 +278,10 @@ export function Comunidade() {
                 className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
-                <h3 className="text-white font-semibold text-lg">Guilherme</h3>
+                <h3 className="text-white font-semibold text-lg">Leonardo Xavier Brito</h3>
               </div>
               <a
-                href="https://lattes.cnpq.br/2359492111253555"
+                href="http://lattes.cnpq.br/1102814612990857"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="absolute bottom-4 right-4 bg-black/70 hover:bg-black/90 p-2 rounded-full transition"

@@ -2,37 +2,33 @@ import React, { useRef, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { motion } from "framer-motion";
 import { IconUpload } from "@tabler/icons-react";
-import { cn } from "../../lib/utils"; // ajuste esse import se necessário
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLink } from "@fortawesome/free-solid-svg-icons";
+import { cn } from "../../lib/utils";
 const mainVariant = {
   initial: { x: 0, y: 0 },
   animate: { x: 20, y: -20, opacity: 0.9 },
 };
-
 const secondaryVariant = {
   initial: { opacity: 0 },
   animate: { opacity: 1 },
 };
-
 export const FileUpload = ({ onChange }: { onChange?: (files: File[]) => void }) => {
   const [files, setFiles] = useState<File[]>([]);
   const [textContent, setTextContent] = useState("");
+  const [linkUrl, setLinkUrl] = useState("https://facebook.com");
   const fileInputRef = useRef<HTMLInputElement>(null);
-
   const handleFileChange = (newFiles: File[]) => {
     setFiles((prevFiles) => [...prevFiles, ...newFiles]);
     onChange?.(newFiles);
   };
-
   const handleClick = () => fileInputRef.current?.click();
-
   const { getRootProps, isDragActive } = useDropzone({
     multiple: false,
     noClick: true,
     onDrop: handleFileChange,
     onDropRejected: (error) => console.log(error),
   });
-
   return (
     <div className="w-full" {...getRootProps()}>
       <motion.div
@@ -47,11 +43,9 @@ export const FileUpload = ({ onChange }: { onChange?: (files: File[]) => void })
           onChange={(e) => handleFileChange(Array.from(e.target.files || []))}
           className="hidden"
         />
-
         <div className="absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,white,transparent)]">
           <GridPattern />
         </div>
-
         <div className="flex flex-col items-center justify-center">
           <p className="relative z-20 font-sans font-bold text-neutral-700 dark:text-neutral-300 text-base">
             Upload file
@@ -59,7 +53,6 @@ export const FileUpload = ({ onChange }: { onChange?: (files: File[]) => void })
           <p className="relative z-20 font-sans font-normal text-neutral-400 dark:text-neutral-400 text-base mt-2">
             Drag or drop your files here or click to upload
           </p>
-
           <div className="relative w-full mt-10 max-w-xl mx-auto">
             {files.length > 0 &&
               files.map((file, idx) => (
@@ -89,7 +82,6 @@ export const FileUpload = ({ onChange }: { onChange?: (files: File[]) => void })
                       {(file.size / (1024 * 1024)).toFixed(2)} MB
                     </motion.p>
                   </div>
-
                   <div className="flex text-sm md:flex-row flex-col items-start md:items-center w-full mt-2 justify-between text-neutral-600 dark:text-neutral-400">
                     <motion.p
                       initial={{ opacity: 0 }}
@@ -109,16 +101,11 @@ export const FileUpload = ({ onChange }: { onChange?: (files: File[]) => void })
                   </div>
                 </motion.div>
               ))}
-
             {!files.length && (
               <motion.div
                 layoutId="file-upload"
                 variants={mainVariant}
-                transition={{
-                  type: "spring",
-                  stiffness: 300,
-                  damping: 20,
-                }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 className={cn(
                   "relative group-hover/file:shadow-2xl z-40 bg-white dark:bg-neutral-900 flex items-center justify-center h-32 mt-4 w-full max-w-[8rem] mx-auto rounded-md",
                   "shadow-[0px_10px_50px_rgba(0,0,0,0.1)]"
@@ -138,7 +125,6 @@ export const FileUpload = ({ onChange }: { onChange?: (files: File[]) => void })
                 )}
               </motion.div>
             )}
-
             {!files.length && (
               <motion.div
                 variants={secondaryVariant}
@@ -148,8 +134,7 @@ export const FileUpload = ({ onChange }: { onChange?: (files: File[]) => void })
           </div>
         </div>
       </motion.div>
-
-      {/* Campo de texto e botões */}
+      {/* Campo de texto, link e botões */}
       <div className="mt-4 px-4">
         <label
           htmlFor="file-description"
@@ -166,24 +151,47 @@ export const FileUpload = ({ onChange }: { onChange?: (files: File[]) => void })
           className="w-full rounded-md border border-neutral-300 dark:border-neutral-700 shadow-sm focus:border-sky-500 focus:ring focus:ring-sky-500/50 dark:bg-neutral-900 dark:text-white p-2 text-sm"
           placeholder="Digite aqui uma descrição ou conteúdo..."
         />
+        {/* Ícone + input + link abaixo do textarea */}
+        <div className="mt-3">
+          <div className="flex items-center gap-2 mb-2 text-neutral-700 dark:text-neutral-300">
+            <FontAwesomeIcon icon={faLink} className="text-base" />
+            <input
+              type="text"
+              value={linkUrl}
+              onChange={(e) => setLinkUrl(e.target.value)}
+              className="flex-1 px-3 py-1 border rounded-md text-sm bg-white dark:bg-neutral-800 text-gray-800 dark:text-white border-gray-300 dark:border-neutral-700"
+              placeholder="https://seulink.com"
+            />
+          </div>
+          <a
+            href={linkUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:underline text-sm"
+          >
+          </a>
+        </div>
 
-        <div className="mt-3 flex justify-between">
+        {/* Botões */}
+        <div className="mt-4 flex justify-between">
           <button
             type="button"
             className="bg-gray-200 text-gray-800 hover:bg-gray-300 dark:bg-neutral-800 dark:text-white dark:hover:bg-neutral-700 px-4 py-2 rounded-md text-sm"
             onClick={() => {
               setTextContent("");
               setFiles([]);
+              setLinkUrl("https://facebook.com");
             }}
           >
             Cancelar
           </button>
           <button
             type="button"
-            className="bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded-md text-sm"
+            className="bg-gray-200 text-gray-800 hover:bg-gray-300 dark:bg-neutral-800 dark:text-white dark:hover:bg-neutral-700 px-4 py-2 rounded-md text-sm"
             onClick={() => {
               console.log("Arquivos:", files);
               console.log("Conteúdo:", textContent);
+              console.log("Link:", linkUrl);
             }}
           >
             Enviar
@@ -205,11 +213,10 @@ export function GridPattern() {
           return (
             <div
               key={`${col}-${row}`}
-              className={`w-10 h-10 flex shrink-0 rounded-[2px] ${
-                index % 2 === 0
+              className={`w-10 h-10 flex shrink-0 rounded-[2px] ${index % 2 === 0
                   ? "bg-gray-50 dark:bg-neutral-950"
                   : "bg-gray-50 dark:bg-neutral-950 shadow-[0px_0px_1px_3px_rgba(255,255,255,1)_inset] dark:shadow-[0px_0px_1px_3px_rgba(0,0,0,1)_inset]"
-              }`}
+                }`}
             />
           );
         })
