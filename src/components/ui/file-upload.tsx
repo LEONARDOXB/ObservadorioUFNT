@@ -1,55 +1,36 @@
-import { cn } from "../../lib/utils";
 import React, { useRef, useState } from "react";
-import { motion } from "motion/react";
-import { IconUpload } from "@tabler/icons-react";
 import { useDropzone } from "react-dropzone";
+import { motion } from "framer-motion";
+import { IconUpload } from "@tabler/icons-react";
+import { cn } from "../../lib/utils"; // ajuste esse import se necessário
 
 const mainVariant = {
-  initial: {
-    x: 0,
-    y: 0,
-  },
-  animate: {
-    x: 20,
-    y: -20,
-    opacity: 0.9,
-  },
+  initial: { x: 0, y: 0 },
+  animate: { x: 20, y: -20, opacity: 0.9 },
 };
 
 const secondaryVariant = {
-  initial: {
-    opacity: 0,
-  },
-  animate: {
-    opacity: 1,
-  },
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
 };
 
-export const FileUpload = ({
-  onChange,
-}: {
-  onChange?: (files: File[]) => void;
-}) => {
+export const FileUpload = ({ onChange }: { onChange?: (files: File[]) => void }) => {
   const [files, setFiles] = useState<File[]>([]);
-  const [textContent, setTextContent] = useState(""); // Estado para o conteúdo do textarea
+  const [textContent, setTextContent] = useState("");
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleFileChange = (newFiles: File[]) => {
     setFiles((prevFiles) => [...prevFiles, ...newFiles]);
-    onChange && onChange(newFiles);
+    onChange?.(newFiles);
   };
 
-  const handleClick = () => {
-    fileInputRef.current?.click();
-  };
+  const handleClick = () => fileInputRef.current?.click();
 
   const { getRootProps, isDragActive } = useDropzone({
     multiple: false,
     noClick: true,
     onDrop: handleFileChange,
-    onDropRejected: (error) => {
-      console.log(error);
-    },
+    onDropRejected: (error) => console.log(error),
   });
 
   return (
@@ -66,9 +47,11 @@ export const FileUpload = ({
           onChange={(e) => handleFileChange(Array.from(e.target.files || []))}
           className="hidden"
         />
+
         <div className="absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,white,transparent)]">
           <GridPattern />
         </div>
+
         <div className="flex flex-col items-center justify-center">
           <p className="relative z-20 font-sans font-bold text-neutral-700 dark:text-neutral-300 text-base">
             Upload file
@@ -76,6 +59,7 @@ export const FileUpload = ({
           <p className="relative z-20 font-sans font-normal text-neutral-400 dark:text-neutral-400 text-base mt-2">
             Drag or drop your files here or click to upload
           </p>
+
           <div className="relative w-full mt-10 max-w-xl mx-auto">
             {files.length > 0 &&
               files.map((file, idx) => (
@@ -115,18 +99,17 @@ export const FileUpload = ({
                     >
                       {file.type}
                     </motion.p>
-
                     <motion.p
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       layout
                     >
-                      modified{" "}
-                      {new Date(file.lastModified).toLocaleDateString()}
+                      modified {new Date(file.lastModified).toLocaleDateString()}
                     </motion.p>
                   </div>
                 </motion.div>
               ))}
+
             {!files.length && (
               <motion.div
                 layoutId="file-upload"
@@ -166,9 +149,12 @@ export const FileUpload = ({
         </div>
       </motion.div>
 
-      {/* Campo de texto abaixo do upload */}
+      {/* Campo de texto e botões */}
       <div className="mt-4 px-4">
-        <label htmlFor="file-description" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">
+        <label
+          htmlFor="file-description"
+          className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1"
+        >
           Conteúdo
         </label>
         <textarea
@@ -180,6 +166,29 @@ export const FileUpload = ({
           className="w-full rounded-md border border-neutral-300 dark:border-neutral-700 shadow-sm focus:border-sky-500 focus:ring focus:ring-sky-500/50 dark:bg-neutral-900 dark:text-white p-2 text-sm"
           placeholder="Digite aqui uma descrição ou conteúdo..."
         />
+
+        <div className="mt-3 flex justify-between">
+          <button
+            type="button"
+            className="bg-gray-200 text-gray-800 hover:bg-gray-300 dark:bg-neutral-800 dark:text-white dark:hover:bg-neutral-700 px-4 py-2 rounded-md text-sm"
+            onClick={() => {
+              setTextContent("");
+              setFiles([]);
+            }}
+          >
+            Cancelar
+          </button>
+          <button
+            type="button"
+            className="bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded-md text-sm"
+            onClick={() => {
+              console.log("Arquivos:", files);
+              console.log("Conteúdo:", textContent);
+            }}
+          >
+            Enviar
+          </button>
+        </div>
       </div>
     </div>
   );
