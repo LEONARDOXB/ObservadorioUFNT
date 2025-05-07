@@ -31,6 +31,7 @@ export const FileUpload = ({
   onChange?: (files: File[]) => void;
 }) => {
   const [files, setFiles] = useState<File[]>([]);
+  const [textContent, setTextContent] = useState(""); // Estado para o conteúdo do textarea
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleFileChange = (newFiles: File[]) => {
@@ -164,6 +165,22 @@ export const FileUpload = ({
           </div>
         </div>
       </motion.div>
+
+      {/* Campo de texto abaixo do upload */}
+      <div className="mt-4 px-4">
+        <label htmlFor="file-description" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">
+          Conteúdo
+        </label>
+        <textarea
+          id="file-description"
+          name="file-description"
+          rows={4}
+          value={textContent}
+          onChange={(e) => setTextContent(e.target.value)}
+          className="w-full rounded-md border border-neutral-300 dark:border-neutral-700 shadow-sm focus:border-sky-500 focus:ring focus:ring-sky-500/50 dark:bg-neutral-900 dark:text-white p-2 text-sm"
+          placeholder="Digite aqui uma descrição ou conteúdo..."
+        />
+      </div>
     </div>
   );
 };
@@ -172,7 +189,7 @@ export function GridPattern() {
   const columns = 41;
   const rows = 11;
   return (
-    <div className="flex bg-gray-100 dark:bg-neutral-900 shrink-0 flex-wrap justify-center items-center gap-x-px gap-y-px  scale-105">
+    <div className="flex bg-gray-100 dark:bg-neutral-900 shrink-0 flex-wrap justify-center items-center gap-x-px gap-y-px scale-105">
       {Array.from({ length: rows }).map((_, row) =>
         Array.from({ length: columns }).map((_, col) => {
           const index = row * columns + col;

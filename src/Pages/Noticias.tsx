@@ -612,7 +612,6 @@ function Home() {
               </div>
             </div>
           </div>
-
           <div className="border-t border-orange-200/20 mt-8 md:mt-12 pt-6 md:pt-8">
             <div className="text-center">
               <p className="text-orange-100 text-xs md:text-sm">
