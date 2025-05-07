@@ -1,10 +1,9 @@
-
 import { Link, useNavigate } from 'react-router-dom';
 import { Menu, X, ArrowRight, BookOpen, Users, Search, Newspaper, Video, Youtube } from 'lucide-react';
 import { useState } from 'react';
 import { faXTwitter, faSpotify, faYoutube, faTiktok, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLink } from '@fortawesome/free-solid-svg-icons'; // Ícone específico
+import { faLink } from '@fortawesome/free-solid-svg-icons';
 import { LanguagesSelector } from '../components/ui/LanguagesSelector';
 
 export function Comunidade() {
@@ -47,7 +46,8 @@ export function Comunidade() {
                 </a>
                 <a href="https://www.youtube.com/@observatorionorte" target="_blank" rel="noopener noreferrer">
                   <FontAwesomeIcon icon={faYoutube} className="text-white hover:text-red-500 transition-all h-5 w-5" />
-                </a>           <a href="https://www.tiktok.com/@norteobservatorio?_t=ZM-8uzZfAmW1AM&_r=1" target="_blank" rel="noopener noreferrer">
+                </a>
+                <a href="https://www.tiktok.com/@norteobservatorio?_t=ZM-8uzZfAmW1AM&_r=1" target="_blank" rel="noopener noreferrer">
                   <FontAwesomeIcon icon={faTiktok} className="text-white hover:text-blue-500 transition-all h-5 w-5" />
                 </a>
                 <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
@@ -57,7 +57,7 @@ export function Comunidade() {
                   <FontAwesomeIcon icon={faInstagram} className="text-white hover:text-pink-500 transition-all h-5 w-5" />
                 </a>
                 <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                  <FontAwesomeIcon icon={faXTwitter} className="text-white hover:text-gray-800 transition-all  h-5 w-5" />
+                  <FontAwesomeIcon icon={faXTwitter} className="text-white hover:text-gray-800 transition-all h-5 w-5" />
                 </a>
               </div>
 
@@ -111,7 +111,7 @@ export function Comunidade() {
                   to="https://www.youtube.com/@observatorionorte"
                   onClick={() => setActiveSection('#lectures')}
                   className={`group flex items-center gap-2 text-sm font-medium transition-all duration-300 
-                      ${activeSection === '#lectures'
+                    ${activeSection === '#lectures'
                       ? 'text-pink-300 scale-105'
                       : 'text-white hover:text-pink-300 hover:scale-105'}`}
                 >
@@ -123,7 +123,6 @@ export function Comunidade() {
               {/* Login Button */}
               <button
                 onClick={() => navigate('/login')}
-
                 className="bg-gradient-to-r from-pink-500 to-purple-600 text-white px-4 lg:px-6 py-2 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20 flex items-center gap-2">
                 ENTRAR
                 <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
@@ -194,7 +193,6 @@ export function Comunidade() {
                 <Link
                   to="https://www.youtube.com/@observatorionorte"
                   onClick={() => {
-
                     setActiveSection('#lectures');
                     setMobileMenuOpen(false);
                   }}
@@ -231,9 +229,9 @@ export function Comunidade() {
           <span className="text-white/70">|</span>
           <Link to="/pesquisadores" className="text-pink-300 hover:text-pink-400 transition">PESQUISADORES</Link>
           <span className="text-white/70">|</span>
-          <Link to="/comunidade" className="text-white  transition">COMUNIDADE EXTERNA</Link>
+          <Link to="/comunidade" className="text-white transition">COMUNIDADE EXTERNA</Link>
           <span className="text-white/70">|</span>
-          <Link to="/servidores" className=" text-pink-300 hover:text-pink-400 transition">SERVIDORES</Link>
+          <Link to="/servidores" className="text-pink-300 hover:text-pink-400 transition">SERVIDORES</Link>
         </div>
       </div>
 
@@ -250,11 +248,11 @@ export function Comunidade() {
 
           {/* Team Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Wagner Mariano */}
+            {/* Guilherme Augusto */}
             <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
               <img
                 src="/imagens/IMG-20240715-WA0035 (1).jpg"
-                alt="Foto de Wagner Mariano"
+                alt="Foto de Guilherme Augusto"
                 className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
@@ -266,15 +264,15 @@ export function Comunidade() {
                 rel="noopener noreferrer"
                 className="absolute bottom-4 right-4 bg-black/70 hover:bg-black/90 p-2 rounded-full transition"
               >
-                <FontAwesomeIcon icon={faLink} className="text-white" /> {/* Ícone corrigido */}
+                <FontAwesomeIcon icon={faLink} className="text-white" />
               </a>
             </div>
 
-            {/* Domenica */}
+            {/* Leonardo Xavier Brito */}
             <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
               <img
                 src="/imagens/WhatsApp Image 2025-04-07 at 16.31.27 (1).jpeg"
-                alt="Foto de Wagner Mariano"
+                alt="Foto de Leonardo Xavier Brito"
                 className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
@@ -286,34 +284,48 @@ export function Comunidade() {
                 rel="noopener noreferrer"
                 className="absolute bottom-4 right-4 bg-black/70 hover:bg-black/90 p-2 rounded-full transition"
               >
-                <FontAwesomeIcon icon={faLink} className="text-white" /> {/* Ícone corrigido */}
+                <FontAwesomeIcon icon={faLink} className="text-white" />
               </a>
             </div>
 
-            {/* Digitalizado */}
+            {/* Elizângela Melo */}
             <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
               <img
                 src="/imagens/Digitalizado.jpg"
-                alt="Foto de Membro da Equipe"
+                alt="Foto de Elizângela Melo"
                 className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
                 <h3 className="text-white font-semibold text-lg">Elizângela Melo</h3>
-                <p className="text-white/80 text-sm"></p>
               </div>
+              <a
+                href="https://lattes.cnpq.br/SEU_ID_LATTES_AQUI"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-4 right-4 bg-black/70 hover:bg-black/90 p-2 rounded-full transition"
+              >
+                <FontAwesomeIcon icon={faLink} className="text-white" />
+              </a>
             </div>
 
-            {/* Beatriz */}
+            {/* Beatriz Croriz */}
             <div className="group relative overflow-hidden rounded-xl hover:shadow-lg hover:shadow-pink-400/20 transition-all">
               <img
                 src="/imagens/beatriz.jpg"
-                alt="Foto de Membro da Equipe"
+                alt="Foto de Beatriz Croriz"
                 className="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
                 <h3 className="text-white font-semibold text-lg">Beatriz Croriz</h3>
-                <p className="text-white/80 text-sm"></p>
               </div>
+              <a
+                href=" http://lattes.cnpq.br/9071159139854860"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-4 right-4 bg-black/70 hover:bg-black/90 p-2 rounded-full transition"
+              >
+                <FontAwesomeIcon icon={faLink} className="text-white" />
+              </a>
             </div>
           </div>
 
