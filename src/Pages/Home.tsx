@@ -410,7 +410,6 @@ function Home() {
               </div>
             ))}
           </div>
-
           <button
             onClick={prevSlide}
             className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-1 sm:p-1.5 md:p-2 rounded-full transition-colors duration-200 z-10"
@@ -437,7 +436,6 @@ function Home() {
             ))}
           </div>
         </div>
-
         {/* Mission Section */}
         <div className="relative px-4 py-6 sm:py-8 md:py-12 bg-gradient-to-r from-blue-900/50 to-purple-900/50">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 items-center">

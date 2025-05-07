@@ -13,10 +13,10 @@ const languages: Language[] = [
   { code: 'en', name: 'English', flag: 'https://flagcdn.com/gb.svg' },
   { code: 'es', name: 'Español', flag: 'https://flagcdn.com/es.svg' },
   { code: 'fr', name: 'Français', flag: 'https://flagcdn.com/fr.svg' },
-  { code: 'ar', name: 'العربية', flag: 'https://flagcdn.com/sa.svg', dir: 'rtl' }, 
-  { code: 'nl', name: 'Nederlands', flag: 'https://flagcdn.com/nl.svg' }, 
+  { code: 'ar', name: 'العربية', flag: 'https://flagcdn.com/sa.svg', dir: 'rtl' },
+  { code: 'nl', name: 'Nederlands', flag: 'https://flagcdn.com/nl.svg' },
   { code: 'de', name: 'Deutsch', flag: 'https://flagcdn.com/de.svg' },
-  { code: 'it', name: 'Italiano', flag: 'https://flagcdn.com/it.svg' }, 
+  { code: 'it', name: 'Italiano', flag: 'https://flagcdn.com/it.svg' },
 ];
 
 export function LanguagesSelector() {
@@ -32,25 +32,25 @@ export function LanguagesSelector() {
           aria-label="Seletor de idiomas"
         >
           <div className="flex items-center gap-2">
-            <img 
-              src={selectedLang.flag} 
-              alt={selectedLang.name} 
-              className="w-5 h-4 object-cover rounded-sm" 
+            <img
+              src={selectedLang.flag}
+              alt={selectedLang.name}
+              className="w-5 h-4 object-cover rounded-sm"
             />
-            <span 
+            <span
               className="font-medium text-gray-800 text-sm"
               style={{ direction: selectedLang.dir }}
             >
               {selectedLang.name}
             </span>
           </div>
-          <ChevronDown 
-            className={`w-4 h-4 text-gray-800 transition-transform ${isOpen ? 'rotate-180' : ''}`} 
+          <ChevronDown
+          className={`w-4 h-4 text-gray-800 transition-transform ${isOpen ? 'rotate-180' : ''}`}
           />
         </button>
-        
+
         {isOpen && (
-          <div 
+          <div
             className="
               absolute 
               bottom-full 
@@ -90,12 +90,12 @@ export function LanguagesSelector() {
                     ${selectedLang.code === lang.code ? 'bg-gray-100' : ''}
                   `}
                 >
-                  <img 
-                    src={lang.flag} 
-                    alt={lang.name} 
-                    className="w-5 h-4 object-cover rounded-sm" 
+                  <img
+                    src={lang.flag}
+                    alt={lang.name}
+                    className="w-5 h-4 object-cover rounded-sm"
                   />
-                  <span 
+                  <span
                     className="text-gray-800 text-sm"
                     style={{ direction: lang.dir }}
                   >
