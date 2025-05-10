@@ -106,7 +106,7 @@ function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-800 via-purple-700 to-pink-800 text-white overflow-x-hidden">
+    <div className="min-h-screen bg-rose-400/90 text-white overflow-x-hidden">
       {/* Welcome Screen */}
       {showWelcome && (
         <div className="fixed inset-0 z-50 bg-[#1e3a8a] flex items-center justify-center">
@@ -157,7 +157,7 @@ function Home() {
       {/* Main Page Content */}
       <div className={`transition-opacity duration-1000 ${showHeader ? 'opacity-100' : 'opacity-0'}`}>
         {/* Header */}
-        <header className="bg-blue-900/90 border-b border-white/10 py-3 sm:py-4 sticky top-0 z-50 backdrop-blur-sm">
+        <header className="bg-rose-400/90 border-b border-white/20 py-3 sm:py-4 sticky top-0 z-50 backdrop-blur-sm">
           <div className="container mx-auto px-4 sm:px-6">
             <nav className="flex items-center justify-between">
               {/* Logo */}
@@ -280,7 +280,7 @@ function Home() {
 
             {/* Mobile Menu */}
             {mobileMenuOpen && (
-              <div className="md:hidden mt-4 bg-blue-900/90 rounded-lg p-4 backdrop-blur-sm">
+              <div className="md:hidden mt-4 bg-rose-400/90 rounded-lg p-4 backdrop-blur-sm">
                 <div className="flex flex-col space-y-3">
                   <Link
                     to="/"
@@ -437,7 +437,7 @@ function Home() {
           </div>
         </div>
         {/* Mission Section */}
-        <div className="relative px-4 py-6 sm:py-8 md:py-12 bg-gradient-to-r from-blue-900/50 to-purple-900/50">
+        <div className="relative px-4 py-6 sm:py-8 md:py-12 bg-rose-400/90">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 items-center">
             <div className="space-y-3 sm:space-y-4 md:space-y-6 order-2 lg:order-1">
               <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">
@@ -465,7 +465,7 @@ function Home() {
         </div>
 
         {/* Research Section */}
-        <section className="py-8 sm:py-12 md:py-16 bg-gradient-to-r from-blue-900/40 to-purple-900/40">
+        <section className="py-8 sm:py-12 md:py-16 bg-rose-400/90">
           <div className="container mx-auto px-4 sm:px-6">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 sm:mb-8 md:mb-12 text-center hover:text-pink-400 transition-colors cursor-pointer">
               Últimas Pesquisas
@@ -516,7 +516,7 @@ function Home() {
         </section>
 
         {/* Fake News Examples Section */}
-        <section className="py-8 sm:py-12 md:py-16 bg-gradient-to-r from-blue-900/40 to-purple-900/40">
+        <section className="py-8 sm:py-12 md:py-16 bg-rose-400/90">
           <div className="container mx-auto px-4 sm:px-6">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 sm:mb-8 md:mb-12 text-center hover:text-pink-400 transition-colors cursor-pointer">
               Exemplos Educacionais de Fake News
@@ -665,7 +665,7 @@ function Home() {
         </section>
 
         {/* Partners Section */}
-        <section className="py-8 sm:py-12 md:py-16 bg-gradient-to-r from-blue-900/40 to-purple-900/40">
+        <section className="py-8 sm:py-12 md:py-16 bg-rose-400/90">
           <div className="container mx-auto px-4 sm:px-6">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-8 sm:mb-12 text-center">
               Parceiros
@@ -700,7 +700,7 @@ function Home() {
         </section>
 
         {/* Footer */}
-        <footer className="bg-blue-900/90 py-6 sm:py-8 md:py-12 relative">
+        <footer className="bg-rose-400/90 py-6 sm:py-8 md:py-12 relative">
           <div className="container mx-auto px-4 sm:px-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
               {/* Coluna 1 - Logo, descrição e redes sociais */}
