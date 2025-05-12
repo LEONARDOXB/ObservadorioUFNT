@@ -4,7 +4,6 @@ interface Language {
   code: string;
   name: string;
   flag: string;
-  dir?: 'rtl';
 }
 
 interface LanguageContextType {
@@ -23,7 +22,7 @@ export const languages: Language[] = [
   { code: 'de', name: 'Deutsch', flag: 'https://flagcdn.com/de.svg' },
   { code: 'it', name: 'Italiano', flag: 'https://flagcdn.com/it.svg' },
   { code: 'ru', name: 'Русский', flag: 'https://flagcdn.com/ru.svg' },
-  { code: 'ar', name: 'العربية', flag: 'https://flagcdn.com/sa.svg', dir: 'rtl' },
+  { code: 'ar', name: 'العربية', flag: 'https://flagcdn.com/sa.svg' } // Removido dir: 'rtl'
 ];
 
 const translations = {
@@ -517,6 +516,8 @@ const translations = {
     footer_description: "Продвижение правды и борьба с дезинформацией.",
     mission_image_alt: "Иллюстративное изображение миссии"
   }
+  
+  
 };
 
 export const LanguageProvider: React.FC<{children: ReactNode}> = ({ children }) => {
@@ -528,7 +529,7 @@ export const LanguageProvider: React.FC<{children: ReactNode}> = ({ children }) 
   useEffect(() => {
     localStorage.setItem('selectedLanguage', JSON.stringify(language));
     document.documentElement.lang = language.code;
-    document.documentElement.dir = language.dir || 'ltr';
+    document.documentElement.dir = 'ltr'; // Forçando direção LTR para todo o documento
   }, [language]);
 
   const t = (key: string, params?: Record<string, string | number>): string => {
