@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Eye, EyeOff, AlertCircle } from 'lucide-react'
-import { LanguagesSelector } from '../components/ui/LanguagesSelector'
+import { LanguagesSelector } from '../../src/routes/LanguagesSelector'
 
 function Login() {
   const [email, setEmail] = useState('')

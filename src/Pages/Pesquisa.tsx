@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { BookOpen, Users, Rss, Youtube, ArrowRight, Menu, X, AlertTriangle, Share2, CheckCircle2, XCircle, Search, Newspaper, } from 'lucide-react';
+import { BookOpen, Users,  Youtube, ArrowRight, Menu, X, AlertTriangle, Share2, CheckCircle2, XCircle, Search, Newspaper, } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXTwitter, faSpotify, faYoutube, faTiktok, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
-import { LanguagesSelector } from '../components/ui/LanguagesSelector';
+import { LanguagesSelector } from '.././routes/LanguagesSelector';
 
 interface NewsItem {
   title: string;

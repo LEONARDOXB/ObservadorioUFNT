@@ -4,9 +4,10 @@ import { useNavigate, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXTwitter, faSpotify, faYoutube, faTiktok, faFacebook, faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { Carousel } from '../components/ui/Carousel';
-import { LanguagesSelector } from '../components/ui/LanguagesSelector';
+import { useLanguage } from '../../src/contexts/LanguageContext';
 
 function Home() {
+  const { t, language } = useLanguage();
   const [activeSection, setActiveSection] = useState('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -21,23 +22,23 @@ function Home() {
 
   const slideData = [
     {
-      title: "Mystic Mountains",
-      button: "Explore Component",
+      title: t('slide_1_title'),
+      button: t('explore_button'),
       src: "/imagens/Imagem do WhatsApp de 2025-04-21 à(s) 19.09.44_844b8ff4.jpg",
     },
     {
-      title: "Urban Dreams",
-      button: "Explore Component",
+      title: t('slide_2_title'),
+      button: t('explore_button'),
       src: "/imagens/1.png",
     },
     {
-      title: "Neon Nights",
-      button: "Explore Component",
+      title: t('slide_3_title'),
+      button: t('explore_button'),
       src: "/imagens/2.png",
     },
     {
-      title: "Desert Whispers",
-      button: "Explore Component",
+      title: t('slide_4_title'),
+      button: t('explore_button'),
       src: "/imagens/3.png",
     },
   ];
@@ -57,7 +58,7 @@ function Home() {
 
   useEffect(() => {
     const handleResize = () => {
-      // Ajustes específicos para mobile podem ser adicionados aqui
+      // Mobile adjustments
     };
 
     window.addEventListener('resize', handleResize);
@@ -76,22 +77,22 @@ function Home() {
   const articles = [
     {
       id: 1,
-      title: "Exemplo de Fake News sobre Saúde",
-      category: "ALERTA",
+      title: t('fake_news_example_1'),
+      category: t('alert_category'),
       image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef",
       link: "#",
     },
     {
       id: 2,
-      title: "Como Identificar Notícias Falsas",
-      category: "EDUCAÇÃO",
+      title: t('how_to_identify_fake_news'),
+      category: t('education_category'),
       image: "https://images.unsplash.com/photo-1586339949916-3e9457bef6d3",
       link: "#",
     },
     {
       id: 3,
-      title: "Pesquisas Recentes sobre Desinformação",
-      category: "PESQUISA",
+      title: t('recent_research_on_disinformation'),
+      category: t('research_category'),
       image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40",
       link: "#",
     },
@@ -106,10 +107,10 @@ function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-rose-400/90 text-white overflow-x-hidden">
-      {/* Welcome Screen */}
+    <div className="min-h-screen bg-rose-400/90 text-white overflow-x-hidden" dir={language.dir}>
+      {/* Welcome Screen with bg-rose-400/90 */}
       {showWelcome && (
-        <div className="fixed inset-0 z-50 bg-[#1e3a8a] flex items-center justify-center">
+        <div className="fixed inset-0 z-50 bg-rose-400/90 flex items-center justify-center">
           <div className="absolute inset-0 overflow-hidden">
             {[...Array(10)].map((_, i) => (
               <div
@@ -139,10 +140,14 @@ function Home() {
               </div>
 
               <h1
-                className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-wider shadow-glow transition-all duration-1000
-                  ${showText ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`}
+                className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-wider transition-all duration-1000
+    ${showText ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`}
+                style={{
+                  color: 'white', // Alterado de '#FF2D6F' para 'white'
+                
+                }}
               >
-                Bem Vindo!
+                {t('welcome')}
               </h1>
 
               <div
@@ -164,11 +169,11 @@ function Home() {
               <div className="flex items-center gap-2 cursor-pointer hover:scale-105 transition-transform">
                 <img
                   src="/imagens/observatorio-logo.png.jpeg"
-                  alt="Observatório de Desinformação & Fake News - Norte"
+                  alt={t('observatory_logo_alt')}
                   className="h-12 w-12 sm:h-16 sm:w-16 md:h-20 md:w-20 rounded-full object-cover shadow-lg shadow-purple-500/20"
                 />
-                <span className="text-lg sm:text-xl md:text-2xl font-bold text-orange-50">
-                  Observatório Norte
+                <span className="font-bold text-orange-50 text-sm sm:text-base md:text-lg">
+                  {t('observatory_name')}
                 </span>
               </div>
 
@@ -176,7 +181,7 @@ function Home() {
               <button
                 className="md:hidden p-2 rounded-md text-white focus:outline-none"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                aria-label="Menu mobile"
+                aria-label={t('mobile_menu_aria')}
               >
                 {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
@@ -216,7 +221,7 @@ function Home() {
                         : 'text-white hover:text-pink-300 hover:scale-105'}`}
                   >
                     <BookOpen className="h-4 w-4 lg:h-5 lg:w-5" />
-                    <span>REPOSITÓRIO</span>
+                    <span>{t('repository')}</span>
                   </Link>
                   <Link
                     to="/equipe"
@@ -227,7 +232,7 @@ function Home() {
                         : 'text-white hover:text-pink-300 hover:scale-105'}`}
                   >
                     <Users className="h-4 w-4 lg:h-5 lg:w-5" />
-                    <span>EQUIPE</span>
+                    <span>{t('team')}</span>
                   </Link>
                   <Link
                     to="/pesquisa"
@@ -238,7 +243,7 @@ function Home() {
                         : 'text-white hover:text-pink-300 hover:scale-105'}`}
                   >
                     <Search className="h-4 w-4 lg:h-5 lg:w-5" />
-                    <span>PESQUISA</span>
+                    <span>{t('research')}</span>
                   </Link>
                   <Link
                     to="/noticias"
@@ -249,7 +254,7 @@ function Home() {
                         : 'text-white hover:text-pink-300 hover:scale-105'}`}
                   >
                     <Newspaper className="h-4 w-4 lg:h-5 lg:w-5" />
-                    <span>NOTÍCIAS</span>
+                    <span>{t('news')}</span>
                   </Link>
                   <Link
                     to="https://www.youtube.com/@observatorionorte"
@@ -260,7 +265,7 @@ function Home() {
                         : 'text-white hover:text-pink-300 hover:scale-105'}`}
                   >
                     <Youtube className="h-4 w-4 lg:h-5 lg:w-5" />
-                    <span>PALESTRAS</span>
+                    <span>{t('lectures')}</span>
                   </Link>
                 </div>
 
@@ -272,7 +277,7 @@ function Home() {
                   }}
                   className="bg-pink-600 hover:bg-pink-700 active:bg-pink-800 text-white px-3 py-1.5 lg:px-4 lg:py-2 rounded-full font-medium text-xs lg:text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-pink-600/20 flex items-center justify-center gap-1 lg:gap-2"
                 >
-                  <span>ENTRAR</span>
+                  <span>{t('login')}</span>
                   <ArrowRight className="h-3 w-3 lg:h-4 lg:w-4 transition-transform group-hover:translate-x-1" />
                 </button>
               </div>
@@ -294,7 +299,7 @@ function Home() {
                         : 'text-white hover:text-pink-300 hover:scale-105'}`}
                   >
                     <BookOpen size={18} />
-                    REPOSITÓRIO
+                    {t('repository')}
                   </Link>
                   <Link
                     to="/equipe"
@@ -308,7 +313,7 @@ function Home() {
                         : 'text-white hover:text-pink-300 hover:scale-105'}`}
                   >
                     <Users size={18} />
-                    EQUIPE
+                    {t('team')}
                   </Link>
                   <Link
                     to="/pesquisa"
@@ -322,7 +327,7 @@ function Home() {
                         : 'text-white hover:text-pink-300 hover:scale-105'}`}
                   >
                     <Search size={18} />
-                    PESQUISA
+                    {t('research')}
                   </Link>
                   <Link
                     to="/noticias"
@@ -336,7 +341,7 @@ function Home() {
                         : 'text-white hover:text-pink-300 hover:scale-105'}`}
                   >
                     <Newspaper size={18} />
-                    NOTÍCIAS
+                    {t('news')}
                   </Link>
                   <Link
                     to="https://www.youtube.com/@observatorionorte"
@@ -350,7 +355,7 @@ function Home() {
                         : 'text-white hover:text-pink-300 hover:scale-105'}`}
                   >
                     <Youtube size={18} />
-                    PALESTRAS
+                    {t('lectures')}
                   </Link>
                   <button
                     onClick={() => {
@@ -359,7 +364,7 @@ function Home() {
                     }}
                     className="bg-gradient-to-r from-pink-500 to-purple-600 text-white px-4 py-2 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20 flex items-center justify-center gap-2 mt-2"
                   >
-                    ENTRAR
+                    {t('login')}
                     <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
                   </button>
                 </div>
@@ -403,7 +408,7 @@ function Home() {
                       href={article.link}
                       className="bg-red-500 hover:bg-red-600 text-white px-3 py-1.5 sm:px-4 sm:py-2 md:px-6 md:py-3 rounded-full transition-colors duration-200 text-xs sm:text-sm md:text-base"
                     >
-                      Verifique os fatos
+                      {t('verify_facts')}
                     </a>
                   </div>
                 </div>
@@ -413,14 +418,14 @@ function Home() {
           <button
             onClick={prevSlide}
             className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-1 sm:p-1.5 md:p-2 rounded-full transition-colors duration-200 z-10"
-            aria-label="Slide anterior"
+            aria-label={t('previous_slide')}
           >
             <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
           </button>
           <button
             onClick={nextSlide}
             className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-1 sm:p-1.5 md:p-2 rounded-full transition-colors duration-200 z-10"
-            aria-label="Próximo slide"
+            aria-label={t('next_slide')}
           >
             <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
           </button>
@@ -431,20 +436,21 @@ function Home() {
                 key={index}
                 onClick={() => setCurrentSlide(index)}
                 className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-colors duration-200 ${index === currentSlide ? 'bg-red-500' : 'bg-white/50'}`}
-                aria-label={`Ir para slide ${index + 1}`}
+                aria-label={`${t('go_to_slide')} ${index + 1}`}
               />
             ))}
           </div>
         </div>
+
         {/* Mission Section */}
         <div className="relative px-4 py-6 sm:py-8 md:py-12 bg-rose-400/90">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 items-center">
             <div className="space-y-3 sm:space-y-4 md:space-y-6 order-2 lg:order-1">
               <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">
-                Combate à Desinformação e Fake News com Pesquisa e Educação
+                {t('mission_title')}
               </h1>
               <p className="text-xs sm:text-sm md:text-base text-white/90">
-                No mundo digital de hoje, a disseminação de fake news tornou-se um desafio global. Notícias falsas podem influenciar opiniões públicas, manipular eleições e até mesmo causar pânico em massa. É crucial combater essa onda de desinformação com pesquisa rigorosa e educação.
+                {t('mission_text')}
               </p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 order-1 lg:order-2">
@@ -455,7 +461,7 @@ function Home() {
                 <img
                   key={index}
                   src={src}
-                  alt="Imagem"
+                  alt={t('mission_image_alt')}
                   className="w-full h-28 sm:h-36 md:h-44 lg:h-52 xl:h-60 object-cover rounded-lg hover:scale-105 transition-transform duration-300"
                   loading="lazy"
                 />
@@ -468,23 +474,23 @@ function Home() {
         <section className="py-8 sm:py-12 md:py-16 bg-rose-400/90">
           <div className="container mx-auto px-4 sm:px-6">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 sm:mb-8 md:mb-12 text-center hover:text-pink-400 transition-colors cursor-pointer">
-              Últimas Pesquisas
+              {t('latest_research')}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
               {[
                 {
-                  title: 'Impacto das Redes Sociais',
-                  description: 'Análise do comportamento de desinformação nas redes sociais',
+                  title: t('research_1_title'),
+                  description: t('research_1_description'),
                   image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80',
                 },
                 {
-                  title: 'Tecnologias de Verificação',
-                  description: 'Novas ferramentas para detecção de notícias falsas',
+                  title: t('research_2_title'),
+                  description: t('research_2_description'),
                   image: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80',
                 },
                 {
-                  title: 'Educação Digital',
-                  description: 'Metodologias para desenvolvimento de pensamento crítico',
+                  title: t('research_3_title'),
+                  description: t('research_3_description'),
                   image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80',
                 },
               ].map((research, index) => (
@@ -506,7 +512,7 @@ function Home() {
                       {research.description}
                     </p>
                     <button className="text-pink-400 group-hover:text-pink-300 transition-colors flex items-center gap-1.5 text-xs sm:text-sm">
-                      Ler mais <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+                      {t('read_more')} <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
                     </button>
                   </div>
                 </div>
@@ -519,67 +525,34 @@ function Home() {
         <section className="py-8 sm:py-12 md:py-16 bg-rose-400/90">
           <div className="container mx-auto px-4 sm:px-6">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 sm:mb-8 md:mb-12 text-center hover:text-pink-400 transition-colors cursor-pointer">
-              Exemplos Educacionais de Fake News
+              {t('fake_news_examples')}
             </h2>
             <p className="text-center max-w-3xl mx-auto mb-6 sm:mb-8 text-white/90 text-xs sm:text-sm md:text-base">
-              Conheça exemplos fictícios de fake news para aprender a identificar informações falsas.
-              Todos os exemplos abaixo são totalmente inventados para fins educativos.
+              {t('fake_news_description')}
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {[
                 {
-                  title: 'Dragões Descobertos na Amazônia',
-                  content:
-                    'Notícia falsa sobre suposta descoberta de dragões na floresta amazônica. Exemplo claro de como fake news usam elementos fantásticos para chamar atenção.',
-                  image:
-                    'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
-                  category: 'Ciência',
+                  title: t('example_1_title'),
+                  content: t('example_1_content'),
+                  image: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
+                  category: t('science_category'),
                   shares: 2150,
                 },
                 {
-                  title: 'Celulares Que Leem Pensamentos',
-                  content:
-                    'Exemplo fictício de como a tecnologia pode ser distorcida em notícias falsas para gerar engajamento e compartilhamentos.',
-                  image:
-                    'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
-                  category: 'Tecnologia',
+                  title: t('example_2_title'),
+                  content: t('example_2_content'),
+                  image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
+                  category: t('technology_category'),
                   shares: 3890,
                 },
                 {
-                  title: 'Pizza Concede Imortalidade',
-                  content:
-                    'Exemplo absurdo de como fake news podem distorcer informações sobre alimentação e saúde para viralizar.',
-                  image:
-                    'https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
-                  category: 'Saúde',
+                  title: t('example_3_title'),
+                  content: t('example_3_content'),
+                  image: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
+                  category: t('health_category'),
                   shares: 2765,
-                },
-                {
-                  title: 'Água com Limão Cura Todas as Doenças',
-                  content:
-                    'Uma notícia falsa alega que beber água com limão pode curar qualquer doença, incluindo câncer e diabetes. Esta desinformação perigosa ignora a complexidade das doenças e seus tratamentos médicos comprovados.',
-                  image: 'https://solciaequeiroz.com.br/wp-content/uploads/2022/11/Agua-saborizada-com-limao.jpg',
-                  category: 'Saúde',
-                  shares: 3214,
-                },
-                {
-                  title: 'Vitamina Secreta Permite Viver Até 150 Anos',
-                  content:
-                    'Circula nas redes sociais uma falsa descoberta sobre uma vitamina milagrosa que prolongaria a vida humana até 150 anos. Esta é uma informação sem qualquer base científica.',
-                  image:
-                    'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
-                  category: 'Saúde',
-                  shares: 4321,
-                },
-                {
-                  title: 'Alimento Comum do Café da Manhã Causa Amnésia',
-                  content:
-                    'Uma fake news viral afirma que um alimento comum do café da manhã brasileiro pode causar perda de memória. Esta informação é completamente falsa e não tem respaldo científico.',
-                  image:
-                    'https://images.unsplash.com/photo-1525351484163-7529414344d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
-                  category: 'Saúde',
-                  shares: 1243,
                 },
               ].map((news, index) => (
                 <div
@@ -600,18 +573,18 @@ function Home() {
                   <div className="p-4 sm:p-6">
                     <div className="flex items-center gap-2 text-red-400 mb-2">
                       <AlertTriangle className="h-4 w-4 sm:h-5 sm:w-5" />
-                      <span className="text-xs font-bold">EXEMPLO DE FAKE NEWS</span>
+                      <span className="text-xs font-bold">{t('fake_news_label')}</span>
                     </div>
                     <h3 className="text-base sm:text-lg font-bold mb-2">{news.title}</h3>
                     <p className="text-xs sm:text-sm text-white/80 mb-3 sm:mb-4">{news.content}</p>
                     <div className="flex justify-between items-center text-xs sm:text-sm">
                       <div className="flex items-center gap-1 text-yellow-400">
                         <Share2 size={14} />
-                        <span>{news.shares.toLocaleString()} compartilhamentos</span>
+                        <span>{news.shares.toLocaleString()} {t('shares')}</span>
                       </div>
                       <button className="text-pink-400 hover:text-pink-300 flex items-center gap-1">
                         <BookOpen size={14} />
-                        Análise
+                        {t('analysis')}
                       </button>
                     </div>
                   </div>
@@ -622,33 +595,33 @@ function Home() {
             {/* How to Identify Fake News */}
             <div className="mt-8 sm:mt-12 bg-white/10 rounded-2xl p-4 sm:p-6 md:p-8 backdrop-blur-sm">
               <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-4 text-center">
-                Como Identificar Fake News
+                {t('how_to_identify')}
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 {[
                   {
                     icon: CheckCircle2,
                     color: 'text-green-400',
-                    title: 'Verifique a Fonte',
-                    description: 'Sempre confira se a notícia vem de um veículo jornalístico reconhecido e confiável.',
+                    title: t('tip_1_title'),
+                    description: t('tip_1_description'),
                   },
                   {
                     icon: XCircle,
                     color: 'text-red-400',
-                    title: 'Cuidado com Títulos Sensacionalistas',
-                    description: 'Títulos exagerados ou muito emocionais são um sinal de alerta.',
+                    title: t('tip_2_title'),
+                    description: t('tip_2_description'),
                   },
                   {
                     icon: Search,
                     color: 'text-blue-400',
-                    title: 'Consulte Outras Fontes',
-                    description: 'Veja se outros veículos confiáveis estão reportando o mesmo fato.',
+                    title: t('tip_3_title'),
+                    description: t('tip_3_description'),
                   },
                   {
                     icon: Brain,
                     color: 'text-purple-400',
-                    title: 'Use o Pensamento Crítico',
-                    description: 'Questione se a informação faz sentido e se há provas concretas.',
+                    title: t('tip_4_title'),
+                    description: t('tip_4_description'),
                   },
                 ].map(({ icon: Icon, color, title, description }, index) => (
                   <div key={index} className="flex items-start gap-3 sm:gap-4">
@@ -668,7 +641,7 @@ function Home() {
         <section className="py-8 sm:py-12 md:py-16 bg-rose-400/90">
           <div className="container mx-auto px-4 sm:px-6">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-8 sm:mb-12 text-center">
-              Parceiros
+              {t('partners')}
             </h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4 sm:gap-6 items-center">
               {[
@@ -692,7 +665,7 @@ function Home() {
             </div>
             <div className="mt-8 sm:mt-12">
               <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-8 sm:mb-12 text-center">
-                Galeria de Fotos
+                {t('photo_gallery')}
               </h2>
               <Carousel slides={slideData} />
             </div>
@@ -708,16 +681,16 @@ function Home() {
                 <div className="flex items-center gap-2 mb-2 sm:mb-4 cursor-pointer group hover:scale-105 transition-transform">
                   <img
                     src="/imagens/observatorio-logo.png.jpeg"
-                    alt="Observatório Logo"
+                    alt={t('observatory_logo_alt')}
                     className="h-8 w-8 sm:h-10 sm:w-10 rounded-full object-cover"
                     loading="lazy"
                   />
                   <span className="font-bold group-hover:text-pink-400 transition-colors text-sm sm:text-base">
-                    Observatório Norte
+                    {t('observatory_name')}
                   </span>
                 </div>
                 <p className="text-xs sm:text-sm text-white/80 group-hover:text-white/90 transition-colors">
-                  Promovendo a verdade e combatendo a desinformação através da pesquisa e educação.
+                  {t('footer_description')}
                 </p>
                 {/* Redes Sociais */}
                 <div className="flex items-center gap-2 sm:gap-3 mt-3 sm:mt-4">
@@ -745,10 +718,10 @@ function Home() {
               {/* Coluna 2 - Links rápidos */}
               <div>
                 <h4 className="font-semibold mb-2 sm:mb-4 hover:text-pink-400 transition-colors cursor-pointer text-sm sm:text-base">
-                  Links Rápidos
+                  {t('quick_links')}
                 </h4>
                 <ul className="space-y-1 sm:space-y-2 text-white/80">
-                  {['Sobre', 'Pesquisa', 'Publicações', 'Contato'].map((item) => (
+                  {[t('about'), t('research'), t('publications'), t('contact')].map((item) => (
                     <li key={item}>
                       <a
                         href="#"
@@ -764,10 +737,10 @@ function Home() {
               {/* Coluna 3 - Recursos */}
               <div>
                 <h4 className="font-semibold mb-2 sm:mb-4 hover:text-pink-400 transition-colors cursor-pointer text-sm sm:text-base">
-                  Recursos
+                  {t('resources')}
                 </h4>
                 <ul className="space-y-1 sm:space-y-2 text-white/80">
-                  {['Base de Conhecimento', 'Ferramentas', 'API', 'FAQ'].map((item) => (
+                  {[t('knowledge_base'), t('tools'), t('api'), t('faq')].map((item) => (
                     <li key={item}>
                       <a
                         href="#"
@@ -783,33 +756,32 @@ function Home() {
               {/* Coluna 4 - Newsletter */}
               <div>
                 <h4 className="font-semibold mb-2 sm:mb-4 hover:text-pink-400 transition-colors cursor-pointer text-sm sm:text-base">
-                  Newsletter
+                  {t('newsletter')}
                 </h4>
                 <p className="text-xs sm:text-sm text-white/80 mb-2 sm:mb-4">
-                  Receba as últimas atualizações sobre pesquisas e eventos.
+                  {t('newsletter_description')}
                 </p>
                 <div className="flex gap-2">
                   <input
                     type="email"
-                    placeholder="Seu e-mail"
+                    placeholder={t('your_email')}
                     className="bg-white/10 rounded-full px-3 py-1.5 sm:px-4 sm:py-2 flex-1 focus:outline-none focus:ring-2 focus:ring-pink-500 hover:bg-white/20 transition-colors text-xs sm:text-sm"
                   />
                   <button className="bg-pink-600 hover:bg-pink-700 active:bg-pink-800 rounded-full px-3 py-1.5 sm:px-4 sm:py-2 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-pink-600/20 text-xs sm:text-sm whitespace-nowrap">
-                    Inscrever
+                    {t('subscribe')}
                   </button>
                 </div>
               </div>
             </div>
             <div className="border-t border-white/10 mt-6 sm:mt-8 md:mt-12 pt-4 sm:pt-6 md:pt-8 text-center text-white/80">
               <p className="hover:text-white transition-colors text-xs sm:text-sm">
-                © {new Date().getFullYear()} Observatório Norte. Todos os direitos reservados.
+                {t('copyright', { year: new Date().getFullYear() })}
               </p>
             </div>
           </div>
-          <div className="relative">
-            <LanguagesSelector />
-          </div>
         </footer>
+
+        {/* WhatsApp Button */}
         <a
           href="https://api.whatsapp.com/send?phone=+556392480518&text=Quero%20fazer%20um%20agendamento!"
           className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 bg-green-500 hover:bg-green-600 text-white p-3 sm:p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 group"
@@ -819,7 +791,7 @@ function Home() {
         >
           <FontAwesomeIcon icon={faWhatsapp} className="h-5 w-5 sm:h-6 sm:w-6" />
           <span className="absolute right-full top-1/2 -translate-y-1/2 mr-2 bg-white text-gray-800 text-xs font-medium px-2 py-1 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-md">
-            Comunidade Observatório
+            {t('community_observatory')}
           </span>
         </a>
       </div>

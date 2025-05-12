@@ -3,7 +3,7 @@ import { Menu, X, ArrowRight, BookOpen, Users, Search, Newspaper, Video, Youtube
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXTwitter, faSpotify, faYoutube, faTiktok, faFacebook, faInstagram,  } from '@fortawesome/free-brands-svg-icons';
-import { LanguagesSelector } from '../components/ui/LanguagesSelector';
+import { LanguagesSelector } from '.././routes/LanguagesSelector';
 import { faLink } from '@fortawesome/free-solid-svg-icons';
 
 export function Academicos() {

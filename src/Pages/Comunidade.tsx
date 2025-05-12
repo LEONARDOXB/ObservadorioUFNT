@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { faXTwitter, faSpotify, faYoutube, faTiktok, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLink } from '@fortawesome/free-solid-svg-icons';
-import { LanguagesSelector } from '../components/ui/LanguagesSelector';
+import { LanguagesSelector } from '../../src/routes/LanguagesSelector';
 
 export function Comunidade() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

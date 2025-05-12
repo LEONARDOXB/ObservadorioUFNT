@@ -3,7 +3,7 @@ import { Menu, X, ArrowRight, BookOpen, Users, Search, Newspaper, Video, Youtube
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXTwitter, faSpotify, faYoutube, faTiktok, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
-import { LanguagesSelector } from '../components/ui/LanguagesSelector';
+import { LanguagesSelector } from '../../src/routes/LanguagesSelector';
 
 export function Mestrandos() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

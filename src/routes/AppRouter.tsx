@@ -9,23 +9,27 @@ import Noticias from '../Pages/Noticias';
 import Login from '../Pages/Login';
 import { Comunidade } from '../Pages/Comunidade';
 import { Servidores } from '../Pages/Servidores';
+import { LanguageProvider } from '../../src/contexts/LanguageContext';
+import { LanguagesSelector } from '../../src/routes/LanguagesSelector';
 
 export function AppRouter() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/equipe" element={<Equipe />} />
-        <Route path="/academicos" element={<Academicos />} />
-        <Route path="/mestrandos" element={<Mestrandos />} />
-        <Route path="/pesquisadores" element={<Pesquisadores />} />
-        <Route path="/pesquisa" element={<Pesquisa />} />
-        <Route path="/noticias" element={<Noticias />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/comunidade" element={<Comunidade />} />
-        <Route path="/servidores" element={<Servidores />} />
-
-      </Routes>
-    </BrowserRouter>
+    <LanguageProvider>
+      <BrowserRouter>
+        <LanguagesSelector />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/equipe" element={<Equipe />} />
+          <Route path="/academicos" element={<Academicos />} />
+          <Route path="/mestrandos" element={<Mestrandos />} />
+          <Route path="/pesquisadores" element={<Pesquisadores />} />
+          <Route path="/pesquisa" element={<Pesquisa />} />
+          <Route path="/noticias" element={<Noticias />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/comunidade" element={<Comunidade />} />
+          <Route path="/servidores" element={<Servidores />} />
+        </Routes>
+      </BrowserRouter>
+    </LanguageProvider>
   );
 }
