@@ -1,4 +1,3 @@
-
 import { Link, useNavigate } from 'react-router-dom';
 import { Menu, X, ArrowRight, BookOpen, Users, Search, Newspaper, Video, Youtube } from 'lucide-react';
 import { useState } from 'react';

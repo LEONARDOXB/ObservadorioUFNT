@@ -11,6 +11,8 @@ import { Comunidade } from '../Pages/Comunidade';
 import { Servidores } from '../Pages/Servidores';
 import { LanguageProvider } from '../../src/contexts/LanguageContext';
 import { LanguagesSelector } from '../../src/routes/LanguagesSelector';
+import Sobre from '../Pages/Sobre';
+import Contato from '../Pages/Contato';
 
 export function AppRouter() {
   return (
@@ -28,6 +30,8 @@ export function AppRouter() {
           <Route path="/login" element={<Login />} />
           <Route path="/comunidade" element={<Comunidade />} />
           <Route path="/servidores" element={<Servidores />} />
+          <Route path="/sobre" element={<Sobre />} />
+          <Route path="/contato" element={<Contato />} />
         </Routes>
       </BrowserRouter>
     </LanguageProvider>

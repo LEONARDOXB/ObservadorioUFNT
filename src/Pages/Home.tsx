@@ -1,10 +1,34 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { Search, Instagram, Facebook, Youtube, Twitter, GraduationCap } from 'lucide-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { useInView } from 'react-intersection-observer';
 
-function FadeInSection({ children, delay = 0 }) {
+// Novo carrossel simples sem imagens
+const slides = [
+  {
+    title: 'Vacina contra dengue causa efeitos colaterais graves?',
+    button: 'Saiba mais',
+    link: '/noticias',
+  },
+  {
+    title: 'Vacina do HPV é perigosa para adolescentes?',
+    button: 'Saiba mais',
+    link: '/noticias',
+  },
+  {
+    title: 'Focos de desinformação por região',
+    button: 'Ver mapa',
+    link: '/noticias',
+  },
+  {
+    title: 'Método caseiro para identificar AVC é eficaz?',
+    button: 'Saiba mais',
+    link: '/noticias',
+  },
+];
+
+function FadeInSection({ children, delay = 0 }: { children: ReactNode; delay?: number }) {
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: true
@@ -20,6 +44,37 @@ function FadeInSection({ children, delay = 0 }) {
       }}
     >
       {children}
+    </div>
+  );
+}
+
+// Carrossel customizado sem imagens
+function SimpleCarousel({ slides }: { slides: { title: string; button: string; link: string }[] }) {
+  const [current, setCurrent] = React.useState(0);
+
+  const handlePreviousClick = () => {
+    setCurrent(current === 0 ? slides.length - 1 : current - 1);
+  };
+
+  const handleNextClick = () => {
+    setCurrent(current === slides.length - 1 ? 0 : current + 1);
+  };
+
+  return (
+    <div className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] max-w-none">
+      <div className="bg-gradient-to-r from-purple-500 to-blue-400 rounded-2xl p-10 flex flex-col items-center justify-center min-h-[220px] w-full">
+        <h2 className="text-white text-2xl md:text-3xl font-bold text-center mb-6 min-h-[60px] flex items-center justify-center">{slides[current].title}</h2>
+        <a href={slides[current].link} className="bg-white text-purple-700 font-semibold px-6 py-2 rounded-full shadow hover:bg-purple-100 transition">{slides[current].button}</a>
+        <div className="flex gap-4 mt-8 justify-center">
+          <button onClick={handlePreviousClick} className="w-8 h-8 rounded-full bg-white/70 hover:bg-white text-purple-700 font-bold flex items-center justify-center shadow">&#8592;</button>
+          <button onClick={handleNextClick} className="w-8 h-8 rounded-full bg-white/70 hover:bg-white text-purple-700 font-bold flex items-center justify-center shadow">&#8594;</button>
+        </div>
+        <div className="flex gap-2 mt-4 justify-center">
+          {slides.map((_, idx) => (
+            <span key={idx} className={`w-3 h-3 rounded-full ${idx === current ? 'bg-white' : 'bg-white/40'} inline-block`}></span>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
@@ -51,10 +106,9 @@ function Home() {
           </div>
 
           <div className="hidden md:flex items-center gap-6">
-            <a href="#" className="text-black text-xl font-bold">Sobre</a>
+            <a href="/sobre" className="text-black text-xl font-bold">Sobre</a>
             <a href="/equipe" className="text-black text-xl font-bold">Equipe</a>
-            <a href="/pesquisa" className="text-black text-xl font-bold">Pesquisas</a>
-            <a href="#" className="text-black px-4 py-2 rounded-md text-xl font-bold">Contato</a>
+            <a href="/contato" className="text-black px-4 py-2 rounded-md text-xl font-bold">Contato</a>
 
             <div className="relative">
               <input
@@ -74,25 +128,9 @@ function Home() {
         </nav>
       </FadeInSection>
 
-      {/* Hero Section */}
+      {/* Carrossel de Notícias Principais */}
       <FadeInSection delay={0.2}>
-        <div className="relative bg-gradient-to-r from-purple-500 to-blue-400 py-20">
-          <div className="container mx-auto px-4">
-            <h2 className="text-white text-3xl md:text-5xl font-bold max-w-2xl leading-tight">
-              Unindo saberes para combater a desinformação na região norte
-            </h2>
-          </div>
-
-          <div className="absolute right-0 top-0 hidden lg:grid grid-cols-3 gap-1">
-            <img src="imagens/07-90.jpg" alt="Olio 1" className="w-32 h-32 object-cover" />
-            <img src="imagens/Como-evitar-infeccoes-nos-olhos.jpg" alt="Olio 2" className="w-32 h-32 object-cover" />
-            <img src="imagens/HOP_BLOG-01.webp" alt="Olio 3" className="w-32 h-32 object-cover" />
-            <img src="imagens/olho.jpg" alt="Olio 4" className="w-32 h-32 object-cover" />
-            <img src="imagens/olhos_genom (1).jpg" alt="Olio 5" className="w-32 h-32 object-cover" />
-            <img src="imagens/olhos-azuis.jpg" alt="Olio 6" className="w-32 h-32 object-cover" />
-
-          </div>
-        </div>
+        <SimpleCarousel slides={slides} />
       </FadeInSection>
 
       {/* Quick Links */}
@@ -100,11 +138,10 @@ function Home() {
         <div className="bg-gray-100 py-4">
           <div className="container mx-auto px-4">
             <div className="flex flex-wrap gap-4 md:gap-8 justify-center">
-              <a href="#" className="text-gray-700 hover:text-purple-600">Monitoramento</a>
               <a href="/noticias" className="text-gray-700 hover:text-purple-600">Notícias</a>
-              <a href="#" className="text-gray-700 hover:text-purple-600">Subprojetos</a>
-              <a href="#" className="text-gray-700 hover:text-purple-600">Artigos</a>
-              <a href="#" className="text-gray-700 hover:text-purple-600">Parceiros</a>
+              <a href="/projetos" className="text-gray-700 hover:text-purple-600">Projetos</a>
+              <a href="/artigos" className="text-gray-700 hover:text-purple-600">Artigos</a>
+              <a href="/parceiros" className="text-gray-700 hover:text-purple-600">Parceiros</a>
             </div>
           </div>
         </div>
@@ -157,8 +194,8 @@ function Home() {
           <FadeInSection delay={0.7}>
             <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
               <img
-                src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=400"
-                alt="Mapa da região"
+                src="imagens/faq-globo.png"
+                alt="Mapa da região Norte do Brasil"
                 className="w-full h-48 object-cover"
               />
               <div className="p-4">
@@ -327,9 +364,8 @@ function Home() {
               <div>
                 <h4 className="font-bold mb-4">Links Rápidos</h4>
                 <ul className="space-y-2">
-                  <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Sobre</a></li>
+                  <li><a href="/sobre" className="text-gray-400 hover:text-white transition-colors">Sobre</a></li>
                   <li><a href="/equipe" className="text-gray-400 hover:text-white transition-colors">Equipe</a></li>
-                  <li><a href="/pesquisa" className="text-gray-400 hover:text-white transition-colors">Pesquisas</a></li>
                   <li><a href="/noticias" className="text-gray-400 hover:text-white transition-colors">Notícias</a></li>
                 </ul>
               </div>
