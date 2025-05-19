@@ -109,6 +109,7 @@ function Home() {
             <a href="/sobre" className="text-black text-xl font-bold">Sobre</a>
             <a href="/equipe" className="text-black text-xl font-bold">Equipe</a>
             <a href="/contato" className="text-black px-4 py-2 rounded-md text-xl font-bold">Contato</a>
+            <a href="/noticias" className="text-black px-4 py-2 rounded-md text-xl font-bold">Noticias</a>
 
             <div className="relative">
               <input
