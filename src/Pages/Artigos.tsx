@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Header from '../components/Header';
 
 const artigos = [
   {
@@ -12,32 +12,21 @@ const artigos = [
   }
 ];
 
-function Sidebar() {
-  return (
-    <aside className="w-60 min-h-screen bg-gray-100 p-6 fixed left-0 top-0">
-      <nav className="flex flex-col gap-4">
-        <Link to="/" className="font-bold text-gray-700 hover:text-purple-700">Home</Link>
-        <Link to="/sobre" className="font-bold text-gray-700 hover:text-purple-700">Sobre</Link>
-        <Link to="/equipe" className="font-bold text-gray-700 hover:text-purple-700">Equipe</Link>
-        <Link to="/noticias" className="font-bold text-gray-700 hover:text-purple-700">Notícias</Link>
-        <Link to="/projetos" className="font-bold text-gray-700 hover:text-purple-700">Projetos</Link>
-        <Link to="/artigos" className="font-bold text-purple-700">Artigos</Link>
-        <Link to="/contato" className="font-bold text-gray-700 hover:text-purple-700">Contato</Link>
-      </nav>
-    </aside>
-  );
-}
-
 export default function Artigos() {
   return (
-    <div className="flex">
-      <Sidebar />
-      <main className="flex-1 ml-60 p-8">
+    <div className="min-h-screen bg-white">
+      <Header />
+      <main className="container mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold mb-6">Artigos</h1>
         <ul className="space-y-4">
           {artigos.map((art, idx) => (
-            <li key={idx} className="bg-white rounded-xl shadow p-6 flex flex-col">
-              <a href={art.url} target="_blank" rel="noopener noreferrer" className="text-lg font-semibold text-purple-700 hover:underline">
+            <li key={idx} className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow p-6">
+              <a 
+                href={art.url} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-lg font-semibold text-purple-700 hover:text-purple-800 transition-colors"
+              >
                 {art.titulo}
               </a>
             </li>

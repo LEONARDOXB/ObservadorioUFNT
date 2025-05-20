@@ -6,6 +6,7 @@ import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import { Link, useNavigate } from 'react-router-dom';
 import { FileUpload } from '../components/ui/file-upload';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '../components/ui/dialog';
+import Header from '../components/Header';
 
 function Noticias() {
   const [activeSection, setActiveSection] = useState('#home');
@@ -111,49 +112,52 @@ function Noticias() {
   ];
 
   return (
-    <div className="min-h-screen bg-white flex flex-col items-center py-10">
-      <div className="w-full max-w-4xl bg-[#fff6f2] rounded-3xl shadow-lg p-8">
-        <h1 className="text-3xl md:text-4xl font-bold text-[#7a1c1c] text-center mb-8">
-          Últimas Fake News verificadas
-        </h1>
-        {newsItems.map((news) => (
-          <div
-            key={news.id}
-            className="bg-white rounded-2xl shadow p-6 mb-8 border-l-8 border-[#d32f2f] relative"
-          >
-            {/* Fonte e selo */}
-            <div className="flex items-center mb-4">
-              <span className="bg-white rounded-full shadow px-4 py-2 font-bold text-[#d32f2f] mr-3 text-lg flex items-center">
-                G1
-              </span>
-              <span className="text-[#d32f2f] font-bold flex items-center">
-                <svg width="20" height="20" fill="none" className="mr-1"><circle cx="10" cy="10" r="10" fill="#d32f2f"/><text x="6" y="15" fill="#fff" fontSize="16">✖</text></svg>
-                NOTÍCIAS FALSAS
-              </span>
+    <>
+      <Header />
+      <div className="min-h-screen bg-white flex flex-col items-center py-10">
+        <div className="w-full max-w-4xl bg-[#fff6f2] rounded-3xl shadow-lg p-8">
+          <h1 className="text-3xl md:text-4xl font-bold text-[#7a1c1c] text-center mb-8">
+            Últimas Fake News verificadas
+          </h1>
+          {newsItems.map((news) => (
+            <div
+              key={news.id}
+              className="bg-white rounded-2xl shadow p-6 mb-8 border-l-8 border-[#d32f2f] relative"
+            >
+              {/* Fonte e selo */}
+              <div className="flex items-center mb-4">
+                <span className="bg-white rounded-full shadow px-4 py-2 font-bold text-[#d32f2f] mr-3 text-lg flex items-center">
+                  G1
+                </span>
+                <span className="text-[#d32f2f] font-bold flex items-center">
+                  <svg width="20" height="20" fill="none" className="mr-1"><circle cx="10" cy="10" r="10" fill="#d32f2f"/><text x="6" y="15" fill="#fff" fontSize="16">✖</text></svg>
+                  NOTÍCIAS FALSAS
+                </span>
+              </div>
+              {/* Imagem */}
+              <img
+                src={news.image}
+                alt={news.title}
+                className="w-full h-48 object-cover rounded-lg mb-4"
+              />
+              {/* Título */}
+              <h2 className="font-bold text-xl text-[#7a1c1c] mb-2">{news.title}</h2>
+              {/* Descrição */}
+              <p className="text-[#7a1c1c] mb-4">{news.content}</p>
+              {/* Detalhes da verdade */}
+              <div className="bg-[#fff0e0] border-l-4 border-[#d32f2f] rounded p-4 mb-2">
+                <span className="font-bold text-[#d32f2f]">A VERDADE:</span>
+                <ul className="list-disc ml-6 text-[#7a1c1c]">
+                  {news.truths.map((truth, index) => (
+                    <li key={index}>{truth}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
-            {/* Imagem */}
-            <img
-              src={news.image}
-              alt={news.title}
-              className="w-full h-48 object-cover rounded-lg mb-4"
-            />
-            {/* Título */}
-            <h2 className="font-bold text-xl text-[#7a1c1c] mb-2">{news.title}</h2>
-            {/* Descrição */}
-            <p className="text-[#7a1c1c] mb-4">{news.content}</p>
-            {/* Detalhes da verdade */}
-            <div className="bg-[#fff0e0] border-l-4 border-[#d32f2f] rounded p-4 mb-2">
-              <span className="font-bold text-[#d32f2f]">A VERDADE:</span>
-              <ul className="list-disc ml-6 text-[#7a1c1c]">
-                {news.truths.map((truth, index) => (
-                  <li key={index}>{truth}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

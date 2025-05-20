@@ -1,14 +1,18 @@
 import React from 'react';
 import { Mail, Phone } from 'lucide-react';
+import Header from '../components/Header';
 
 export default function Sobre() {
   return (
-    <div className="container mx-auto px-4 py-12">
-      <h1 className="text-3xl font-bold mb-4">Sobre o Projeto</h1>
-      <p>
-        Este projeto tem como objetivo combater a desinformação na região norte do Brasil, promovendo educação midiática e monitoramento de fake news. (Edite este texto conforme necessário)
-      </p>
-    </div>
+    <>
+      <Header />
+      <div className="container mx-auto px-4 py-12">
+        <h1 className="text-3xl font-bold mb-4">Sobre o Projeto</h1>
+        <p>
+          Este projeto tem como objetivo combater a desinformação na região norte do Brasil, promovendo educação midiática e monitoramento de fake news. (Edite este texto conforme necessário)
+        </p>
+      </div>
+    </>
   );
 }
 

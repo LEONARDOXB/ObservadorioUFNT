@@ -1,30 +1,42 @@
 import React, { ReactNode } from 'react';
-import { Search, Instagram, Facebook, Youtube, Twitter, GraduationCap } from 'lucide-react';
+import { GraduationCap } from 'lucide-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { useInView } from 'react-intersection-observer';
+import Header from '../components/Header';
 
-// Novo carrossel simples sem imagens
+// Novo carrossel simples com imagens
 const slides = [
   {
     title: 'Vacina contra dengue causa efeitos colaterais graves?',
     button: 'Saiba mais',
     link: '/noticias',
+    image: 'https://images.unsplash.com/photo-1584483766114-2cea6facdf57?auto=format&fit=crop&q=80&w=400',
   },
   {
     title: 'Vacina do HPV é perigosa para adolescentes?',
     button: 'Saiba mais',
     link: '/noticias',
+    image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=400',
   },
   {
     title: 'Focos de desinformação por região',
     button: 'Ver mapa',
     link: '/noticias',
+    image: 'imagens/faq-globo.png',
   },
   {
     title: 'Método caseiro para identificar AVC é eficaz?',
     button: 'Saiba mais',
     link: '/noticias',
+    image: 'https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&q=80&w=400',
+  },
+  // Slide de exemplo de fake news
+  {
+    title: 'Exemplo: Fake news sobre "chip na vacina" viraliza nas redes sociais',
+    button: 'Leia a reportagem',
+    link: '/noticias',
+    image: 'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&q=80&w=400',
   },
 ];
 
@@ -48,8 +60,8 @@ function FadeInSection({ children, delay = 0 }: { children: ReactNode; delay?: n
   );
 }
 
-// Carrossel customizado sem imagens
-function SimpleCarousel({ slides }: { slides: { title: string; button: string; link: string }[] }) {
+// Carrossel customizado com imagens
+function SimpleCarousel({ slides }: { slides: { title: string; button: string; link: string; image?: string }[] }) {
   const [current, setCurrent] = React.useState(0);
 
   const handlePreviousClick = () => {
@@ -61,18 +73,26 @@ function SimpleCarousel({ slides }: { slides: { title: string; button: string; l
   };
 
   return (
-    <div className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] max-w-none">
-      <div className="bg-gradient-to-r from-purple-500 to-blue-400 rounded-2xl p-10 flex flex-col items-center justify-center min-h-[220px] w-full">
-        <h2 className="text-white text-2xl md:text-3xl font-bold text-center mb-6 min-h-[60px] flex items-center justify-center">{slides[current].title}</h2>
-        <a href={slides[current].link} className="bg-white text-purple-700 font-semibold px-6 py-2 rounded-full shadow hover:bg-purple-100 transition">{slides[current].button}</a>
-        <div className="flex gap-4 mt-8 justify-center">
-          <button onClick={handlePreviousClick} className="w-8 h-8 rounded-full bg-white/70 hover:bg-white text-purple-700 font-bold flex items-center justify-center shadow">&#8592;</button>
-          <button onClick={handleNextClick} className="w-8 h-8 rounded-full bg-white/70 hover:bg-white text-purple-700 font-bold flex items-center justify-center shadow">&#8594;</button>
-        </div>
-        <div className="flex gap-2 mt-4 justify-center">
-          {slides.map((_, idx) => (
-            <span key={idx} className={`w-3 h-3 rounded-full ${idx === current ? 'bg-white' : 'bg-white/40'} inline-block`}></span>
-          ))}
+    <div className="w-full">
+      <div className="bg-white border border-gray-300 rounded-2xl overflow-hidden relative flex items-center justify-center min-h-[480px] w-full" style={{ height: 480 }}>
+        {slides[current].image && (
+          <img src={slides[current].image} alt={slides[current].title} className="absolute inset-0 w-full h-full object-cover" />
+        )}
+        {/* Overlay escuro */}
+        <div className="absolute inset-0 bg-black/40" />
+        {/* Conteúdo centralizado */}
+        <div className="relative z-10 flex flex-col items-center justify-center w-full h-full px-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-6 min-h-[60px] flex items-center justify-center text-white drop-shadow-lg">{slides[current].title}</h2>
+          <a href={slides[current].link} className="bg-purple-700 text-white font-semibold px-6 py-2 rounded-full shadow hover:bg-purple-800 transition mb-4">{slides[current].button}</a>
+          <div className="flex gap-4 mt-2 justify-center">
+            <button onClick={handlePreviousClick} className="w-8 h-8 rounded-full bg-purple-700 hover:bg-purple-800 text-white font-bold flex items-center justify-center shadow">&#8592;</button>
+            <button onClick={handleNextClick} className="w-8 h-8 rounded-full bg-purple-700 hover:bg-purple-800 text-white font-bold flex items-center justify-center shadow">&#8594;</button>
+          </div>
+          <div className="flex gap-2 mt-4 justify-center">
+            {slides.map((_, idx) => (
+              <span key={idx} className={`w-3 h-3 rounded-full ${idx === current ? 'bg-purple-700' : 'bg-purple-700/40'} inline-block`}></span>
+            ))}
+          </div>
         </div>
       </div>
     </div>
@@ -82,68 +102,12 @@ function SimpleCarousel({ slides }: { slides: { title: string; button: string; l
 function Home() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Social Media Bar */}
-      <FadeInSection>
-        <div className="bg-white py-2 px-4 flex justify-end gap-3">
-          <a href="#" className="text-[#E1306C]"><Instagram size={24} /></a>
-          <a href="#" className="text-black"><Twitter size={24} /></a>
-          <a href="#" className="text-[#1877F2]"><Facebook size={24} /></a>
-          <a href="https://www.youtube.com/@observatorionorte" className="text-[#FF0000]"><Youtube size={24} /></a>
-        </div>
-      </FadeInSection>
-
-      {/* Navigation */}
-      <FadeInSection delay={0.1}>
-        <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <img src="imagens/observatorio-logo.png.jpeg" 
-              alt="Logo" 
-              className="h-28 w-30 object-contain" />
-            <div>
-              <h1 className="text-xl font-bold">Observatório</h1>
-              <p className="text-sm text-gray-600">Desinformação e fake news</p>
-            </div>
-          </div>
-
-          <div className="hidden md:flex items-center gap-6">
-            <a href="/sobre" className="text-black text-xl font-bold">Sobre</a>
-            <a href="/equipe" className="text-black text-xl font-bold">Equipe</a>
-            <a href="/contato" className="text-black px-4 py-2 rounded-md text-xl font-bold">Contato</a>
-            <a href="/noticias" className="text-black px-4 py-2 rounded-md text-xl font-bold">Noticias</a>
-
-            <div className="relative">
-              <input
-                type="text"
-                placeholder="O que você procura?"
-                className="pl-3 pr-10 py-2 border rounded-md w-64"
-              />
-              <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
-            </div>
-          </div>
-
-          <button className="md:hidden p-2">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
-        </nav>
-      </FadeInSection>
-
+      <Header />
       {/* Carrossel de Notícias Principais */}
       <FadeInSection delay={0.2}>
-        <SimpleCarousel slides={slides} />
-      </FadeInSection>
-
-      {/* Quick Links */}
-      <FadeInSection delay={0.3}>
-        <div className="bg-gray-100 py-4">
-          <div className="container mx-auto px-4">
-            <div className="flex flex-wrap gap-4 md:gap-8 justify-center">
-              <a href="/noticias" className="text-gray-700 hover:text-purple-600">Notícias</a>
-              <a href="/projetos" className="text-gray-700 hover:text-purple-600">Projetos</a>
-              <a href="/artigos" className="text-gray-700 hover:text-purple-600">Artigos</a>
-              <a href="/parceiros" className="text-gray-700 hover:text-purple-600">Parceiros</a>
-            </div>
+        <div className="w-full bg-white">
+          <div className="bg-white border border-gray-300 rounded-2xl overflow-hidden relative flex items-center justify-center min-h-[480px] w-full" style={{ height: 480 }}>
+            <SimpleCarousel slides={slides} />
           </div>
         </div>
       </FadeInSection>
@@ -166,9 +130,9 @@ function Home() {
               <div className="p-4">
                 <h3 className="font-semibold text-lg">Vacina contra dengue causa efeitos colaterais graves?</h3>
                 <p className="text-sm text-gray-600 mt-2">Análise das informações falsas sobre a vacina de dengue que circulam na região</p>
-                <button className="mt-4 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm transition-colors">
+                <a href="/noticias" className="mt-4 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm transition-colors inline-block">
                   Saiba mais
-                </button>
+                </a>
               </div>
             </div>
           </FadeInSection>
@@ -184,9 +148,9 @@ function Home() {
               <div className="p-4">
                 <h3 className="font-semibold text-lg">Vacina do HPV é perigosa para adolescentes?</h3>
                 <p className="text-sm text-gray-600 mt-2">Desvendando os mitos sobre a vacinação contra HPV</p>
-                <button className="mt-4 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm transition-colors">
+                <a href="/noticias" className="mt-4 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm transition-colors inline-block">
                   Saiba mais
-                </button>
+                </a>
               </div>
             </div>
           </FadeInSection>
@@ -202,9 +166,9 @@ function Home() {
               <div className="p-4">
                 <h3 className="font-semibold text-lg">Focos de desinformação por região</h3>
                 <p className="text-sm text-gray-600 mt-2">Mapa interativo mostra principais focos de fake news</p>
-                <button className="mt-4 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm transition-colors">
+                <a href="/noticias" className="mt-4 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm transition-colors inline-block">
                   Ver mapa
-                </button>
+                </a>
               </div>
             </div>
           </FadeInSection>
@@ -220,9 +184,9 @@ function Home() {
               <div className="p-4">
                 <h3 className="font-semibold text-lg">Método caseiro para identificar AVC é eficaz?</h3>
                 <p className="text-sm text-gray-600 mt-2">Análise de corrente que circula em grupos de WhatsApp</p>
-                <button className="mt-4 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm transition-colors">
+                <a href="/noticias" className="mt-4 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm transition-colors inline-block">
                   Saiba mais
-                </button>
+                </a>
               </div>
             </div>
           </FadeInSection>
@@ -238,9 +202,9 @@ function Home() {
               <div className="p-4">
                 <h3 className="font-semibold text-lg">Varíola dos macacos está se espalhando rapidamente?</h3>
                 <p className="text-sm text-gray-600 mt-2">Dados oficiais desmentem informações alarmistas</p>
-                <button className="mt-4 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm transition-colors">
+                <a href="/noticias" className="mt-4 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm transition-colors inline-block">
                   Saiba mais
-                </button>
+                </a>
               </div>
             </div>
           </FadeInSection>
@@ -378,10 +342,7 @@ function Home() {
               <div>
                 <h4 className="font-bold mb-4">Siga-nos</h4>
                 <div className="flex gap-4">
-                  <a href="#" className="text-gray-400 hover:text-[#E1306C] transition-colors"><Instagram size={24} /></a>
-                  <a href="#" className="text-gray-400 hover:text-[#1DA1F2] transition-colors"><Twitter size={24} /></a>
-                  <a href="#" className="text-gray-400 hover:text-[#1877F2] transition-colors"><Facebook size={24} /></a>
-                  <a href="https://www.youtube.com/@observatorionorte" className="text-gray-400 hover:text-[#FF0000] transition-colors"><Youtube size={24} /></a>
+                  <a href="#" className="text-gray-400 hover:text-[#E1306C] transition-colors"><FontAwesomeIcon icon={faWhatsapp} className="h-5 w-5 sm:h-6 sm:w-6" /></a>
                 </div>
               </div>
             </div>
