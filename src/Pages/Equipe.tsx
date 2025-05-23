@@ -1,7 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { Menu, X,  Search,  Youtube } from 'lucide-react';
+import { Menu, X, Search, Youtube } from 'lucide-react';
 import { useState } from 'react';
-import {  faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { LanguagesSelector } from '../routes/LanguagesSelector';
 import { faLink } from '@fortawesome/free-solid-svg-icons';
@@ -16,71 +16,15 @@ export function Equipe() {
       <Header />
       <div className="min-h-screen bg-white">
         {/* Social Media Bar */}
-        <div className="bg-white py-2 px-4 flex justify-end gap-3">
-         
-          <a href="https://www.youtube.com/@observatorionorte" className="text-[#FF0000]" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><Youtube size={24} /></a>
-        </div>
+        {/* <div className="bg-white py-2 px-4 flex justify-end gap-3">
+           <a href="https://www.youtube.com/@observatorionorte" className="text-[#FF0000]" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><Youtube size={24} /></a>
+        </div> */}
 
         {/* Navigation */}
-        <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <img 
-              src="/imagens/observatorio-logo.png.jpeg" 
-              alt="Logo Observatório" 
-              className="h-28 w-30 object-contain" 
-            />
-            <div>
-              <h1 className="text-xl font-bold">Observatório</h1>
-              <p className="text-sm text-gray-600">Desinformação e fake news</p>
-            </div>
-          </div>
-
-          <div className="hidden md:flex items-center gap-6">
-            <Link to="/sobre" className="text-black text-xl font-bold">Sobre</Link>
-            <Link to="/equipe" className="text-black text-xl font-bold">Equipe</Link>
-            <Link to="/contato" className="text-black px-4 py-2 rounded-md text-xl font-bold">Contato</Link>
-            <Link to="/noticias" className="text-black px-4 py-2 rounded-md text-xl font-bold">Noticias</Link>
-
-            <div className="relative">
-              <input
-                type="text"
-                placeholder="O que você procura?"
-                className="pl-3 pr-10 py-2 border rounded-md w-64"
-                aria-label="Campo de busca"
-              />
-              <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
-            </div>
-          </div>
-
-          <button 
-            className="md:hidden p-2"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Menu mobile"
-          >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </nav>
+        {/* <nav className="container mx-auto px-4 py-4 flex items-center justify-between"> ... </nav> */}
 
         {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <div className="md:hidden bg-white border-t border-gray-200 py-4 px-4">
-            <div className="flex flex-col space-y-4">
-              <Link to="/sobre" className="text-black text-lg">Sobre</Link>
-              <Link to="/equipe" className="text-black text-lg">Equipe</Link>
-              <Link to="/contato" className="text-black text-lg">Contato</Link>
-              <Link to="/noticias" className="text-black text-lg">Noticias</Link>
-              <div className="relative">
-                <input
-                  type="text"
-                  placeholder="O que você procura?"
-                  className="pl-3 pr-10 py-2 border rounded-md w-full"
-                  aria-label="Campo de busca mobile"
-                />
-                <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
-              </div>
-            </div>
-          </div>
-        )}
+        {/* {mobileMenuOpen && ( ... )} */}
 
         {/* Breadcrumb */}
         <div className="bg-gray-100 px-6 py-4">
@@ -226,7 +170,6 @@ export function Equipe() {
                 <h4 className="font-bold mb-4">Links Rápidos</h4>
                 <ul className="space-y-2">
                   <li><Link to="/sobre" className="text-gray-400 hover:text-white transition-colors">Sobre</Link></li>
-                  <li><Link to="/equipe" className="text-gray-400 hover:text-white transition-colors">Equipe</Link></li>
                   <li><Link to="/noticias" className="text-gray-400 hover:text-white transition-colors">Notícias</Link></li>
                 </ul>
               </div>
@@ -238,7 +181,7 @@ export function Equipe() {
               <div>
                 <h4 className="font-bold mb-4">Siga-nos</h4>
                 <div className="flex gap-4">
-                 
+
                   <a href="https://www.youtube.com/@observatorionorte" className="text-gray-400 hover:text-[#FF0000] transition-colors" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><Youtube size={24} /></a>
                 </div>
               </div>
